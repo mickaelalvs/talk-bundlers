@@ -1,6 +1,9 @@
 ---
 theme: seriph
-title: talk-bundlers
+title: "Du frigo à l'assiette : ce que mijote vraiment votre bundler JavaScript"
+mdc: true
+overviewSnapshots: true
+transition: view-transition
 fonts:
   sans: Nunito
   serif: Nunito
@@ -21,7 +24,7 @@ background: none
 <div class="relative z-10 flex items-center h-full px-16">
   <h1 class="relative left-[-80px] top-[-80px] leading-tight max-w-2xl text-5xl">
     <span class="text-[var(--theme-color-amber)] paytone-one-regular">Du frigo à l'assiette :</span><br>
-    <span class="text-[var(--theme-color-steel)] paytone-one-regular">ce que mijote vraiment votre bundler JavaScript 🧑🏼‍🍳</span>
+    <span class="text-[var(--theme-color-steel)] paytone-one-regular">ce que mijote vraiment votre bundler JavaScript</span>
   </h1>
 </div>
 
@@ -100,3 +103,7 @@ Des projets utilisent un bundler
 
 ::description::
 Et pourtant, peu comprennent vraiment ce qu'il se passe sous le capot.
+
+---
+src: ./pages/dependency-graph/slides.md
+---
