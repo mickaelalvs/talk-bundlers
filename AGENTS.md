@@ -14,6 +14,11 @@ Ce projet utilise [Slidev](https://sli.dev) pour générer des présentations au
 4. **Révélation progressive** : Utiliser `v-click` pour révéler le contenu progressivement (déjà intégré dans `grid-icons`).
 5. **Animations avec view-transitions** : Privilégier les view-transitions pour des animations fluides et élégantes entre les slides.
 6. **Organisation multi-pages** : Les slides sont séparées dans `pages/*.md` et importées via `src: ./pages/fichier.md`.
+7. **Code aligné à gauche** : Ne jamais centrer les blocs de code. Utiliser `align: left` sur le layout `basic-title` pour les slides avec du code.
+8. **Toutes les slides ont un titre** : Même si le titre est identique entre plusieurs slides consécutives, chaque slide doit avoir un titre visible.
+9. **Icônes génériques** : Utiliser des icônes génériques (`lucide:file-code`) plutôt que des icônes de langage spécifiques (`vscode-icons:file-type-js`).
+10. **Révélation en deux temps** : D'abord montrer/highlight ce qu'on regarde (click), puis montrer le résultat/conséquence au click suivant. Ne jamais tout révéler d'un coup.
+11. **Icônes Iconify dans des divs** : Ne pas laisser de lignes vides entre éléments HTML dans un `<div>`, sinon le parser markdown casse les composants Vue (ils s'affichent en texte brut).
 
 ## Layouts disponibles
 
@@ -87,6 +92,26 @@ Titre de la slide
 - Autre point concis
 ```
 
+```md
+---
+layout: basic-title
+align: left
+---
+
+::title::
+Titre
+
+::subtitle::
+Sous-titre optionnel
+
+::default::
+Du code aligné à gauche ici
+```
+
+Props du layout `basic-title` :
+- `align` : `'center'` (défaut) ou `'left'` pour du contenu non centré (code)
+- `padding` : classes Tailwind personnalisables (défaut `p-20`, ex: `pt-28 px-20 pb-20`)
+
 ## Assets disponibles
 
 ### Images décoratives (`/assets/images/items/`)
@@ -104,6 +129,21 @@ Utiliser le composant `<SlideItem>` pour placer ces illustrations en position ab
 ```
 
 Props de `SlideItem` : `src`, `size`, `top`, `bottom`, `left`, `right`, `rotate`, `opacity`, `z`.
+
+### Assets par section
+
+Chaque section peut avoir ses propres assets dans un dossier `assets/` :
+
+```
+pages/section-name/
+├── assets/          # SVG et images spécifiques à la section
+├── slides.md        # Fichier principal avec les imports src:
+└── slides/
+    ├── slide-1.md
+    └── slide-2.md
+```
+
+Référencer avec un chemin relatif : `<img src="../assets/mon-image.svg" />`
 
 ### Icônes Iconify
 

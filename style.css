@@ -33,7 +33,7 @@
 
 :root {
   --theme-color-charcoal: #434343;
-  --theme-color-slate: #9fa9b9;
+  --theme-color-slate: #6b7a8d;
   --theme-color-mist: #c7c9d0;
   --theme-color-steel: #518ab8;
   --theme-color-skyBlue: #7fb0d6;
@@ -44,4 +44,10 @@
   --theme-color-white: #ffffff;
 
   --slidev-theme-primary: #518ab8;
+}
+
+.slidev-code-wrapper {
+  border: 2px solid var(--theme-color-slate);
+  border-radius: 0.5rem;
+  overflow: hidden;
 }
