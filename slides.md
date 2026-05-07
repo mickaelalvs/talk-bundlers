@@ -10,13 +10,13 @@ fonts:
 defaults:
   background: /assets/images/background.svg
   backgroundSize: cover
+  transition: slide-left
 ---
 
 ---
 layout: main-title
 background: none
 ---
-
 
 <img src="/assets/images/background.svg" class="absolute inset-0 w-full h-full object-cover pointer-events-none z-0" />
 <img src="/assets/images/background_main_title.svg" class="absolute inset-0 w-full h-full object-cover pointer-events-none z-1" style="transform: scaleX(-1);" />
@@ -28,81 +28,14 @@ background: none
   </h1>
 </div>
 
----
-layout: title
----
-
-::number::
-01
-
-::default::
-# Titre de section
+<!--
+Présentation du talk et du speaker.
+Poser le contexte : tout le monde utilise un bundler, peu savent ce qu'il se passe vraiment.
+-->
 
 ---
-layout: list
+src: ./pages/01-frigo/slides.md
 ---
-
-::title::
-Les ingrédients du bundler
-
-::default::
-- Premier point important
-  - Sous-point avec <span>highlight amber</span>
-- Deuxième point important
-- Troisième point important
-
----
-layout: grid-icons
----
-
-::title::
-Les outils du chef
-
-::item-1::
-🧅 Webpack
-
-::item-2::
-⚡ Vite
-
-::item-3::
-🔧 Rollup
-
-::item-4::
-🦕 esbuild
-
-::item-5::
-🌀 Parcel
-
-::item-6::
-🏗️ Turbopack
-
----
-layout: basic-title
----
-
-::title::
-Layout Basic Title
-
-::subtitle::
-Du contenu centré avec un titre en haut à gauche.
-
-::default::
-Contenu principal
-
-<SlideItem src="/assets/images/items/pot_holder.svg" size="140px" top="20px" right="60px" rotate="15deg" />
-
----
-layout: single-fact
----
-
-::fact::
-98%
-
-::title::
-Des projets utilisent un bundler
-
-::description::
-Et pourtant, peu comprennent vraiment ce qu'il se passe sous le capot.
 
 ---
 src: ./pages/dependency-graph/slides.md
