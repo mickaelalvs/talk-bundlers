@@ -1,8 +1,12 @@
 <template>
-  <img src="/assets/images/background.svg" alt=""
-    class="absolute inset-0 w-full h-full object-cover pointer-events-none z-0" />
+  <img
+    src="/assets/images/background.svg"
+    alt=""
+    class="absolute inset-0 w-full h-full object-cover pointer-events-none z-0"
+  />
   <div
-    class="relative z-1 p-20 w-full h-full flex flex-col gap-4 items-center justify-center text-center leading-tight">
+    class="relative z-1 p-20 w-full h-full flex flex-col gap-4 items-center justify-center text-center leading-tight"
+  >
     <h1 class="text-9xl">
       <slot name="fact" />
     </h1>

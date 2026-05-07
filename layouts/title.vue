@@ -1,9 +1,17 @@
 <template>
-  <img src="/assets/images/background.svg" alt=""
-    class="absolute inset-0 w-full h-full object-cover pointer-events-none z-0" />
-  <img src="/assets/images/background_title.svg" alt=""
-    class="absolute inset-0 w-full h-full object-cover pointer-events-none z-1" />
-  <div class="relative z-2 w-full h-full flex flex-col items-center justify-center text-center px-16 gap-2">
+  <img
+    src="/assets/images/background.svg"
+    alt=""
+    class="absolute inset-0 w-full h-full object-cover pointer-events-none z-0"
+  />
+  <img
+    src="/assets/images/background_title.svg"
+    alt=""
+    class="absolute inset-0 w-full h-full object-cover pointer-events-none z-1"
+  />
+  <div
+    class="relative z-2 w-full h-full flex flex-col items-center justify-center text-center px-16 gap-2"
+  >
     <div class="section-number">
       <slot name="number" />
     </div>
