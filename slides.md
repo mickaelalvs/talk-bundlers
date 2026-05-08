@@ -40,3 +40,7 @@ src: ./pages/01-frigo/slides.md
 ---
 src: ./pages/02-dependences/slides.md
 ---
+
+---
+src: ./pages/03-preparations/slides.md
+---

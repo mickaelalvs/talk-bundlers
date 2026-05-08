@@ -19,6 +19,7 @@ Ce projet utilise [Slidev](https://sli.dev) pour générer des présentations au
 9. **Icônes génériques** : Utiliser des icônes génériques (`lucide:file-code`) plutôt que des icônes de langage spécifiques (`vscode-icons:file-type-js`).
 10. **Révélation en deux temps** : D'abord montrer/highlight ce qu'on regarde (click), puis montrer le résultat/conséquence au click suivant. Ne jamais tout révéler d'un coup.
 11. **Icônes Iconify dans des divs** : Ne pas laisser de lignes vides entre éléments HTML dans un `<div>`, sinon le parser markdown casse les composants Vue (ils s'affichent en texte brut).
+12. **CSS pur, pas de Tailwind** : Utiliser des blocs `<style>` avec du CSS classique pour le styling des slides. Ne pas utiliser de classes utilitaires Tailwind.
 
 ## Layouts disponibles
 
