@@ -38,5 +38,5 @@ src: ./pages/01-frigo/slides.md
 ---
 
 ---
-src: ./pages/dependency-graph/slides.md
+src: ./pages/02-dependences/slides.md
 ---
