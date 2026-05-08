@@ -95,3 +95,31 @@ Chaque ingrédient, sa préparation
 <!--
 TODO: Montrer que chaque ingrédient a sa recette et qu'on va détailler certaines
 -->
+
+---
+src: ./slides/transpilation/intro.md
+---
+
+---
+src: ./slides/transpilation/target.md
+---
+
+---
+src: ./slides/transpilation/demos.md
+---
+
+---
+src: ./slides/transpilation/tools.md
+---
+
+---
+src: ./slides/transpilation/benchmark.md
+---
+
+---
+src: ./slides/transpilation/vite-punchline.md
+---
+
+---
+src: ./slides/transpilation/before-after.md
+---
