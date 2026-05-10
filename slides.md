@@ -44,3 +44,7 @@ src: ./pages/02-dependences/slides.md
 ---
 src: ./pages/03-preparations/slides.md
 ---
+
+---
+src: ./pages/04-cuisson/slides.md
+---
