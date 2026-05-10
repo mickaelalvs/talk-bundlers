@@ -123,3 +123,7 @@ src: ./slides/transpilation/vite-punchline.md
 ---
 src: ./slides/transpilation/before-after.md
 ---
+
+---
+src: ./slides/module-resolution.md
+---
