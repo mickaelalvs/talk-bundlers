@@ -10,7 +10,7 @@ CJS vs ESM
 
 <div class="modules-wrap">
 <div class="module-block">
-<div class="module-label">CommonJS</div>
+<div class="module-label">CommonJS — l'improvisateur</div>
 
 ```js {1-2}
 const path = require('path');
@@ -21,17 +21,16 @@ const config = require('./config');
 module.exports = { start };
 ```
 
-<div class="module-subtitle">🧑🏻‍🍳 Cuisine à l'improviste</div>
 <ul class="module-list">
-<li>Function <code>require()</code></li>
+<li><code>require()</code> — une fonction</li>
 <li>Synchrone</li>
-<li>Résolu à l'exécution</li>
+<li>Résolu <strong>à l'exécution</strong></li>
 </ul>
 </div>
-<div class="module-block">
-<div class="module-label">ES Modules</div>
+<div v-click class="module-block">
+<div class="module-label">ES Modules — le rigoureux</div>
 
-```js {none|1-2}
+```js {1-2}
 import path from 'path';
 import { readFile } from 'fs';
 
@@ -40,11 +39,10 @@ import config from './config.js';
 export { start };
 ```
 
-<div class="module-subtitle">🧑🏻‍🍳 Cuisine rigoureuse</div>
 <ul class="module-list">
-<li>Mot-clé <code>import</code></li>
+<li><code>import</code> — un mot-clé</li>
 <li>Asynchrone</li>
-<li>Résolu à la compilation</li>
+<li>Résolu <strong>à la compilation</strong></li>
 </ul>
 </div>
 </div>
@@ -52,29 +50,23 @@ export { start };
 <style>
 .modules-wrap {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
   align-items: flex-start;
 }
 .module-block {
   flex: 1;
 }
 .module-label {
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-family: "Paytone One", sans-serif;
+  font-size: 1.1rem;
   margin-bottom: 0.5rem;
   color: var(--theme-color-amber);
-}
-.module-subtitle {
-  font-size: 1rem;
-  font-weight: bold;
-  color: var(--theme-color-amber);
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
 }
 .module-list {
   list-style: none;
   padding: 0;
   margin: 0;
+  margin-top: 1.2rem;
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
@@ -87,9 +79,15 @@ export { start };
   color: var(--theme-color-amber);
   font-weight: bold;
 }
+.module-list strong {
+  color: var(--theme-color-steel);
+}
 </style>
 
 <!--
-À gauche, require est une fonction qu'on peut appeler n'importe où, n'importe quand. À droite, import est un mot-clé du langage, toujours en haut du fichier. Ça paraît anodin, mais c'est cette différence qui change absolument tout pour notre bundler.
-Mais du coup, comment ça se cuisine ?
+[au chargement] Voilà le code. À gauche, CommonJS — l'improvisateur. require() est une fonction qu'on peut appeler n'importe où, n'importe quand, dans un if, dans une boucle. Résolu à l'exécution : le bundler ne sait pas ce qui va être importé avant que le code tourne.
+
+[click] À droite, ES Modules — le rigoureux. import est un mot-clé du langage, toujours en haut du fichier. Résolu à la compilation : le bundler sait exactement ce dont le fichier a besoin avant même de l'exécuter.
+
+C'est cette différence — exécution vs compilation — qui change tout pour notre bundler. On va voir comment il cuisine avec chacun.
 -->

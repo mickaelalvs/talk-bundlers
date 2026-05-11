@@ -1,7 +1,6 @@
 ---
 layout: basic-title
 align: left
-padding: pt-16 px-12 pb-8
 ---
 
 ::title::
@@ -11,7 +10,7 @@ CJS : exemple
 
 <div class="cjs-layout">
 <div class="cjs-left">
-<div class="cjs-file" style="top: 0; left: 0">
+<div class="cjs-file">
 <div class="file-label">math.cjs</div>
 
 ```js
@@ -20,7 +19,7 @@ exports.sub = (a, b) => a - b;
 ```
 
 </div>
-<div class="cjs-file" style="top: 100px; left: 20px">
+<div class="cjs-file">
 <div class="file-label">main.js</div>
 
 ```js
@@ -30,72 +29,65 @@ console.log(add(1, 2));
 ```
 
 </div>
-</div>
-<div v-click class="cjs-right">
+<div v-click class="cjs-file">
 <div class="file-label file-label--output">bundle.js</div>
 
 ```js
-var __defProp = Object.defineProperty;
-var __getOwnPropNames = Object.getOwnPropertyNames;
-var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __commonJS = (cb, mod) => function() { ... };
+var __toESM = (mod, isNodeMode) => ( ... );
 
-var __commonJS = (cb, mod) => function __require() { ... };
+var require_math = __commonJS({ ... });
 
-var __copyProps = (to, from, except, desc) => { ... };
-
-var __toESM = (mod, isNodeMode, target) => (
-  target = mod != null
-    ? Object.create(Object.getPrototypeOf(mod)) : {},
-  __copyProps(
-    isNodeMode || !mod || !mod.__esModule
-      ? __defProp(target, "default",
-          { value: mod, enumerable: true })
-      : target,
-    mod
-  )
-);
-
-// math.cjs, emballé
-var require_math = __commonJS({
-  "math.cjs"(exports) {
-    exports.add = (a, b) => a + b;
-    exports.sub = (a, b) => a - b;
-  }
-});
-
-// main.js
 var import_math = __toESM(require_math());
 console.log(import_math.add(1, 2));
 ```
 
+<div class="cjs-line-count">~32 lignes de runtime</div>
+</div>
+</div>
+<div v-click="2" class="cjs-right">
+<div class="cjs-points">
+<div class="cjs-point">
+<lucide:wrench class="cjs-point-icon" />
+<span>Helpers de runtime injectés</span>
+</div>
+<div class="cjs-point">
+<lucide:package class="cjs-point-icon" />
+<span>Module enveloppé dans une fonction</span>
+</div>
+<div class="cjs-point">
+<lucide:repeat class="cjs-point-icon" />
+<span>Traducteur CJS → ESM</span>
+</div>
+</div>
+<p class="cjs-note">Le bundler <strong>simule Node.js</strong> dans le navigateur</p>
 </div>
 </div>
 
 <style>
 .cjs-layout {
   display: flex;
-  gap: 2rem;
+  gap: 3rem;
   height: 100%;
   align-items: center;
 }
 .cjs-left {
-  flex: 0 0 25%;
-  position: relative;
-  height: 100%;
+  flex: 0 0 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
-.cjs-file {
-  position: absolute;
-}
-.cjs-left :deep(.slidev-code) {
-  font-size: 0.6rem !important;
-  line-height: 1.3 !important;
+.cjs-file :deep(.slidev-code) {
+  font-size: 0.7rem !important;
+  line-height: 1.4 !important;
 }
 .cjs-right {
   flex: 1;
-}
-.cjs-right :deep(.slidev-code) {
-  font-size: 0.5rem !important;
-  line-height: 1.2 !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
 }
 .file-label {
   font-size: 0.85rem;
@@ -106,10 +98,49 @@ console.log(import_math.add(1, 2));
 .file-label--output {
   color: var(--theme-color-amber);
 }
+.cjs-line-count {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #ef4444;
+  margin-top: 0.3rem;
+}
+.cjs-points {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+.cjs-point {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.1rem;
+  color: var(--theme-color-charcoal);
+  font-weight: 600;
+}
+.cjs-point-icon {
+  font-size: 2rem;
+  color: var(--theme-color-amber);
+}
+.cjs-note {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--theme-color-slate);
+}
+.cjs-note strong {
+  color: var(--theme-color-amber);
+}
 </style>
 
 <!--
-Même exemple : deux fichiers, add et sub. Sauf qu'ici c'est du CommonJS. Regardez la taille du bundle généré. Tout ce code en plus, c'est le runtime que le bundler doit injecter pour simuler le comportement de require/module.exports dans le navigateur.
+[au chargement] Même point de départ. Deux fichiers, add et sub. Sauf que cette fois c'est du CommonJS.
 
-Le chef reçoit un ingrédient brut, pas lavé, pas coupé. Il doit sortir la planche, le couteau, l'épluche-légumes... tout un attirail juste pour préparer un seul ingrédient.
+[click 1] Le bundle. Regardez : même tronqué, on voit qu'il y a beaucoup plus de code. ~32 lignes de runtime générées par le bundler. Pour deux fonctions. Tout ça c'est le coût de la traduction.
+
+[click 2] Trois couches de travail :
+1. Des helpers de runtime (__commonJS, __toESM) — l'outillage injecté.
+2. Le module d'origine est enveloppé dans une fonction. Pourquoi ? Parce qu'en CJS, les exports sont construits à l'exécution. Le bundler ne sait pas à la compilation ce qui sera exporté, il diffère l'évaluation.
+3. Un traducteur final qui prend la sortie CJS et l'arrange en namespace ESM (default, exports nommés, etc.).
+
+Le bundler simule Node.js dans le navigateur. Le cuisinier improvisateur livre un ingrédient brut, pas lavé, pas coupé. Le chef doit sortir tout l'attirail juste pour un seul ingrédient.
 -->
