@@ -50,6 +50,10 @@ src: ./pages/04-cuisson/slides.md
 ---
 
 ---
+src: ./pages/05-plat-servi/slides.md
+---
+
+---
 src: ./pages/06-dev-vs-prod/slides.md
 ---
 
