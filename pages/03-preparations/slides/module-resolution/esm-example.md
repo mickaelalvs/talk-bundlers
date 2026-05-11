@@ -10,7 +10,7 @@ ESM : exemple
 
 <div class="esm-layout">
 <div class="esm-left">
-<div class="esm-file" style="top: 0; left: 0">
+<div class="esm-file">
 <div class="file-label">math.js</div>
 
 ```js
@@ -19,7 +19,7 @@ export const sub = (a, b) => a - b;
 ```
 
 </div>
-<div class="esm-file" style="top: 100px; left: 20px">
+<div class="esm-file">
 <div class="file-label">main.js</div>
 
 ```js
@@ -29,12 +29,11 @@ console.log(add(1, 2));
 ```
 
 </div>
-<div v-click class="esm-file esm-output" style="top: 240px; left: 0">
+<div v-click class="esm-file">
 <div class="file-label file-label--output">bundle.js</div>
 
 ```js
 var add = (a, b) => a + b;
-var sub = (a, b) => a - b;
 
 console.log(add(1, 2));
 ```
@@ -42,42 +41,40 @@ console.log(add(1, 2));
 </div>
 </div>
 <div v-click="2" class="esm-right">
-<div class="icon-points">
-<div class="icon-point">
-<lucide:badge-check class="icon-point-icon" />
-<span>Standard</span>
+<div class="esm-points">
+<div class="esm-point">
+<lucide:badge-check class="esm-point-icon" />
+<span>Standard du langage</span>
 </div>
-<div class="icon-point">
-<lucide:layers class="icon-point-icon" />
-<span>Pas de surcouche</span>
+<div class="esm-point">
+<lucide:layers class="esm-point-icon" />
+<span>Aucune surcouche</span>
 </div>
-<div class="icon-point">
-<lucide:minimize-2 class="icon-point-icon" />
-<span>Aplatir le code</span>
+<div class="esm-point">
+<lucide:minimize-2 class="esm-point-icon" />
+<span>Code aplati</span>
 </div>
 </div>
-<p class="subtle-note">Le bundler pourra aussi optimiser le code, qu'on verra plus tard 🤫</p>
+<p class="esm-note">Le bundler pourra aussi optimiser le code, qu'on verra plus tard 🤫</p>
 </div>
 </div>
 
 <style>
 .esm-layout {
   display: flex;
-  gap: 2rem;
+  gap: 3rem;
   height: 100%;
   align-items: center;
 }
 .esm-left {
-  flex: 0 0 25%;
-  position: relative;
-  height: 100%;
+  flex: 0 0 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
-.esm-file {
-  position: absolute;
-}
-.esm-output {
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 1rem;
+.esm-file :deep(.slidev-code) {
+  font-size: 0.7rem !important;
+  line-height: 1.4 !important;
 }
 .esm-right {
   flex: 1;
@@ -96,26 +93,27 @@ console.log(add(1, 2));
 .file-label--output {
   color: var(--theme-color-amber);
 }
-.icon-points {
-  display: flex;
-  align-items: center;
-  gap: 3rem;
-}
-.icon-point {
+.esm-points {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.6rem;
-  font-size: 1.1rem;
-  color: var(--theme-color-slate);
+  align-items: flex-start;
+  gap: 1.2rem;
 }
-.icon-point-icon {
-  font-size: 2.5rem;
+.esm-point {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.1rem;
+  color: var(--theme-color-charcoal);
+  font-weight: 600;
+}
+.esm-point-icon {
+  font-size: 2rem;
   color: var(--theme-color-amber);
 }
-.subtle-note {
+.esm-note {
   text-align: center;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-style: italic;
   color: var(--theme-color-slate);
   opacity: 0.7;
@@ -123,13 +121,13 @@ console.log(add(1, 2));
 </style>
 
 <!--
-[click 1, montrer le bundle]
-C'est tout. Le bundle, c'est littéralement le code source concaténé, avec quelques renommages mineurs. Aucun helper. Aucun wrapper. Aucun runtime. Pas une ligne en plus.
+[au chargement] Deux fichiers simples. math.js exporte add et sub. main.js importe uniquement add.
 
-[click 2, montrer le résumé à droite]
-Pourquoi ? Parce qu'ESM est un standard du langage. Le bundler n'a rien à "simuler", la sémantique des modules est gérée nativement, soit par le navigateur, soit par Node.js, soit par le bundler lui-même quand il inline tout. Le bundler peut tranquillement aplatir, supprimer les imports/exports devenus inutiles à l'intérieur du bundle, et ne garder que la logique.
+[click 1] Le bundle : c'est tout. Littéralement le code source concaténé, avec les imports/exports enlevés. sub a même disparu parce qu'on ne l'utilise pas (on verra ça dans le tree-shaking). Aucun helper. Aucun wrapper. Pas une ligne en plus.
 
-C'est exactement ce que vous voulez d'un chef qui reçoit une livraison de bons ingrédients déjà préparés. Les légumes sont lavés, coupés, étiquetés. Le chef les prend, il les pose dans l'assiette. C'est tout. Pas de travail supplémentaire.
+[click 2] Pourquoi ? Parce qu'ESM est un standard du langage. Le bundler n'a rien à "simuler". Il peut tranquillement aplatir le code, supprimer ce qui est inutile, et ne garder que la logique.
 
-Bon. Voilà le scénario de rêve. Maintenant... le même module, mais en CommonJS. Regardez ce qu'il faut au bundler pour produire l'équivalent.
+C'est le cuisinier rigoureux qui reçoit des ingrédients déjà lavés, coupés, étiquetés. Il les pose dans l'assiette. C'est tout.
+
+Maintenant... le même module, mais en CommonJS.
 -->

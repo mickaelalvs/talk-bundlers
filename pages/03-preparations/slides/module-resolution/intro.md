@@ -4,7 +4,7 @@ layout: basic
 
 <div class="mr-subsection">
   <div class="mr-icon">🧠</div>
-  <h1 class="mr-name">Module resolution</h1>
+  <h1 class="mr-name">Module Resolution</h1>
 </div>
 
 <style>
@@ -29,8 +29,5 @@ layout: basic
 </style>
 
 <!--
-Transition vers le dernier sous-bloc de la partie 03 : la résolution des
-modules. On a vu comment chaque ingrédient (TypeScript, JSX…) est transformé.
-Maintenant : comment le bundler fait coopérer les deux systèmes de modules
-incompatibles (CJS et ESM) qui coexistent dans le même projet.
+On a vu comment chaque ingrédient (TypeScript, JSX, SCSS) est transformé individuellement. Maintenant on va parler d'un problème plus subtil : comment le bundler fait coopérer deux systèmes de modules JavaScript incompatibles — CommonJS et ES Modules — qui coexistent dans le même projet. C'est comme avoir deux cuisiniers avec des méthodes de travail radicalement opposées dans la même cuisine.
 -->
