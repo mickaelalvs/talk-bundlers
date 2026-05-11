@@ -69,6 +69,46 @@ src: ./slides/tree-shaking/bilan.md
 ---
 
 ---
+src: ./slides/code-splitting/intro.md
+---
+
+---
+src: ./slides/code-splitting/problem.md
+---
+
+---
+src: ./slides/code-splitting/how-it-works.md
+---
+
+---
+src: ./slides/code-splitting/dynamic-imports.md
+---
+
+---
+src: ./slides/code-splitting/other-splits.md
+---
+
+---
+src: ./slides/code-splitting/waterfall.md
+---
+
+---
+src: ./slides/code-splitting/common-chunk.md
+---
+
+---
+src: ./slides/code-splitting/frameworks.md
+---
+
+---
+src: ./slides/code-splitting/prefetch.md
+---
+
+---
+src: ./slides/code-splitting/bilan.md
+---
+
+---
 src: ./slides/minification/intro.md
 ---
 
