@@ -10,33 +10,21 @@ transition: view-transition
 # La mise en place
 
 <!--
-Et donc la première étape pour un bon cuisinier c'est de mettre en place tous les ingrédients dont il a besoin pour cuisiner.
+Et donc la première étape pour un bon cuisinier c'est de mettre en place tous les ingrédients dont il a besoin pour cuisiner. C'est exactement ce que fait le bundler : il sort sa liste de courses.
 -->
 
 ---
-src: ./slides/why-graph.md
+src: ./slides/liste-de-courses.md
 ---
 
 ---
-src: ./slides/how-parsing.md
+src: ./slides/mecanisme.md
 ---
 
 ---
-src: ./slides/example-main.md
+src: ./slides/exemple-cuisine.md
 ---
 
 ---
-src: ./slides/example-second-import.md
----
-
----
-src: ./slides/graph-final.md
----
-
----
-src: ./slides/conclusion.md
----
-
----
-src: ./slides/transition-next.md
+src: ./slides/graphe-final.md
 ---
