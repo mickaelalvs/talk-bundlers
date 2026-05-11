@@ -125,5 +125,33 @@ src: ./slides/transpilation/before-after.md
 ---
 
 ---
-src: ./slides/module-resolution.md
+src: ./slides/module-resolution/intro.md
+---
+
+---
+src: ./slides/module-resolution/opening.md
+---
+
+---
+src: ./slides/module-resolution/cjs-vs-esm.md
+---
+
+---
+src: ./slides/module-resolution/mix.md
+---
+
+---
+src: ./slides/module-resolution/esm-example.md
+---
+
+---
+src: ./slides/module-resolution/cjs-example.md
+---
+
+---
+src: ./slides/module-resolution/cjs-explained.md
+---
+
+---
+src: ./slides/module-resolution/takeaway.md
 ---
