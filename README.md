@@ -1,3 +1,6 @@
+TODO :
+- [ ] Vite 8: One Bundler to Replace Two. Vite 8 is the most significant architectural change since Vite 2. Rolldown, a Rust-based bundler, now replaces both esbuild and Rollup.
+
 # Welcome to [Slidev](https://github.com/slidevjs/slidev)!
 
 To start the slide show:
