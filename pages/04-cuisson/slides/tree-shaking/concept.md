@@ -13,12 +13,16 @@ Pourquoi ESM > CJS ?
 
 <div class="concept-stage concept-stage-good">ESM · statique ✓</div>
 
+<MacWindow title="utils.mjs">
+
 ```js
 // dans le package
 export const debounce = (...) => {...}
 export const throttle = (...) => {...}
 // ... 200 autres exports nommés
 ```
+
+</MacWindow>
 
 <div class="concept-explain concept-explain-good">
 Chaque export a un <strong>nom statique</strong>.<br />
@@ -32,6 +36,8 @@ Le bundler lit le fichier au build et sait
 
 <div class="concept-stage concept-stage-bad">CJS · dynamique ✗</div>
 
+<MacWindow title="utils.cjs">
+
 ```js
 // dans le package
 const fns = { debounce, throttle, ... }
@@ -39,6 +45,8 @@ Object.keys(fns).forEach((name) =>
   module.exports[name] = fns[name]
 )
 ```
+
+</MacWindow>
 
 <div class="concept-explain concept-explain-bad">
 Les exports sont créés <strong>à l'exécution</strong>
@@ -81,7 +89,6 @@ quels noms seront exposés.
   color: #c0392b;
 }
 .concept-col :deep(pre) {
-  font-size: 0.78rem;
   text-align: left;
 }
 .concept-explain {

@@ -16,6 +16,10 @@ les chefs, et on file le cheat sheet.
 -->
 
 ---
+src: ./slides/recipe-done.md
+---
+
+---
 src: ./slides/recap.md
 ---
 

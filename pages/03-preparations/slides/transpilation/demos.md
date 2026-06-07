@@ -13,6 +13,8 @@ TypeScript → JavaScript
 
 <div class="demo-stage demo-stage-before">avant</div>
 
+<MacWindow title="user.ts">
+
 ```ts
 interface User {
   id: string
@@ -28,11 +30,15 @@ function findUser<T extends User>(
 }
 ```
 
+</MacWindow>
+
 </div>
 
 <div class="demo-col">
 
 <div class="demo-stage demo-stage-after">après</div>
+
+<MacWindow title="user.js">
 
 ```js
 function findUser(id) {
@@ -41,6 +47,8 @@ function findUser(id) {
   ) ?? null;
 }
 ```
+
+</MacWindow>
 
 </div>
 
@@ -77,7 +85,6 @@ function findUser(id) {
   color: var(--theme-color-steel);
 }
 .demo-col :deep(pre) {
-  font-size: 0.85rem;
   text-align: left;
 }
 </style>
@@ -102,11 +109,12 @@ JSX → JavaScript
 
 <div class="demo-stage demo-stage-before">avant</div>
 
+<MacWindow title="Button.tsx">
+
 ```jsx
 // demo/src/todo/components/header.jsx
 export function Header({ dispatch }) {
   const addItem = useCallback(/* … */);
-
   return (
     <header className="header">
       <h1>todos</h1>
@@ -116,11 +124,15 @@ export function Header({ dispatch }) {
 }
 ```
 
+</MacWindow>
+
 </div>
 
 <div class="demo-col">
 
 <div class="demo-stage demo-stage-after">après</div>
+
+<MacWindow title="Button.js">
 
 ```js
 import { jsx, jsxs } from "react/jsx-runtime";
@@ -137,6 +149,8 @@ export function Header({ dispatch }) {
   });
 }
 ```
+
+</MacWindow>
 
 </div>
 
@@ -173,7 +187,6 @@ export function Header({ dispatch }) {
   color: var(--theme-color-steel);
 }
 .demo-col :deep(pre) {
-  font-size: 0.85rem;
   text-align: left;
 }
 </style>
@@ -201,6 +214,8 @@ TypeScript enum → JavaScript
 
 <div class="demo-stage demo-stage-before">avant</div>
 
+<MacWindow title="color.ts">
+
 ```ts
 enum Color {
   Red,
@@ -209,11 +224,15 @@ enum Color {
 }
 ```
 
+</MacWindow>
+
 </div>
 
 <div class="demo-col">
 
 <div class="demo-stage demo-stage-after">après</div>
+
+<MacWindow title="color.js">
 
 ```js
 var Color = /* @__PURE__ */ ((Color2) => {
@@ -223,6 +242,8 @@ var Color = /* @__PURE__ */ ((Color2) => {
   return Color2;
 })(Color || {});
 ```
+
+</MacWindow>
 
 </div>
 
@@ -259,7 +280,6 @@ var Color = /* @__PURE__ */ ((Color2) => {
   color: var(--theme-color-steel);
 }
 .demo-col :deep(pre) {
-  font-size: 0.85rem;
   text-align: left;
 }
 </style>

@@ -25,3 +25,15 @@ src: ./slides/fridge.md
 ---
 src: ./slides/conclusion.md
 ---
+
+---
+src: ./slides/landscape.md
+---
+
+---
+src: ./slides/vite.md
+---
+
+---
+src: ./slides/recipe-next.md
+---

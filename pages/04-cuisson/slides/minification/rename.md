@@ -15,6 +15,8 @@ layout: basic-title
 
 <div class="min-stage min-stage-before">avant</div>
 
+<MacWindow title="score.js">
+
 ```js
 function calculateUserScore(user, items) {
   let totalScore = 0
@@ -28,11 +30,15 @@ function calculateUserScore(user, items) {
 }
 ```
 
+</MacWindow>
+
 </div>
 
 <div class="min-col">
 
 <div class="min-stage min-stage-after">après</div>
+
+<MacWindow title="score.min.js">
 
 ```js
 function c(t, o) {
@@ -46,6 +52,8 @@ function c(t, o) {
   return e
 }
 ```
+
+</MacWindow>
 
 </div>
 
@@ -96,7 +104,6 @@ Les noms locaux deviennent des lettres uniques.<br />
   color: var(--theme-color-steel);
 }
 .min-col :deep(pre) {
-  font-size: 0.85rem;
   text-align: left;
   margin: 0;
 }

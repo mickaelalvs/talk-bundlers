@@ -215,21 +215,21 @@ Pour aller plus loin
 ::default::
 
 <div class="links-list">
-  <div v-click="1" class="link-item">
+  <div v-click="1" class="link-item transition">
     <img src="/assets/images/logos/esbuild.svg" class="link-logo" />
     <div class="link-text">
       <div class="link-name">esbuild · FAQ benchmarks</div>
       <div class="link-url">esbuild.github.io/faq/</div>
     </div>
   </div>
-  <div v-click="2" class="link-item">
+  <div v-click="1" class="link-item transition forward:delay-200">
     <img src="/assets/images/logos/swc.svg" class="link-logo" />
     <div class="link-text">
       <div class="link-name">SWC · Benchmarks</div>
       <div class="link-url">swc.rs/docs/benchmarks</div>
     </div>
   </div>
-  <div v-click="3" class="link-item">
+  <div v-click="1" class="link-item transition forward:delay-500">
     <img src="/assets/images/logos/vite.svg" class="link-logo" />
     <div class="link-text">
       <div class="link-name">Vite · Why Vite</div>
@@ -248,6 +248,7 @@ Pour aller plus loin
   width: 100%;
   max-width: 640px;
   margin: 0 auto;
+  padding-top: 3rem;
 }
 .link-item {
   display: flex;

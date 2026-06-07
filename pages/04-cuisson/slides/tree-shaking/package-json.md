@@ -17,12 +17,16 @@ Même code source. Packaging différent. Voilà le secret :
 
 <div class="pj-stage pj-stage-bad">lodash</div>
 
+<MacWindow title="package.json">
+
 ```json
 {
   "name": "lodash",
   "main": "lodash.js"
 }
 ```
+
+</MacWindow>
 
 <div class="pj-explain pj-explain-bad">
 Pas de <code>module</code>, pas de <code>exports</code>,<br />
@@ -36,6 +40,8 @@ pas de <code>sideEffects</code>.<br />
 
 <div class="pj-stage pj-stage-good">lodash-es</div>
 
+<MacWindow title="package.json">
+
 ```json
 {
   "name": "lodash-es",
@@ -44,6 +50,8 @@ pas de <code>sideEffects</code>.<br />
   "sideEffects": false
 }
 ```
+
+</MacWindow>
 
 <div class="pj-explain pj-explain-good">
 <code>module</code> pointe vers la version ESM,<br />
@@ -94,7 +102,6 @@ pas de <code>sideEffects</code>.<br />
   color: #2e7d32;
 }
 .pj-col :deep(pre) {
-  font-size: 0.85rem;
   text-align: left;
 }
 .pj-explain {

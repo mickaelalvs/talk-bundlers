@@ -8,7 +8,7 @@ Et après ?
 ::default::
 
 <div class="fut-intro">
-La course continue. Plus rapide, moins de couches.
+La course continue : <strong>Rust dévore la toolchain</strong>. Plus rapide, moins de couches.
 </div>
 
 <div class="fut-grid">
@@ -16,13 +16,13 @@ La course continue. Plus rapide, moins de couches.
   <div v-click="1" class="fut-card">
     <img src="/assets/images/logos/oxc.svg" class="fut-logo" />
     <div class="fut-name">OXC</div>
-    <div class="fut-meta"><span>Rust</span></div>
+    <div class="fut-meta"><span>Rust</span> · la fondation</div>
   </div>
 
   <div v-click="2" class="fut-card">
     <img src="/assets/images/logos/rolldown.svg" class="fut-logo" />
     <div class="fut-name">Rolldown</div>
-    <div class="fut-meta"><span>Rust</span></div>
+    <div class="fut-meta"><span>Rust</span> · bâti sur Oxc</div>
   </div>
 
   <div v-click="3" class="fut-card">
@@ -39,7 +39,15 @@ La course continue. Plus rapide, moins de couches.
 
 </div>
 
-<div v-click="5" class="fut-tagline">
+<div v-click="5" class="fut-swap">
+  <div class="fut-swap-side fut-swap-js"><span class="fut-swap-tag">briques JS</span> Babel · Terser · PostCSS</div>
+  <div class="fut-swap-arrow">→</div>
+  <div class="fut-swap-side fut-swap-rust"><span class="fut-swap-tag">briques Rust</span> SWC · Oxc · Lightning&nbsp;CSS</div>
+</div>
+
+<div v-click="6" class="fut-date">Vite 8 (stable mars 2026) tourne déjà sur Rolldown — si tu utilises Vite, tu utilises déjà tout ça.</div>
+
+<div v-click="7" class="fut-tagline">
   Le bundler devient (presque) un détail d'implémentation.
 </div>
 
@@ -88,8 +96,58 @@ La course continue. Plus rapide, moins de couches.
   color: var(--theme-color-amber);
   font-family: "Paytone One", sans-serif;
 }
+.fut-intro strong {
+  font-family: "Paytone One", sans-serif;
+  color: var(--theme-color-amber);
+  font-weight: normal;
+}
+.fut-swap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 1.6rem;
+  flex-wrap: wrap;
+}
+.fut-swap-side {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.fut-swap-js {
+  background: rgba(159, 169, 185, 0.18);
+  color: var(--theme-color-slate);
+}
+.fut-swap-rust {
+  background: rgba(219, 153, 77, 0.15);
+  color: var(--theme-color-amber);
+}
+.fut-swap-tag {
+  font-family: "Paytone One", sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+.fut-swap-arrow {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--theme-color-amber);
+}
+.fut-date {
+  margin-top: 1rem;
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+  font-size: 0.85rem;
+  color: var(--theme-color-charcoal);
+  font-style: italic;
+}
 .fut-tagline {
-  margin-top: 2rem;
+  margin-top: 1.2rem;
   text-align: center;
   font-family: "Paytone One", sans-serif;
   font-size: 1.2rem;
@@ -106,10 +164,14 @@ mentionner à l'oral selon le temps) :
    et bundler dans le même projet. Objectif : remplacer SWC + Terser +
    Babel par un seul outil cohérent. Plus rapide, moins de duplications.
 
-[click 2] Rolldown (par l'équipe Vite) :
-   Successeur de Rollup, écrit en Rust. Compatible API avec Rollup mais
-   ultra-rapide. Va devenir le bundler par défaut de Vite à terme,
-   remplaçant l'actuel Rollup en JS.
+[click 2] Rolldown (par VoidZero / l'équipe Vite) :
+   Bundler en Rust, compatible API avec Rollup mais ultra-rapide.
+   AVEC VITE 8 (sorti) : Rolldown devient le bundler unique de Vite et
+   remplace À LA FOIS esbuild (dev) ET Rollup (build de prod). Avant, Vite
+   misait sur deux bundlers ; maintenant un seul. ~10-30× plus rapide que
+   Rollup. Le plus gros changement d'archi depuis Vite 2.
+   Source primaire : annonce officielle Vite 8.0
+   (vite.dev/blog/announcing-vite8).
 
 [click 3] Bun (par Jarred Sumner) :
    Tout-en-un écrit en Zig : runtime (alternative à Node), bundler,

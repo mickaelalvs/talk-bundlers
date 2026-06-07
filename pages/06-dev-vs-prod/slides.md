@@ -1,21 +1,11 @@
 ---
-layout: title
+layout: recipe
+done: 6
+current: 1
+transition: view-transition
 ---
 
-::number::
-06
-
-::default::
-
-# La répétition vs le service
-
-<!--
-Transition vers la partie 6 : Build dev vs prod.
-
-On a vu toutes les techniques que le bundler applique. Maintenant on prend
-de la hauteur : pourquoi il fait tout ça différemment en dev et en prod ?
-Métaphore claire : la répétition (dev) vs le service en salle (prod).
--->
+Le dressage : dev vs prod 🍽️
 
 ---
 src: ./slides/metaphor.md

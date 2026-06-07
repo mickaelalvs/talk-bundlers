@@ -18,10 +18,14 @@ Plus c'est dynamique, moins le bundler peut optimiser.
     <div class="dyn-tag dyn-tag-good">statique ✓</div>
     <div class="dyn-code">
 
+<MacWindow title="router.js">
+
 ```js
 import('./Dashboard')
 // React.lazy(() => import('./Comp'))
 ```
+
+</MacWindow>
 
 </div>
     <div class="dyn-explain">
@@ -34,9 +38,13 @@ import('./Dashboard')
     <div class="dyn-tag dyn-tag-warn">avec variable ⚠️</div>
     <div class="dyn-code">
 
+<MacWindow title="i18n.js">
+
 ```js
 import(`./locales/${lang}.js`)
 ```
+
+</MacWindow>
 
 </div>
     <div class="dyn-explain">
@@ -49,10 +57,14 @@ import(`./locales/${lang}.js`)
     <div class="dyn-tag dyn-tag-bad">opaque ✗</div>
     <div class="dyn-code">
 
+<MacWindow title="loader.js">
+
 ```js
 const path = getPath()
 import(path)
 ```
+
+</MacWindow>
 
 </div>
     <div class="dyn-explain">
@@ -134,10 +146,15 @@ import(path)
 .dyn-code {
   align-self: start;
 }
+.dyn-code :deep(.mac-window) {
+  min-width: 0;
+}
+.dyn-code :deep(.mac-body) {
+  padding: 0.4rem 0.7rem;
+}
 .dyn-code :deep(pre) {
-  font-size: 0.78rem;
   margin: 0;
-  padding: 0.4rem 0.7rem !important;
+  padding: 0 !important;
 }
 .dyn-explain {
   grid-column: 2;
