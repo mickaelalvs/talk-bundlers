@@ -2,6 +2,10 @@
 theme: seriph
 title: "Du frigo à l'assiette : ce que mijote vraiment votre bundler JavaScript"
 mdc: true
+lineNumbers: true
+themeConfig:
+  shiki:
+    theme: github-light
 overviewSnapshots: true
 transition: view-transition
 fonts:
@@ -11,9 +15,6 @@ defaults:
   background: /assets/images/background.svg
   backgroundSize: cover
   transition: slide-left
----
-
----
 layout: main-title
 background: none
 ---

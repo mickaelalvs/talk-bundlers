@@ -13,6 +13,8 @@ Sourcemaps : comment c'est fait ?
 
 <div class="smf-stage">le fichier .map</div>
 
+<MacWindow title="main.js.map">
+
 ```json
 {
   "version": 3,
@@ -22,6 +24,8 @@ Sourcemaps : comment c'est fait ?
   "mappings": "AAAA,SAAS,WAAW,GAAG,CAAC,CAAC..."
 }
 ```
+
+</MacWindow>
 
 <div class="smf-comment-block">
 À la fin du bundle :
@@ -86,7 +90,6 @@ Sourcemaps : comment c'est fait ?
   text-align: left;
 }
 .smf-col :deep(pre) {
-  font-size: 0.78rem;
   text-align: left;
   margin: 0;
 }

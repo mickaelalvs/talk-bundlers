@@ -10,17 +10,17 @@ ESM : exemple
 
 <div class="esm-layout">
 <div class="esm-left">
-<div class="esm-file">
-<div class="file-label">math.js</div>
+
+<MacWindow title="math.js">
 
 ```js
 export const add = (a, b) => a + b;
 export const sub = (a, b) => a - b;
 ```
 
-</div>
-<div class="esm-file">
-<div class="file-label">main.js</div>
+</MacWindow>
+
+<MacWindow title="main.js">
 
 ```js
 import { add } from './math.js';
@@ -28,15 +28,19 @@ import { add } from './math.js';
 console.log(add(1, 2));
 ```
 
-</div>
-<div v-click class="esm-file">
-<div class="file-label file-label--output">bundle.js</div>
+</MacWindow>
+
+<div v-click class="esm-output">
+
+<MacWindow title="bundle.js">
 
 ```js
 var add = (a, b) => a + b;
 
 console.log(add(1, 2));
 ```
+
+</MacWindow>
 
 </div>
 </div>
@@ -70,11 +74,20 @@ console.log(add(1, 2));
   flex: 0 0 40%;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  justify-content: center;
+  gap: 0.75rem;
+  height: 100%;
 }
-.esm-file :deep(.slidev-code) {
-  font-size: 0.7rem !important;
-  line-height: 1.4 !important;
+.esm-left :deep(.mac-window) {
+  min-width: 0;
+  width: 100%;
+  height: auto;
+}
+.esm-left :deep(.mac-body) {
+  padding: 0.6rem 0.85rem;
+}
+.esm-output {
+  margin-top: 0.5rem;
 }
 .esm-right {
   flex: 1;
@@ -84,16 +97,7 @@ console.log(add(1, 2));
   justify-content: center;
   gap: 2rem;
 }
-.file-label {
-  font-size: 0.85rem;
-  font-weight: bold;
-  color: var(--theme-color-steel);
-  margin-bottom: 0.25rem;
-}
-.file-label--output {
-  color: var(--theme-color-amber);
-}
-.esm-points {
+.icon-points {
   display: flex;
   flex-direction: column;
   align-items: flex-start;

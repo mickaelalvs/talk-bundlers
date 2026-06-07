@@ -138,13 +138,14 @@ du navigateur). Le navigateur fait lui-même la traversée des imports.
 Résultat : démarrage instantané. Le HMR (hot module replacement) ne
 recompile que le fichier modifié.
 
-Pour la prod, Vite bundle quand même (avec Rollup) parce que servir 800
-fichiers ESM au navigateur en production serait catastrophique pour la
-perf réseau (latence, header overhead, etc.).
+Pour la prod, Vite bundle quand même (Vite 8 : avec Rolldown ; Vite ≤7 :
+Rollup) parce que servir 800 fichiers ESM au navigateur en production serait
+catastrophique pour la perf réseau (latence, header overhead, etc.).
 
 Donc Vite a deux modes complètement différents :
-  - dev : pas de bundle, ESM natif
-  - prod : bundle normal avec Rollup
+  - dev : pas de bundle, ESM natif (toujours le défaut en v8 ; le "Full
+    Bundle Mode" qui bundle en dev existe mais reste opt-in/expérimental)
+  - prod : bundle (Rolldown en Vite 8)
 
 Cette rupture conceptuelle est ce qui le rend si rapide en dev.
 -->

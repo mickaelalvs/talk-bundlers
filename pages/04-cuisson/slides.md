@@ -1,20 +1,11 @@
 ---
-layout: title
+layout: recipe
+done: 3
+current: 0
 transition: view-transition
 ---
 
-::number::
-04
-
-::default::
-
-# La cuisson
-
-<!--
-On a préparé les ingrédients. Maintenant on les met dans la casserole : c'est
-là que le bundler optimise vraiment ce qui sortira en prod.
-Au menu : tree-shaking, code splitting, minification.
--->
+La cuisson commence 🍳
 
 ---
 src: ./slides/context.md
@@ -70,6 +61,10 @@ src: ./slides/tree-shaking/bilan.md
 
 ---
 src: ./slides/code-splitting/intro.md
+---
+
+---
+src: ./slides/code-splitting.md
 ---
 
 ---
@@ -139,4 +134,3 @@ src: ./slides/minification/analyzer.md
 ---
 src: ./slides/minification/bilan.md
 ---
-

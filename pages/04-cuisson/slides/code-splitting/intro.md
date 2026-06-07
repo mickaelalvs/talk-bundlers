@@ -1,4 +1,13 @@
 ---
+layout: recipe
+done: 4
+current: 1
+transition: view-transition
+---
+
+Le découpage : on répartit en portions 🍱
+
+---
 layout: basic
 ---
 

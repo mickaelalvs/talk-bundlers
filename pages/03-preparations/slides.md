@@ -1,17 +1,11 @@
 ---
-layout: title
+layout: recipe
+done: 2
+current: 1
+transition: view-transition
 ---
 
-::number::
-03
-
-::default::
-
-# Préparations des ingrédients
-
-<!--
-Transition : on a vu comment le bundler lit notre projet, maintenant on passe à la préparation.
--->
+On prépare chaque ingrédient 🔪
 
 ---
 layout: basic-title
@@ -187,15 +181,15 @@ src: ./slides/transpilation/demos.md
 ---
 
 ---
+src: ./slides/transpilation/css-pipeline.md
+---
+
+---
 src: ./slides/transpilation/tools.md
 ---
 
 ---
 src: ./slides/transpilation/benchmark.md
----
-
----
-src: ./slides/transpilation/vite-punchline.md
 ---
 
 ---

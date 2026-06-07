@@ -1,3 +1,14 @@
+<script setup>
+defineProps({
+  // Taille du titre, surchargeable depuis le frontmatter de la slide
+  // (ex: `titleSize: 5rem`). Par défaut équivalent à text-8xl.
+  titleSize: { type: String, default: '6rem' },
+  // Padding au-dessus du titre (ex: `titlePaddingTop: 4rem`).
+  // Par défaut équivalent à pt-10.
+  titlePaddingTop: { type: String, default: '2.5rem' },
+})
+</script>
+
 <template>
   <img
     src="/assets/images/background.svg"
@@ -15,7 +26,10 @@
     <div class="section-number">
       <slot name="number" />
     </div>
-    <h1 class="text-8xl leading-tight pt-10">
+    <h1
+      class="leading-tight"
+      :style="{ fontSize: titleSize, paddingTop: titlePaddingTop }"
+    >
       <slot />
     </h1>
   </div>

@@ -10,17 +10,17 @@ CJS : exemple
 
 <div class="cjs-layout">
 <div class="cjs-left">
-<div class="cjs-file">
-<div class="file-label">math.cjs</div>
+
+<MacWindow title="math.cjs">
 
 ```js
 exports.add = (a, b) => a + b;
 exports.sub = (a, b) => a - b;
 ```
 
-</div>
-<div class="cjs-file">
-<div class="file-label">main.js</div>
+</MacWindow>
+
+<MacWindow title="main.js">
 
 ```js
 const { add } = require('./math.cjs');
@@ -28,9 +28,12 @@ const { add } = require('./math.cjs');
 console.log(add(1, 2));
 ```
 
+</MacWindow>
+
 </div>
-<div v-click class="cjs-file">
-<div class="file-label file-label--output">bundle.js</div>
+<div v-click class="cjs-right">
+
+<MacWindow title="bundle.js">
 
 ```js
 var __getOwnPropNames = Object.getOwnPropertyNames;
@@ -51,11 +54,9 @@ var { add } = require_math();
 console.log(add(1, 2));
 ```
 
-<div class="cjs-line-count">module enveloppé + helpers de runtime</div>
-</div>
-</div>
-<div v-click="2" class="cjs-right">
-<div class="cjs-points">
+</MacWindow>
+
+<div v-click="2" class="cjs-points">
 <div class="cjs-point">
 <lucide:wrench class="cjs-point-icon" />
 <span>Helpers de runtime injectés</span>
@@ -81,63 +82,21 @@ console.log(add(1, 2));
   align-items: center;
 }
 .cjs-left {
-  flex: 0 0 40%;
+  flex: 0 0 32%;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  justify-content: center;
+  gap: 0.75rem;
+  height: 100%;
 }
-.cjs-file :deep(.slidev-code) {
-  font-size: 0.7rem !important;
-  line-height: 1.4 !important;
+.cjs-left :deep(.mac-window),
+.cjs-right :deep(.mac-window) {
+  min-width: 0;
+  width: 100%;
+  height: auto;
 }
 .cjs-right {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-}
-.file-label {
-  font-size: 0.85rem;
-  font-weight: bold;
-  color: var(--theme-color-steel);
-  margin-bottom: 0.25rem;
-}
-.file-label--output {
-  color: var(--theme-color-amber);
-}
-.cjs-line-count {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: #ef4444;
-  margin-top: 0.3rem;
-}
-.cjs-points {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1.2rem;
-}
-.cjs-point {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  font-size: 1.1rem;
-  color: var(--theme-color-charcoal);
-  font-weight: 600;
-}
-.cjs-point-icon {
-  font-size: 2rem;
-  color: var(--theme-color-amber);
-}
-.cjs-note {
-  text-align: center;
-  font-size: 1rem;
-  color: var(--theme-color-slate);
-}
-.cjs-note strong {
-  color: var(--theme-color-amber);
 }
 </style>
 
