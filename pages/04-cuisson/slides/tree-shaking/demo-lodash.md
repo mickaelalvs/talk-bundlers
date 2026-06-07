@@ -20,7 +20,7 @@ Mais voilà ce qu'il y a dans ton bundle final :
     </div>
     <div class="demo-bar">
       <div class="demo-fill demo-fill-bad" style="width: 100%"></div>
-      <span class="demo-time">~70 KB</span>
+      <span class="demo-time">72 KB</span>
     </div>
   </div>
 
@@ -30,15 +30,14 @@ Mais voilà ce qu'il y a dans ton bundle final :
       <span class="demo-tag demo-tag-esm">ESM</span>
     </div>
     <div class="demo-bar">
-      <div class="demo-fill demo-fill-good" style="width: 10%"></div>
-      <span class="demo-time">~7 KB</span>
+      <div class="demo-fill demo-fill-good" style="width: 4%"></div>
+      <span class="demo-time">2.8 KB</span>
     </div>
   </div>
 </div>
 
 <div class="demo-note">
-  ⚠ chiffres placeholder, à mesurer sur un vrai projet<br />
-  <span class="demo-source">web.dev a mesuré ~625 KB → ~40 bytes sur un cas similaire</span>
+  <span class="demo-source">Mesure réelle : <code>import { debounce }</code>, bundle esbuild minifié (×25 plus léger)</span>
 </div>
 
 <style>
@@ -122,7 +121,7 @@ Mais voilà ce qu'il y a dans ton bundle final :
   color: white;
 }
 .demo-row:nth-child(2) .demo-time {
-  left: calc(10% + 0.75rem);
+  left: calc(4% + 0.75rem);
   color: var(--theme-color-charcoal);
 }
 .demo-note {
@@ -143,16 +142,15 @@ Mais voilà ce qu'il y a dans ton bundle final :
 </style>
 
 <!--
-TODO : remplacer les chiffres par une vraie mesure :
-  - Importer { debounce } depuis lodash et lodash-es dans deux entry points
-  - Builder en mode prod
-  - Mesurer les bundles
+Chiffres réels mesurés via `pnpm phase:tree-shaking` dans demo/ :
+  - `import { debounce }` depuis lodash et lodash-es, deux entry points
+  - bundle esbuild minifié, format esm, production
+  - lodash (CJS) : 72 KB — lodash-es (ESM) : 2.8 KB → ×25
 
-Le visuel doit produire le choc, pas les chiffres précis. ×10 c'est l'ordre
-de grandeur réaliste qu'on voit en pratique avec lodash.
+[click 1] La barre rouge énorme : lodash en CJS embarque tout le package
+(structure CommonJS non analysable statiquement → pas de tree-shaking).
+[click 2] La barre verte minuscule : lodash-es en ESM tree-shake correctement,
+seul debounce et ses dépendances réelles survivent.
 
-[click 1] La barre rouge énorme : lodash en CJS embarque tout le package.
-[click 2] La barre verte minuscule : lodash-es en ESM tree-shake correctement.
-
-"Même fonction. Même import. Bundle ×10 plus gros."
+"Même fonction. Même import. Bundle ×25 plus gros."
 -->

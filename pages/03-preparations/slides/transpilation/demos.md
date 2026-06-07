@@ -38,7 +38,7 @@ function findUser<T extends User>(
 function findUser(id) {
   return users.find(
     (u) => u.id === id
-  ) ?? null
+  ) ?? null;
 }
 ```
 
@@ -102,15 +102,16 @@ JSX → JavaScript
 
 <div class="demo-stage demo-stage-before">avant</div>
 
-```tsx
-function Button({ label, onClick }) {
+```jsx
+// demo/src/todo/components/header.jsx
+export function Header({ dispatch }) {
+  const addItem = useCallback(/* … */);
+
   return (
-    <button
-      className="btn"
-      onClick={onClick}
-    >
-      {label}
-    </button>
+    <header className="header">
+      <h1>todos</h1>
+      <Input onSubmit={addItem} />
+    </header>
   )
 }
 ```
@@ -122,15 +123,18 @@ function Button({ label, onClick }) {
 <div class="demo-stage demo-stage-after">après</div>
 
 ```js
-function Button({ label, onClick }) {
-  return React.createElement(
-    "button",
-    {
-      className: "btn",
-      onClick: onClick
-    },
-    label
-  )
+import { jsx, jsxs } from "react/jsx-runtime";
+
+export function Header({ dispatch }) {
+  const addItem = useCallback(/* … */);
+
+  return /* @__PURE__ */ jsxs("header", {
+    className: "header",
+    children: [
+      /* @__PURE__ */ jsx("h1", { children: "todos" }),
+      /* @__PURE__ */ jsx(Input, { onSubmit: addItem })
+    ]
+  });
 }
 ```
 
@@ -175,8 +179,11 @@ function Button({ label, onClick }) {
 </style>
 
 <!--
-JSX = sucre syntaxique. Sous le capot, des appels React.createElement qui
-construisent un arbre de Virtual DOM.
+Vrai composant du demo : src/todo/components/header.jsx, transpilé par esbuild
+(runtime « automatic », React 17+). Plus de React.createElement : un import de
+jsx()/jsxs() depuis react/jsx-runtime. jsxs = plusieurs enfants, jsx = un seul.
+Le /* @__PURE__ */ aide le tree-shaking. (useCallback et props raccourcis ici
+avec … pour tenir sur le slide ; sinon c'est la sortie exacte.)
 -->
 
 ---
@@ -209,12 +216,12 @@ enum Color {
 <div class="demo-stage demo-stage-after">après</div>
 
 ```js
-var Color;
-(function (Color) {
-  Color[Color["Red"] = 0] = "Red";
-  Color[Color["Green"] = 1] = "Green";
-  Color[Color["Blue"] = 2] = "Blue";
-})(Color || (Color = {}));
+var Color = /* @__PURE__ */ ((Color2) => {
+  Color2[Color2["Red"] = 0] = "Red";
+  Color2[Color2["Green"] = 1] = "Green";
+  Color2[Color2["Blue"] = 2] = "Blue";
+  return Color2;
+})(Color || {});
 ```
 
 </div>

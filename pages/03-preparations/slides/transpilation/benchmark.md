@@ -3,7 +3,7 @@ layout: basic-title
 ---
 
 ::title::
-Benchmark : projet XXX
+Benchmark : TodoMVC React
 
 ::default::
 
@@ -15,7 +15,7 @@ Benchmark : projet XXX
     </div>
     <div class="bench-bar bench-bar-babel">
       <div class="bench-fill" style="width: 100%"></div>
-      <span class="bench-time">12.4 s</span>
+      <span class="bench-time">3.9 s</span>
     </div>
   </div>
 
@@ -25,8 +25,8 @@ Benchmark : projet XXX
       <span>SWC</span>
     </div>
     <div class="bench-bar">
-      <div class="bench-fill bench-fill-swc" style="width: 5%"></div>
-      <span class="bench-time">0.6 s</span>
+      <div class="bench-fill bench-fill-swc" style="width: 62%"></div>
+      <span class="bench-time">2.4 s</span>
     </div>
   </div>
 
@@ -36,13 +36,13 @@ Benchmark : projet XXX
       <span>esbuild</span>
     </div>
     <div class="bench-bar">
-      <div class="bench-fill bench-fill-esbuild" style="width: 1.2%"></div>
-      <span class="bench-time">0.15 s</span>
+      <div class="bench-fill bench-fill-esbuild" style="width: 44%"></div>
+      <span class="bench-time">1.7 s</span>
     </div>
   </div>
 </div>
 
-<div class="bench-note">⚠ chiffres placeholder, à mesurer sur un repo réel</div>
+<div class="bench-note">3 200 fichiers JSX · médiane de 7 runs · Apple M3</div>
 
 <style>
 .bench-chart {
@@ -118,13 +118,16 @@ Benchmark : projet XXX
 </style>
 
 <!--
-TODO : remplacer XXX par le vrai nom du projet, mesurer les vrais chiffres.
+Mesuré sur le projet demo/ : les 8 fichiers JSX/JS dupliqués ×400 (3 200 fichiers,
+~13 Mo), transpilés via les CLI officielles (esbuild, @swc/cli, @babel/cli),
+médiane de 7 runs à froid sur Apple M3. Reproductible : `pnpm phase:transpile:benchmark`.
 
-[click 1] Babel : la barre prend toute la largeur. Le repère qui pose le plafond.
-[click 2] SWC : barre minuscule à côté. ~5% de la durée. Choc visuel.
-[click 3] esbuild : encore plus petite. À peine visible mais elle est là.
+[click 1] Babel : la barre prend toute la largeur (~3.9 s). Le repère qui pose le plafond.
+[click 2] SWC : ~1.4× plus rapide (~2.4 s). Compilé en Rust, bindings natifs in-process.
+[click 3] esbuild : le plus rapide (~1.7 s), ~2.3× Babel. Compilé en Go, parallélisé.
 
-Le visuel doit faire le choc, pas les chiffres précis. Ordres de grandeur.
+Le visuel doit faire le choc, pas les chiffres précis. Ordres de grandeur :
+les compilateurs natifs (Go/Rust) écrasent Babel (JS interprété).
 -->
 
 ---

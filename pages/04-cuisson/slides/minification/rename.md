@@ -35,15 +35,15 @@ function calculateUserScore(user, items) {
 <div class="min-stage min-stage-after">après</div>
 
 ```js
-function n(t, e) {
-  let r = 0
+function c(t, o) {
+  let e = 0
 
-  for (const o of e) {
-    r += o.points
+  for (const r of o) {
+    e += r.points
       * t.bonusMultiplier
   }
 
-  return r
+  return e
 }
 ```
 
@@ -126,7 +126,13 @@ Le minifieur fait une analyse de scope. Il sait quelle variable est utilisée
 où, et peut renommer en gardant la sémantique intacte. Les noms à 1 caractère
 sont préférés (a, b, c...) parce que c'est le minimum.
 
+Sortie réelle d'esbuild --minify-identifiers sur cette fonction quand elle
+est locale (appelée uniquement dans le module) : function c(t, o) { let e = 0;
+... }. La fonction elle-même devient `c` parce qu'elle est locale.
+
 Note : seuls les noms LOCAUX sont renommés. Les exports d'API publique, ou
 ce qui est accédé via global ne peut pas être renommé (sauf si tu actives
-le mangling de propriétés - slide suivante).
+le mangling de propriétés - slide suivante). Si on exportait
+calculateUserScore, son nom serait préservé (seuls les params/vars internes
+seraient renommés).
 -->
