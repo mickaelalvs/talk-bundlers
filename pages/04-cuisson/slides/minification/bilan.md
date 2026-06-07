@@ -12,7 +12,7 @@ Avant / après
     <div class="min-bilan-stage">avant</div>
     <div class="min-bilan-bundle">
       <div class="min-bilan-bundle-name">bundle.js</div>
-      <div class="min-bilan-bundle-size">~50 KB</div>
+      <div class="min-bilan-bundle-size">1029 KB</div>
       <div class="min-bilan-bundle-note">lisible, espacé, commenté</div>
     </div>
   </div>
@@ -23,7 +23,7 @@ Avant / après
     <div class="min-bilan-stage">après</div>
     <div class="min-bilan-bundle">
       <div class="min-bilan-bundle-name">bundle.min.js</div>
-      <div class="min-bilan-bundle-size">~12 KB</div>
+      <div class="min-bilan-bundle-size">235 KB</div>
       <div class="min-bilan-bundle-note">illisible, mais prêt à servir</div>
     </div>
   </div>
@@ -186,8 +186,9 @@ Avant / après
 </style>
 
 <!--
-[click 1] L'avant/après : même app, mais 4× plus léger après minif. Les
-chiffres sont placeholder, à mesurer.
+[click 1] L'avant/après : même app, mais ~4.4× plus léger après optimisation
+(tree-shaking + minification). Mesuré via `pnpm phase:optimize` sur le demo :
+1028.9 KB brut → 234.7 KB optimisé, soit 77 % de réduction.
 
 [click 2] Les outils. Trois grandes familles aujourd'hui :
   - Terser : le standard historique, écrit en JS. Lent mais très complet.

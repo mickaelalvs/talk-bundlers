@@ -33,16 +33,25 @@ console.log(add(1, 2));
 <div class="file-label file-label--output">bundle.js</div>
 
 ```js
-var __commonJS = (cb, mod) => function() { ... };
-var __toESM = (mod, isNodeMode) => ( ... );
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __commonJS = (cb, mod) => function __require() {
+  return mod || (0, cb[__getOwnPropNames(cb)[0]])(
+    (mod = { exports: {} }).exports, mod
+  ), mod.exports;
+};
 
-var require_math = __commonJS({ ... });
+var require_math = __commonJS({
+  "math.cjs"(exports) {
+    exports.add = (a, b) => a + b;
+    exports.sub = (a, b) => a - b;
+  }
+});
 
-var import_math = __toESM(require_math());
-console.log(import_math.add(1, 2));
+var { add } = require_math();
+console.log(add(1, 2));
 ```
 
-<div class="cjs-line-count">~32 lignes de runtime</div>
+<div class="cjs-line-count">module enveloppé + helpers de runtime</div>
 </div>
 </div>
 <div v-click="2" class="cjs-right">
@@ -56,8 +65,8 @@ console.log(import_math.add(1, 2));
 <span>Module enveloppé dans une fonction</span>
 </div>
 <div class="cjs-point">
-<lucide:repeat class="cjs-point-icon" />
-<span>Traducteur CJS → ESM</span>
+<lucide:clock class="cjs-point-icon" />
+<span>Exports évalués à l'exécution</span>
 </div>
 </div>
 <p class="cjs-note">Le bundler <strong>simule Node.js</strong> dans le navigateur</p>
@@ -133,14 +142,15 @@ console.log(import_math.add(1, 2));
 </style>
 
 <!--
-[au chargement] Même point de départ. Deux fichiers, add et sub. Sauf que cette fois c'est du CommonJS.
+[au chargement] Même point de départ. Deux fichiers, add et sub. Sauf que cette fois c'est du CommonJS (math.cjs avec exports.add, main.js avec require).
 
-[click 1] Le bundle. Regardez : même tronqué, on voit qu'il y a beaucoup plus de code. ~32 lignes de runtime générées par le bundler. Pour deux fonctions. Tout ça c'est le coût de la traduction.
+[click 1] Le bundle. Regardez : il y a beaucoup plus de code que côté ESM. Pour deux fonctions, le bundler génère des helpers de runtime et enveloppe le module. Tout ça c'est le coût du CommonJS.
 
-[click 2] Trois couches de travail :
-1. Des helpers de runtime (__commonJS, __toESM) — l'outillage injecté.
-2. Le module d'origine est enveloppé dans une fonction. Pourquoi ? Parce qu'en CJS, les exports sont construits à l'exécution. Le bundler ne sait pas à la compilation ce qui sera exporté, il diffère l'évaluation.
-3. Un traducteur final qui prend la sortie CJS et l'arrange en namespace ESM (default, exports nommés, etc.).
+[click 2] Deux choses à noter :
+1. Des helpers de runtime (__commonJS) — l'outillage injecté.
+2. Le module d'origine est enveloppé dans une fonction. Pourquoi ? Parce qu'en CJS, les exports sont construits à l'exécution. Le bundler ne sait pas à la compilation ce qui sera exporté, il diffère l'évaluation : la fonction n'est exécutée qu'au premier require_math().
 
 Le bundler simule Node.js dans le navigateur. Le cuisinier improvisateur livre un ingrédient brut, pas lavé, pas coupé. Le chef doit sortir tout l'attirail juste pour un seul ingrédient.
+
+(Note : si main.js avait fait un `import` ESM depuis ce module CJS, esbuild ajouterait en plus un traducteur __toESM pour fabriquer un namespace ESM — d'où encore plus de runtime quand on mélange ESM et CJS.)
 -->
