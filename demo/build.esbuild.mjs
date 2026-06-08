@@ -62,8 +62,32 @@ if (process.env.ANALYZE) {
         title: "TodoMVC React — bundle (esbuild)",
         template: "treemap",
     });
+    // Post-traitement pour la slide :
+    //  - thème clair (couleurs des slides)
+    //  - masque le tooltip + les filtres Include/Exclude
+    //  - palette des blocs dans les teintes du design (ambre -> bleu acier)
+    const patched = html
+        .replace(
+            "</head>",
+            "<style>" +
+                ":root{--background-color:#f9f9f9;--text-color:#434343}" +
+                ".tooltip{display:none!important}" +
+                ".sidebar,.filters,.module-filters,.module-filter,.size-selectors{display:none!important}" +
+                "main{padding-top:8px!important}" +
+                ".node text{fill:#434343}" +
+                "</style></head>",
+        )
+        .replace('var ri="#cecece";', 'var ri="#e7e9ee";')
+        .replace(
+            "i=>Ze(360*i,.3,.85)",
+            "i=>Ze(33+i*172,.5,.72)",
+        )
+        .replace(
+            "et().domain([0,e.height]).range([.9,.3])",
+            "et().domain([0,e.height]).range([.82,.5])",
+        );
     const dir = "../public/assets/captures";
     mkdirSync(dir, { recursive: true });
-    writeFileSync(`${dir}/bundle-treemap.html`, html);
+    writeFileSync(`${dir}/bundle-treemap.html`, patched);
     console.log(`\n📊 Treemap -> public/assets/captures/bundle-treemap.html`);
 }
