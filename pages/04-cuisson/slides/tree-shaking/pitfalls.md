@@ -8,134 +8,64 @@ layout: basic-title
 ::default::
 
 <div class="pit-list">
-
   <div v-click="1" class="pit-item">
-    <div class="pit-num">①</div>
-    <div class="pit-body">
-      <div class="pit-title">Side effects involontaires</div>
-      <div class="pit-desc">
-        Du code qui s'exécute au top-level d'un module
-        (<code>window.x = ...</code>, polyfill enregistré, CSS importé).
-        Le bundler ne peut pas le supprimer.
-      </div>
-    </div>
+    <lucide-zap class="pit-icon" />
+    <div class="pit-title">Side effects involontaires</div>
   </div>
-
   <div v-click="2" class="pit-item">
-    <div class="pit-num">②</div>
-    <div class="pit-body">
-      <div class="pit-title">Imports trop larges</div>
-      <div class="pit-desc">
-        <code>import _ from 'lodash'</code> importe l'API entière. Préférer
-        <code>import &#123; debounce &#125; from 'lodash-es'</code>.
-      </div>
-    </div>
+    <lucide-package-open class="pit-icon" />
+    <div class="pit-title">Imports trop larges</div>
   </div>
-
   <div v-click="3" class="pit-item">
-    <div class="pit-num">③</div>
-    <div class="pit-body">
-      <div class="pit-title">Mode <code>production</code> absent (sur Webpack)</div>
-      <div class="pit-desc">
-        Webpack <em>marque</em> mais ne supprime pas tant que Terser ne tourne
-        pas. Rollup et esbuild suppriment direct pendant le bundling.
-      </div>
-    </div>
+    <lucide-flask-conical class="pit-icon" />
+    <div class="pit-title">Mode <code>production</code> absent (Webpack)</div>
   </div>
-
   <div v-click="4" class="pit-item">
-    <div class="pit-num">④</div>
-    <div class="pit-body">
-      <div class="pit-title">Un loader qui convertit ESM en CJS</div>
-      <div class="pit-desc">
-        Babel mal configuré peut aplatir ton ESM en CJS pendant la phase
-        loader, avant le tree-shaking. Le bundler voit du CJS, abandonne.
-        <em>(cf. partie 3 sur les loaders)</em>
-      </div>
-    </div>
+    <lucide-repeat class="pit-icon" />
+    <div class="pit-title">Un loader qui reconvertit en CJS</div>
   </div>
-
   <div v-click="5" class="pit-item">
-    <div class="pit-num">⑤</div>
-    <div class="pit-body">
-      <div class="pit-title">Une dep CJS dans tes <code>node_modules</code></div>
-      <div class="pit-desc">
-        Ton code peut être 100% ESM nickel, une seule lib CJS transitive
-        suffit à pourrir l'optimisation. Audit avec
-        <a href="https://github.com/mgechev/is-esm" target="_blank"><code>is-esm</code></a>.
-      </div>
-    </div>
+    <lucide-package-x class="pit-icon" />
+    <div class="pit-title">Une dep CJS transitive</div>
   </div>
-
 </div>
 
 <style>
 .pit-list {
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 1rem;
   width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 720px;
+  margin: 3rem auto 0;
   text-align: left;
 }
 .pit-item {
   display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 0.6rem 1.1rem;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0.9rem 1.5rem;
   background: rgba(255, 255, 255, 0.6);
   border-radius: 12px;
   border-left: 4px solid var(--theme-color-amber);
 }
-.pit-num {
-  font-family: "Paytone One", sans-serif;
-  font-size: 1.7rem;
+.pit-icon {
+  font-size: 2rem;
   color: var(--theme-color-amber);
   flex-shrink: 0;
-  line-height: 1;
-}
-.pit-body {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
 }
 .pit-title {
-  font-family: "Paytone One", sans-serif;
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
   color: var(--theme-color-steel);
-  font-size: 1.05rem;
+  font-size: 1.4rem;
 }
 .pit-title code {
   font-family: "JetBrains Mono", monospace;
-  font-size: 0.9em;
+  font-size: 0.85em;
   background: rgba(81, 138, 184, 0.1);
   padding: 0.05rem 0.4rem;
   border-radius: 4px;
-}
-.pit-desc {
-  font-family: "Nunito", sans-serif;
-  font-size: 0.88rem;
-  color: var(--theme-color-charcoal);
-  line-height: 1.45;
-}
-.pit-desc a {
-  color: var(--theme-color-amber);
-  text-decoration: underline;
-}
-.pit-desc em {
-  color: var(--theme-color-amber);
-  font-style: italic;
-}
-.pit-desc code {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.88em;
-  background: rgba(0, 0, 0, 0.05);
-  padding: 0.05rem 0.3rem;
-  border-radius: 4px;
-}
-.pit-desc em {
-  color: var(--theme-color-amber);
-  font-style: italic;
 }
 </style>
 
