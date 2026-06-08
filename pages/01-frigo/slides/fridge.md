@@ -10,17 +10,18 @@ Ce que vous écrivez
 <div class="fridge-wrap">
   <img src="../assets/fridge.svg" class="fridge-img" />
 
-  <!-- rangée du haut -->
-  <img v-click="1" src="/assets/images/logos/typescript.svg" class="fridge-item pop" style="left: 18%; top: 22%; transform: rotate(-8deg)" />
-  <img v-click="1" src="/assets/images/logos/react.svg" class="fridge-item pop" style="left: 36%; top: 18%" />
-  <img v-click="1" src="/assets/images/logos/sass.svg" class="fridge-item pop" style="left: 54%; top: 22%; transform: rotate(6deg)" />
-  <img v-click="1" src="/assets/images/logos/nodejs.svg" class="fridge-item pop" style="left: 70%; top: 18%; transform: rotate(-5deg)" />
+  <!-- 3×3, technos & outils mélangés -->
+  <img v-click="1" src="/assets/images/logos/react.svg" class="fridge-item pop" style="left: 30%; top: 20.5%; transform: rotate(-8deg)" />
+  <img v-click="1" src="/assets/images/logos/typescript.svg" class="fridge-item pop" style="width: 60px; left: 42%; top: 21.5%" />
+  <img v-click="1" src="/assets/images/logos/svelte.svg" class="fridge-item pop" style="width: 60px; left: 52%; top: 21.5%; transform: rotate(31deg)" />
 
-  <!-- rangée du bas -->
-  <img v-click="2" src="/assets/images/logos/javascript.svg" class="fridge-item pop" style="left: 16%; top: 52%; transform: rotate(10deg)" />
-  <div v-click="2" class="fridge-badge pop" style="left: 34%; top: 50%; background:#7cb342">{ }</div>
-  <div v-click="2" class="fridge-badge pop" style="left: 52%; top: 52%; background:#9fa9b9; font-size:1rem">Aa</div>
-  <div v-click="2" class="fridge-badge pop" style="left: 68%; top: 50%; background:#ef5350; font-size:0.9rem">.env</div>
+  <img v-click="1" src="/assets/images/logos/sass.svg" class="fridge-item pop" style="left: 30%; top: 37%; transform: rotate(12deg)" />
+  <img v-click="1" src="/assets/images/logos/astro.svg" class="fridge-item pop" style="left: 40%; top: 36%; transform: rotate(110deg)" />
+  <img v-click="1" src="/assets/images/logos/styled-components.svg" class="fridge-item pop" style="width: 60px; left: 52%; top: 35.5%" />
+
+  <img v-click="1" src="/assets/images/logos/css-modules.svg" class="fridge-item pop" style="left: 29%; top: 49.5%" />
+  <img v-click="1" src="/assets/images/logos/js-modern.png" class="fridge-item pop" style="width: 60px; left: 41%; top: 49%" />
+  <img v-click="1" src="/assets/images/logos/vue.svg" class="fridge-item pop" style="left: 52%; top: 51.5%; transform: rotate(-60deg)" />
 </div>
 
 <style>
@@ -58,10 +59,8 @@ Ce que vous écrivez
 </style>
 
 <!--
-TODO :
-- Mettre les items sur des aliments
-
-[click] Rangée du haut : TypeScript, React, Sass, Node — les technos principales.
-[click] Rangée du bas : JS vanilla, JSON, fonts, config .env — tout le reste du frigo.
+[click] Tout ce que vous écrivez, en vrac : frameworks (React, Svelte, Vue,
+Astro), langage (TypeScript, JS moderne), styles (SCSS, CSS Modules,
+styled-components). Volontairement mélangé.
 Le navigateur ne comprend rien de tout ça directement.
 -->

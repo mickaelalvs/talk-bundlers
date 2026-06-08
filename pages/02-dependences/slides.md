@@ -1,17 +1,11 @@
 ---
-layout: title
+layout: recipe
+done: 0
+current: 2
 transition: view-transition
 ---
 
-::number::
-02
-
-::default::
-# La mise en place
-
-<!--
-Et donc la première étape pour un bon cuisinier c'est de mettre en place tous les ingrédients dont il a besoin pour cuisiner. C'est exactement ce que fait le bundler : il sort sa liste de courses.
--->
+On construit le graphe de dépendances 🗺️
 
 ---
 src: ./slides/liste-de-courses.md
@@ -26,5 +20,17 @@ src: ./slides/exemple-cuisine.md
 ---
 
 ---
+src: ./slides/example-second-import.md
+---
+
+---
 src: ./slides/graphe-final.md
+---
+
+---
+src: ./slides/circular-shared.md
+---
+
+---
+src: ./slides/conclusion.md
 ---

@@ -12,6 +12,8 @@ CJS vs ESM
 <div class="module-block">
 <div class="module-label">CommonJS — l'improvisateur</div>
 
+<MacWindow title="server.cjs">
+
 ```js {1-2}
 const path = require('path');
 const { readFile } = require('fs');
@@ -21,6 +23,9 @@ const config = require('./config');
 module.exports = { start };
 ```
 
+</MacWindow>
+
+<div class="module-subtitle">🧑🏻‍🍳 Cuisine à l'improviste</div>
 <ul class="module-list">
 <li><code>require()</code> — une fonction</li>
 <li>Synchrone</li>
@@ -29,6 +34,8 @@ module.exports = { start };
 </div>
 <div v-click class="module-block">
 <div class="module-label">ES Modules — le rigoureux</div>
+
+<MacWindow title="server.mjs">
 
 ```js {1-2}
 import path from 'path';
@@ -39,6 +46,9 @@ import config from './config.js';
 export { start };
 ```
 
+</MacWindow>
+
+<div class="module-subtitle">🧑🏻‍🍳 Cuisine rigoureuse</div>
 <ul class="module-list">
 <li><code>import</code> — un mot-clé</li>
 <li>Asynchrone</li>

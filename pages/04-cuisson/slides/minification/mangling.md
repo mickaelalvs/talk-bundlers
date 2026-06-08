@@ -15,6 +15,8 @@ layout: basic-title
 
 <div class="min-stage min-stage-before">avant</div>
 
+<MacWindow title="user.js">
+
 ```js
 const user = {
   authenticationToken: "abc123",
@@ -25,11 +27,15 @@ const user = {
 sendRequest(user.authenticationToken)
 ```
 
+</MacWindow>
+
 </div>
 
 <div class="min-col">
 
 <div class="min-stage min-stage-after">après</div>
+
+<MacWindow title="user.min.js">
 
 ```js
 const user = {
@@ -40,6 +46,8 @@ const user = {
 
 sendRequest(user.a)
 ```
+
+</MacWindow>
 
 </div>
 
@@ -90,7 +98,6 @@ sendRequest(user.a)
   color: var(--theme-color-steel);
 }
 .min-col :deep(pre) {
-  font-size: 0.85rem;
   text-align: left;
   margin: 0;
 }

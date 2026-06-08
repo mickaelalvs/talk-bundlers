@@ -24,7 +24,7 @@ Trade-off classique : <strong>vitesse de build</strong> vs <strong>agressivité 
   </div>
 
   <div v-click="2" class="bun-card">
-    <div class="bun-logo-badge" style="background:#1C78C0">W</div>
+    <img src="/assets/images/logos/webpack.png" class="bun-logo" />
     <div class="bun-name">Webpack</div>
     <div class="bun-meters">
       <div class="bun-meter">⚡⚡⚡</div>
@@ -40,11 +40,11 @@ Trade-off classique : <strong>vitesse de build</strong> vs <strong>agressivité 
       <div class="bun-meter">⚡⚡⚡</div>
       <div class="bun-meter">🌳🌳🌳🌳</div>
     </div>
-    <div class="bun-note">Utilise <strong>Rollup</strong> pour le build de prod.</div>
+    <div class="bun-note">Build de prod via <strong>Rolldown</strong> (Vite 8), héritier de Rollup.</div>
   </div>
 
   <div v-click="4" class="bun-card">
-    <div class="bun-logo-badge" style="background:#EC4A3F">R</div>
+    <img src="/assets/images/logos/rollup.png" class="bun-logo" />
     <div class="bun-name">Rollup</div>
     <div class="bun-meters">
       <div class="bun-meter">⚡⚡</div>
@@ -69,6 +69,7 @@ Trade-off classique : <strong>vitesse de build</strong> vs <strong>agressivité 
   color: var(--theme-color-charcoal);
   line-height: 1.5;
   margin-bottom: 1.5rem;
+  padding-top: 3rem;
 }
 .bun-intro strong {
   font-family: "Paytone One", sans-serif;
@@ -87,7 +88,7 @@ Trade-off classique : <strong>vitesse de build</strong> vs <strong>agressivité 
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.8rem;
   padding: 0.9rem 0.7rem;
   background: rgba(255, 255, 255, 0.6);
   border-radius: 12px;
@@ -97,17 +98,6 @@ Trade-off classique : <strong>vitesse de build</strong> vs <strong>agressivité 
   width: 50px;
   height: 50px;
   object-fit: contain;
-}
-.bun-logo-badge {
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Paytone One", sans-serif;
-  font-size: 1.8rem;
-  color: white;
 }
 .bun-name {
   font-family: "Paytone One", sans-serif;
@@ -198,6 +188,6 @@ au minificateur de voir plus loin et de supprimer plus de code.
 trade-off. Choisir selon le besoin (build rapide en CI vs bundle minimal
 en prod).
 
-Logos webpack (W bleu) et rollup (R rouge) : badges colorés en attendant
+Logos webpack et rollup affichés (PNG).
 de récupérer les vrais SVG.
 -->

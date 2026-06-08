@@ -21,7 +21,7 @@ layout: basic
       </a>
     </div>
     <div class="grm-qr">
-      <div class="grm-qr-placeholder">QR</div>
+      <img src="/assets/images/qr/qrcode_alves.png" class="grm-qr-img" />
     </div>
   </div>
 
@@ -42,7 +42,7 @@ layout: basic
       </a>
     </div>
     <div class="grm-qr">
-      <div class="grm-qr-placeholder">QR</div>
+      <img src="/assets/images/qr/qrcode_idoux.png" class="grm-qr-img" />
     </div>
   </div>
 
@@ -129,24 +129,11 @@ layout: basic
   gap: 0.25rem;
   margin-top: 0.2rem;
 }
-.grm-qr-placeholder {
+.grm-qr-img {
   width: 140px;
   height: 140px;
-  background: repeating-linear-gradient(
-    45deg,
-    var(--theme-color-charcoal),
-    var(--theme-color-charcoal) 12px,
-    white 12px,
-    white 24px
-  );
+  object-fit: contain;
   border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Paytone One", sans-serif;
-  font-size: 2rem;
-  color: white;
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
 }
 
 </style>
@@ -154,9 +141,8 @@ layout: basic
 <!--
 Les deux speakers, photos GitHub avec le logo Zenika en badge bas-gauche.
 
-QR codes placeholder sous chaque speaker, pointant vers leur site perso
-respectif. À remplacer par les vrais QR générés depuis mickaelalvs.dev et
-eidoux.dev.
+QR codes sous chaque speaker, pointant vers leur site perso respectif
+(mickaelalvs.dev et eidoux.dev).
 
 À l'oral : qui fait quoi dans la vraie vie, contexte du projet.
 -->

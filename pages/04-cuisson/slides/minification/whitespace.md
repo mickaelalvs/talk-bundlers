@@ -15,6 +15,8 @@ layout: basic-title
 
 <div class="min-stage min-stage-before">avant</div>
 
+<MacWindow title="score.js">
+
 ```js
 // Calcule le score d'un user
 function calculateScore(user, items) {
@@ -29,15 +31,21 @@ function calculateScore(user, items) {
 }
 ```
 
+</MacWindow>
+
 </div>
 
 <div class="min-col">
 
 <div class="min-stage min-stage-after">après</div>
 
+<MacWindow title="score.min.js">
+
 ```js
 function calculateScore(user,items){let total=0;for(const item of items){total+=item.points*user.bonus;}return total;}
 ```
+
+</MacWindow>
 
 </div>
 
@@ -88,7 +96,6 @@ Aucun impact à l'exécution, juste des bytes en moins sur le réseau.
   color: var(--theme-color-steel);
 }
 .min-col :deep(pre) {
-  font-size: 0.85rem;
   text-align: left;
   margin: 0;
 }
