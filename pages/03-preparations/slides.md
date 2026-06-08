@@ -201,19 +201,11 @@ src: ./slides/module-resolution/intro.md
 ---
 
 ---
-src: ./slides/module-resolution/problem.md
----
-
----
 src: ./slides/module-resolution/cjs-vs-esm.md
 ---
 
 ---
-src: ./slides/module-resolution/esm-example.md
----
-
----
-src: ./slides/module-resolution/cjs-example.md
+src: ./slides/module-resolution/bundle-comparison.md
 ---
 
 ---
