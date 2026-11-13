@@ -42,15 +42,15 @@ Avant / après
 <div v-click="3" class="cs-bilan-thresholds">
   <div class="cs-bilan-threshold-item">
     <span class="cs-bilan-threshold-bad">&lt; 20 KB</span>
-    <span>trop petit — l'overhead HTTP dépasse le gain</span>
+    <span>trop petit, l'overhead HTTP dépasse le gain</span>
   </div>
   <div class="cs-bilan-threshold-item">
-    <span class="cs-bilan-threshold-good">20 – 150 KB</span>
-    <span>sweet spot par chunk</span>
+    <span class="cs-bilan-threshold-good">20 à 150 KB</span>
+    <span>taille idéale par chunk</span>
   </div>
   <div class="cs-bilan-threshold-item">
     <span class="cs-bilan-threshold-bad">&gt; 150 KB</span>
-    <span>trop gros — à re-découper</span>
+    <span>trop gros, à re-découper</span>
   </div>
 </div>
 

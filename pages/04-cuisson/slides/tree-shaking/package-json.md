@@ -8,7 +8,7 @@ Pourquoi cette différence ? Leur package.json
 ::default::
 
 <div class="pj-intro">
-Même code source. Packaging différent. Voilà le secret :
+Même code source, packaging différent.
 </div>
 
 <div class="pj-grid">
@@ -31,7 +31,7 @@ Même code source. Packaging différent. Voilà le secret :
 <div class="pj-explain pj-explain-bad">
 Pas de <code>module</code>, pas de <code>exports</code>,<br />
 pas de <code>sideEffects</code>.<br />
-→ Le bundler tombe sur du CJS. <strong>Game over</strong>.
+→ Le bundler tombe sur du CJS et ne peut rien retirer.
 </div>
 
 </div>

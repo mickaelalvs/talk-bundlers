@@ -4,7 +4,7 @@ align: left
 ---
 
 ::title::
-Module Resolution
+Module resolution
 
 ::default::
 
@@ -34,7 +34,7 @@ console.log(add(1, 2));
 
 </div>
 <ul class="module-list">
-<li><lucide:key-round class="li-icon" /> <code>import</code> — un mot-clé</li>
+<li><lucide:key-round class="li-icon" /> <code>import</code>, un mot-clé</li>
 <li><lucide:check-check class="li-icon" /> Résolu <strong>à la compilation</strong></li>
 </ul>
 </div>
@@ -63,7 +63,7 @@ console.log(add(1, 2));
 
 </div>
 <ul class="module-list">
-<li><lucide:function-square class="li-icon" /> <code>require()</code> — une fonction</li>
+<li><lucide:function-square class="li-icon" /> <code>require()</code>, une fonction</li>
 <li><lucide:clock class="li-icon" /> Résolu <strong>à l'exécution</strong></li>
 </ul>
 </div>

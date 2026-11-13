@@ -60,7 +60,7 @@ const routes = [
 
 <div v-click="2" class="cs-fw-note">
   <lucide-info class="cs-fw-note-icon" />
-  <span>Dans les deux cas, c'est le <code>import()</code> qui déclenche le split. Les frameworks ne font que wrapper.</span>
+  <span>Dans les deux cas, c'est <code>import()</code> qui déclenche le split. Les frameworks l'enrobent.</span>
 </div>
 
 <style>

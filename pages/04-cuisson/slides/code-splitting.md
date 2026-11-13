@@ -22,7 +22,7 @@ Code splitting
 </div>
 </div>
 
-<div v-click="2" class="cs-trigger">Le point de découpe = <code>import()</code> dynamique — routes, <code>React.lazy()</code>…</div>
+<div v-click="2" class="cs-trigger">On découpe à chaque <code>import()</code> dynamique, souvent via les routes ou <code>React.lazy()</code>.</div>
 
 <div v-click="3" class="cs-benefit">L'utilisateur ne télécharge que le strict nécessaire au démarrage. Le reste arrive quand il en a besoin.</div>
 

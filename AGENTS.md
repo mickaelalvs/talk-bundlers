@@ -20,6 +20,7 @@ Ce projet utilise [Slidev](https://sli.dev) pour générer des présentations au
 10. **Révélation en deux temps** : D'abord montrer/highlight ce qu'on regarde (click), puis montrer le résultat/conséquence au click suivant. Ne jamais tout révéler d'un coup.
 11. **Icônes Iconify dans des divs** : Ne pas laisser de lignes vides entre éléments HTML dans un `<div>`, sinon le parser markdown casse les composants Vue (ils s'affichent en texte brut).
 12. **CSS pur, pas de Tailwind** : Utiliser des blocs `<style>` avec du CSS classique pour le styling des slides. Ne pas utiliser de classes utilitaires Tailwind.
+13. **Texte unslop** : Appliquer le skill `unslop` au texte visible des slides. Pas de tiret cadratin (`—`) ni demi-cadratin, des virgules ou des points. Pas d'emoji décoratif dans les titres ni dans les phrases (les `✓ ✗ ⚠` fonctionnels et les illustrations restent). Pas de "Game over", "Voilà le secret", d'adjectifs promotionnels ni de listes forcées à trois éléments. Titres en casse de phrase. Les notes orateur (`<!-- -->`) ne sont pas concernées sauf demande.
 
 ## Layouts disponibles
 

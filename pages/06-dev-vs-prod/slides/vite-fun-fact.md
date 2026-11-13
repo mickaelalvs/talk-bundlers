@@ -8,7 +8,7 @@ Et au fait, Vite ne bundle pas en dev
 ::default::
 
 <div class="vff-intro">
-Rupture conceptuelle par rapport à Webpack &amp; co.
+Pas la même approche que Webpack &amp; co.
 </div>
 
 <div class="vff-compare">

@@ -8,7 +8,7 @@ Et après ?
 ::default::
 
 <div class="fut-intro">
-La course continue : <strong>Rust dévore la toolchain</strong>. Plus rapide, moins de couches.
+<strong>Rust remplace peu à peu la toolchain JS</strong>. Plus rapide, moins de couches.
 </div>
 
 <div class="fut-grid">
@@ -45,7 +45,7 @@ La course continue : <strong>Rust dévore la toolchain</strong>. Plus rapide, mo
   <div class="fut-swap-side fut-swap-rust"><span class="fut-swap-tag">briques Rust</span> SWC · Oxc · Lightning&nbsp;CSS</div>
 </div>
 
-<div v-click="6" class="fut-date">Vite 8 (stable mars 2026) tourne déjà sur Rolldown — si tu utilises Vite, tu utilises déjà tout ça.</div>
+<div v-click="6" class="fut-date">Vite 8 est stable depuis mars 2026 et tourne déjà sur Rolldown. Si tu utilises Vite, tu utilises déjà tout ça.</div>
 
 <div v-click="7" class="fut-tagline">
   Le bundler devient (presque) un détail d'implémentation.

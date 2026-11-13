@@ -13,7 +13,7 @@ Un même plat, des ustensiles différents
 
 <div class="bilan-content">
   <p v-click class="bilan-message">
-    Peu importe l'ustensile choisi, les <span class="bilan-highlight">principes</span> restent les mêmes.
+    Quel que soit l'ustensile, les <span class="bilan-highlight">étapes</span> restent les mêmes.
   </p>
   <div v-click class="bilan-principles">
     <div class="bilan-principle-item">

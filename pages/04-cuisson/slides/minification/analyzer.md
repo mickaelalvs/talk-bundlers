@@ -5,7 +5,7 @@ padding: p-0
 ---
 
 ::title::
-Bundle analyzer : voir ce qui pèse vraiment
+Bundle analyzer : voir ce qui pèse dans le bundle
 
 ::default::
 

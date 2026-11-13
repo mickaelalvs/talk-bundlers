@@ -5,4 +5,4 @@ current: 0
 transition: slide-left
 ---
 
-Recette terminée ✅ — service !
+Recette terminée, service !

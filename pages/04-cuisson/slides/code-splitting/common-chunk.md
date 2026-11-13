@@ -34,7 +34,7 @@ Le chunk commun
   </div>
   <div v-click="2" class="cs-common-metaphor">
     <span class="cs-common-emoji">🧂</span>
-    Les condiments restent sur la table — pas besoin de les mettre dans chaque assiette.
+    Les condiments restent sur la table, pas besoin de les mettre dans chaque assiette.
   </div>
 </div>
 

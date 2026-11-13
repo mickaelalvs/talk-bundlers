@@ -3,7 +3,7 @@ layout: basic-title
 ---
 
 ::title::
-Lodash : la même fonction, deux mondes
+Lodash et lodash-es : même fonction, bundle différent
 
 ::default::
 

@@ -30,7 +30,7 @@ Sourcemaps : à quoi ça sert ?
 </div>
 
 <div class="sm-result">
-  ✓ Breakpoints sur la source &nbsp; · &nbsp; ✓ Stack traces lisibles &nbsp; · &nbsp; ✓ Console errors pointant vers le vrai code
+  ✓ Breakpoints sur la source &nbsp; · &nbsp; ✓ Stack traces lisibles &nbsp; · &nbsp; ✓ Erreurs console qui pointent vers le vrai code
 </div>
 
 <style>

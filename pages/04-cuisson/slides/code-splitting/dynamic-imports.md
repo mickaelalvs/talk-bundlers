@@ -10,7 +10,7 @@ Dynamic imports
 
 <div class="cs-imports">
   <div class="cs-import-block">
-    <div class="cs-import-label">Import statique — dans le bundle principal</div>
+    <div class="cs-import-label">Import statique, dans le bundle principal</div>
 
 <MacWindow title="App.jsx">
 
@@ -23,7 +23,7 @@ import { Home } from './Home'
   </div>
 
   <div v-click="1" class="cs-import-block cs-import-dynamic">
-    <div class="cs-import-label cs-import-label-dynamic">Import dynamique — chunk séparé</div>
+    <div class="cs-import-label cs-import-label-dynamic">Import dynamique, dans un chunk séparé</div>
 
 <MacWindow title="App.jsx">
 
@@ -37,7 +37,7 @@ const Dashboard = () => import('./Dashboard')
 
   <div v-click="2" class="cs-import-note">
     <lucide-info class="cs-info-icon" />
-    <span>Le <code>import()</code> retourne une <strong>Promise</strong>. Le bundler le détecte au build et crée un fichier séparé automatiquement.</span>
+    <span><code>import()</code> retourne une <strong>Promise</strong>. Le bundler le repère au build et crée un fichier séparé.</span>
   </div>
 </div>
 

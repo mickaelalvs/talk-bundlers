@@ -8,7 +8,7 @@ Tous les bundlers ne tree-shakent pas pareil
 ::default::
 
 <div class="bun-intro">
-Trade-off classique : <strong>vitesse de build</strong> vs <strong>agressivité d'optimisation</strong>.
+Plus un bundler est <strong>rapide</strong>, moins il <strong>optimise</strong> en profondeur.
 </div>
 
 <div class="bun-grid">
@@ -50,7 +50,7 @@ Trade-off classique : <strong>vitesse de build</strong> vs <strong>agressivité 
       <div class="bun-meter">⚡⚡</div>
       <div class="bun-meter">🌳🌳🌳🌳🌳</div>
     </div>
-    <div class="bun-note">Le standard or. <strong>Scope hoisting</strong> agressif.</div>
+    <div class="bun-note">La référence. <strong>Scope hoisting</strong> poussé.</div>
   </div>
 
 </div>

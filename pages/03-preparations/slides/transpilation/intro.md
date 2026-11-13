@@ -25,7 +25,7 @@ Transpilation, c'est quoi ?
 ::default::
 
 <div class="def-quote">
-<div v-click="1" class="def-quote-main">Le navigateur ne parle que le <strong>JavaScript</strong>, on doit donc traduire ton <strong>TypeScript</strong>, ton <strong>JSX</strong>, tes composants <strong>Vue · Svelte · Astro</strong>...</div>
+<div v-click="1" class="def-quote-main">Le navigateur ne comprend que le <strong>JavaScript</strong>. Il faut traduire ton <strong>TypeScript</strong>, ton <strong>JSX</strong> et tes composants <strong>Vue · Svelte · Astro</strong>.</div>
 </div>
 
 <!--

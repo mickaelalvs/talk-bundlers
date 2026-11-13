@@ -9,7 +9,7 @@ Le graphe de dépendances
 ::default::
 
 <div class="dg-grid">
-<div v-click="1" class="dg-item"><img src="/assets/images/items/egg.svg" class="dg-icon" /><span class="dep-chip dg-text">Qu'est ce que l'on inclut ?</span></div>
+<div v-click="1" class="dg-item"><img src="/assets/images/items/egg.svg" class="dg-icon" /><span class="dep-chip dg-text">Qu'est-ce que l'on inclut ?</span></div>
 <div v-click="2" class="dg-item"><img src="/assets/images/items/egg.svg" class="dg-icon" /><span class="dep-chip dg-text">Dans quel ordre de chargement ?</span></div>
 <div v-click="3" class="dg-item"><img src="/assets/images/items/egg.svg" class="dg-icon" /><span class="dep-chip dg-text">Et est-ce qu'on l'utilise ?</span></div>
 </div>

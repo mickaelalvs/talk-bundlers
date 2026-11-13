@@ -47,7 +47,7 @@ $brand: #db994d;
 
 </div>
 
-<div v-click class="cssp-general">Une règle par <strong>type de fichier</strong>, <span class="dep-chip">*.ts</span> <span class="dep-chip">*.scss</span> <span class="dep-chip">*.png</span>…, câblée par un <strong>loader</strong> ou un <strong>plugin</strong> 🪄</div>
+<div v-click class="cssp-general">Une règle par <strong>type de fichier</strong>, <span class="dep-chip">*.ts</span> <span class="dep-chip">*.scss</span> <span class="dep-chip">*.png</span>…, câblée par un <strong>loader</strong> ou un <strong>plugin</strong></div>
 
 <style scoped>
 .cssp-grid {

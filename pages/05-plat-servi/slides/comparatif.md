@@ -18,7 +18,7 @@ Quel ustensile pour quel plat ?
       <span class="choix-need">Je crée une app</span>
       <span class="choix-answer">→ Vite</span>
     </div>
-    <span class="choix-why">Dev instantané, config minimale, écosystème riche</span>
+    <span class="choix-why">Dev instantané, config minimale</span>
   </div>
   <div v-click class="choix-card">
     <lucide-package class="choix-icon" />
@@ -26,7 +26,7 @@ Quel ustensile pour quel plat ?
       <span class="choix-need">Je publie une librairie</span>
       <span class="choix-answer">→ Rollup</span>
     </div>
-    <span class="choix-why">Output ESM propre, tree-shaking optimal pour les consommateurs</span>
+    <span class="choix-why">Sortie ESM propre, bon tree-shaking pour ceux qui l'installent</span>
   </div>
   <div v-click class="choix-card">
     <lucide-building class="choix-icon" />
@@ -34,7 +34,7 @@ Quel ustensile pour quel plat ?
       <span class="choix-need">J'ai un gros legacy</span>
       <span class="choix-answer">→ Webpack</span>
     </div>
-    <span class="choix-why">Écosystème immense, tout est pluggable, migration risquée</span>
+    <span class="choix-why">Un plugin pour tout, mais migration risquée</span>
   </div>
   <div v-click class="choix-card">
     <lucide-rocket class="choix-icon" />

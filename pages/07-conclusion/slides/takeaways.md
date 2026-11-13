@@ -29,7 +29,7 @@ Ce qu'il faut retenir
     <div class="tk-num">③</div>
     <div class="tk-title">Choisir = compromis</div>
     <div class="tk-desc">
-      Choisir son bundler, c'est arbitrer entre <strong>config, perf et écosystème</strong>. Pas de solution magique.
+      Aucun bundler ne gagne partout. Il faut arbitrer entre <strong>config, perf et écosystème</strong>.
     </div>
   </div>
 
