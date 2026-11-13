@@ -1,32 +1,13 @@
 ---
-layout: basic
+layout: title
 ---
 
-<div class="transp-subsection">
-  <div class="transp-icon">🔪</div>
-  <h1 class="transp-name">Transpilation</h1>
-</div>
+::number::
+🔪
 
-<style>
-.transp-subsection {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  gap: 1.5rem;
-}
-.transp-icon {
-  font-size: 7rem;
-  line-height: 1;
-}
-.transp-name {
-  font-family: "Paytone One", sans-serif !important;
-  color: var(--theme-color-steel) !important;
-  font-size: 5rem !important;
-  margin: 0;
-}
-</style>
+::default::
+
+# Transpilation
 
 <!--
 Transition vers le sous-bloc transpilation.
@@ -43,60 +24,17 @@ Transpilation, c'est quoi ?
 
 ::default::
 
-<div class="transp-def">
-  <div v-click="1" class="transp-def-role">
-    <span class="transp-emoji">⚙️</span>
-    Son rôle, c'est que ton code tourne partout.<br />
-    Du dernier Chrome au navigateur de mamie qui n'a jamais été mis à jour.
-  </div>
-
-  <div v-click="2" class="transp-def-tech">
-    Concrètement : transformer ton <strong>TypeScript</strong>, ton <strong>JSX</strong>
-    et certaines syntaxes JS en code que le navigateur peut exécuter.
-  </div>
+<div class="def-quote">
+<div v-click="1" class="def-quote-main">Le navigateur ne parle que le <strong>JavaScript</strong>, on doit donc traduire ton <strong>TypeScript</strong>, ton <strong>JSX</strong>, tes composants <strong>Vue · Svelte · Astro</strong>...</div>
 </div>
 
-<style>
-.transp-def {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  width: 100%;
-  max-width: 760px;
-  margin: 0 auto;
-  font-family: "Nunito", sans-serif;
-  text-align: left;
-  line-height: 1.5;
-}
-.transp-def-role {
-  font-size: 1.5rem;
-  color: var(--theme-color-charcoal);
-  font-weight: 600;
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-}
-.transp-emoji {
-  font-size: 2.2rem;
-  line-height: 1;
-  flex-shrink: 0;
-}
-.transp-def-tech {
-  font-size: 1.15rem;
-  color: var(--theme-color-charcoal);
-  padding-left: 3.5rem;
-}
-.transp-def-tech strong {
-  font-family: "Paytone One", sans-serif;
-  color: var(--theme-color-amber);
-  font-weight: normal;
-}
-</style>
-
 <!--
-[click 1] La phrase clé : son rôle c'est de garantir que ton code tourne
-partout, du Chrome récent au navigateur d'une vieille machine.
+[click 1] La phrase clé : le navigateur ne comprend QUE le JavaScript. Ni TS,
+ni JSX, ni les composants .vue/.svelte/.astro — même le dernier Chrome.
 
-[click 2] Concrètement : ce qu'on transpile aujourd'hui c'est surtout
-TypeScript, JSX, et certaines syntaxes JS pas encore supportées partout.
+[click 2] Concrètement, la transpilation retraduit tout ça en JS : TypeScript,
+JSX, et les formats de composants (Vue/Svelte/Astro → JS). Raison n°1 aujourd'hui.
+Le down-level (réécrire les syntaxes JS récentes pour les vieux navigateurs) est
+secondaire et de plus en plus marginal — c'est ce qu'on pilote via le "target"
+(slide suivante). Le CSS, lui, est traité à part (SCSS → CSS, slide css-pipeline).
 -->

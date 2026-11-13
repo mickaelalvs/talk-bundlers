@@ -47,11 +47,7 @@ $brand: #db994d;
 
 </div>
 
-<div class="cssp-bricks">
-<span class="cssp-brick">Sass</span> compile variables &amp; nesting
-<span class="cssp-arrow">→</span>
-<span class="cssp-brick">Lightning&nbsp;CSS</span> / <span class="cssp-brick">PostCSS</span> préfixent &amp; minifient
-</div>
+<div v-click class="cssp-general">Une règle par <strong>type de fichier</strong>, <span class="dep-chip">*.ts</span> <span class="dep-chip">*.scss</span> <span class="dep-chip">*.png</span>…, câblée par un <strong>loader</strong> ou un <strong>plugin</strong> 🪄</div>
 
 <style scoped>
 .cssp-grid {
@@ -60,6 +56,7 @@ $brand: #db994d;
   gap: 1.5rem;
   width: 100%;
   align-items: start;
+  padding-top: 3rem;
 }
 .cssp-col {
   display: flex;
@@ -106,6 +103,25 @@ $brand: #db994d;
   font-weight: 700;
   margin: 0 0.6rem;
 }
+.cssp-general {
+  margin: 1.8rem auto 0;
+  max-width: 700px;
+  text-align: center;
+  padding: 1rem 1.5rem;
+  background: rgba(219, 153, 77, 0.12);
+  border-left: 4px solid var(--theme-color-amber);
+  border-radius: 10px;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.1rem;
+  color: var(--theme-color-charcoal);
+  line-height: 1.7;
+  text-wrap: balance;
+}
+.cssp-general strong {
+  font-family: "Paytone One", sans-serif;
+  color: var(--theme-color-amber);
+  font-weight: normal;
+}
 </style>
 
 <!--
@@ -120,6 +136,12 @@ Les briques en jeu :
 Même mouvement que côté JS : les briques JS (PostCSS) sont concurrencées par
 des équivalents Rust (Lightning CSS), plus rapides. Vite utilise Lightning CSS
 par défaut pour ça.
+
+[click] La généralisation : on ne traite pas les fichiers un par un. On déclare
+UNE règle par type (*.ts, *.scss, *.png…) câblée par un LOADER (transforme un
+fichier, par type, ça s'enchaîne) ou un PLUGIN (agit sur tout le build).
+Nuance : loader vs plugin = surtout du webpack ; Rollup/Vite/esbuild unifient
+tout en plugins (hook `transform`).
 
 Transition : on a vu transformer JS et CSS. Place à la résolution des modules.
 -->

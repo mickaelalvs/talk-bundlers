@@ -1,39 +1,23 @@
 ---
-layout: basic
+layout: title
 ---
 
-<div class="frigo-conclusion">
-  <div v-click class="frigo-chef-emoji">🧑🏼‍🍳</div>
-  <div v-click class="frigo-bundler-name">bundler</div>
-</div>
+::number::
+<img src="/assets/images/items/kitchen_hat.svg" class="bundler-hat" />
+
+::default::
+
+# Bundler
 
 <style>
-.frigo-conclusion {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  gap: 1.5rem;
-  text-align: center;
-}
-.frigo-chef-emoji {
-  font-size: 7rem;
-  line-height: 1;
-}
-.frigo-bundler-name {
-  font-family: "Paytone One", sans-serif;
-  color: var(--theme-color-amber);
-  font-size: 4rem;
-  text-transform: uppercase;
+.bundler-hat {
+  width: auto;
+  display: inline-block;
+  filter: drop-shadow(0 0 2px black);
 }
 </style>
 
 <!--
-TODO:
-- Mettre Bundler sur le plan de travail avec assets toque de chef
-
-[click] Le chef.
-[click] Son nom : le bundler.
-→ Partie 2 : par où commence-t-il ? Comment lit-il votre projet ?
+On commence par poser le problème.
+Faire un site, ça semble simple en théorie…
 -->

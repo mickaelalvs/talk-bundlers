@@ -230,3 +230,86 @@ img[class*="logo"],
   background: color-mix(in srgb, currentColor 12%, transparent);
   border: 1px solid color-mix(in srgb, currentColor 28%, transparent);
 }
+
+/* Définition en mode citation ("xxx, c'est quoi ?") — centré vertical, guillemets « » */
+.def-quote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 1.8rem;
+  text-align: center;
+}
+.def-quote-main {
+  position: relative;
+  font-family: "Nunito", sans-serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 2.1rem;
+  line-height: 1.45;
+  color: var(--theme-color-charcoal);
+  max-width: 46rem;
+  padding: 0 3.2rem;
+  text-wrap: balance;
+}
+.def-quote-main::before,
+.def-quote-main::after {
+  position: absolute;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--theme-color-amber);
+  opacity: 0.55;
+}
+.def-quote-main::before {
+  content: "«";
+  left: -0.3rem;
+  top: -1.4rem;
+}
+.def-quote-main::after {
+  content: "»";
+  right: -0.3rem;
+  bottom: -2.4rem;
+}
+.def-quote-main strong {
+  font-family: "Paytone One", sans-serif;
+  font-style: normal;
+  color: var(--theme-color-amber);
+  font-weight: normal;
+}
+.def-quote-tech {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.15rem;
+  color: var(--theme-color-slate);
+  max-width: 42rem;
+  text-wrap: balance;
+}
+.def-quote-tech strong {
+  font-family: "Paytone One", sans-serif;
+  color: var(--theme-color-amber);
+  font-weight: normal;
+}
+.def-quote-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "Nunito", sans-serif;
+  font-size: 0.9rem;
+  color: var(--theme-color-charcoal);
+  background: rgba(81, 138, 184, 0.08);
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  max-width: 44rem;
+}
+.def-quote-note-icon {
+  font-size: 1.1rem;
+  color: var(--theme-color-steel);
+  flex-shrink: 0;
+}
+.def-quote-note strong {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85em;
+  color: var(--theme-color-steel);
+  font-weight: normal;
+}

@@ -12,18 +12,26 @@ Dynamic imports
   <div class="cs-import-block">
     <div class="cs-import-label">Import statique — dans le bundle principal</div>
 
+<MacWindow title="App.jsx">
+
 ```js
 import { Home } from './Home'
 ```
+
+</MacWindow>
 
   </div>
 
   <div v-click="1" class="cs-import-block cs-import-dynamic">
     <div class="cs-import-label cs-import-label-dynamic">Import dynamique — chunk séparé</div>
 
+<MacWindow title="App.jsx">
+
 ```js
 const Dashboard = () => import('./Dashboard')
 ```
+
+</MacWindow>
 
   </div>
 
@@ -54,8 +62,12 @@ const Dashboard = () => import('./Dashboard')
 .cs-import-label-dynamic {
   color: #2e7d32;
 }
-.cs-import-dynamic :deep(pre) {
-  border-left: 4px solid #2e7d32 !important;
+.cs-imports :deep(.mac-window) {
+  min-width: 0;
+  width: 100%;
+}
+.cs-import-dynamic :deep(.mac-window) {
+  border-color: #2e7d32 !important;
 }
 .cs-import-note {
   display: flex;

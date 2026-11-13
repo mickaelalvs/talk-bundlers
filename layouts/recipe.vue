@@ -9,9 +9,10 @@ defineProps({
 
 // La recette du bundler — éditable ici, à un seul endroit.
 const STEPS = [
+  { cuisine: 'Ouvrir le frigo', tech: 'sources' },
   { cuisine: 'Trouver les ingrédients', tech: 'résolution' },
   { cuisine: 'La mise en place', tech: 'graphe' },
-  { cuisine: 'Les préparations', tech: 'transform' },
+  { cuisine: 'Les préparations', tech: 'transform · résolution' },
   { cuisine: 'Le tri', tech: 'tree-shaking' },
   { cuisine: 'Le découpage', tech: 'split' },
   { cuisine: 'La réduction', tech: 'minif' },
@@ -175,11 +176,15 @@ const STEPS = [
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-family: "Nunito", sans-serif;
-  font-weight: 600;
-  font-size: 1.4rem;
-  line-height: 1.45;
+  font-family: "Paytone One", sans-serif;
+  font-weight: 400;
+  font-size: 1.35rem;
+  line-height: 1.4;
   color: var(--theme-color-charcoal);
+}
+.recipe-postit,
+.recipe-postit :deep(*) {
+  font-family: "Paytone One", sans-serif;
 }
 .recipe-postit :deep(p) {
   margin: 0;

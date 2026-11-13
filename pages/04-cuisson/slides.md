@@ -1,8 +1,8 @@
 ---
 layout: recipe
-done: 3
+done: 4
 current: 0
-transition: view-transition
+transition: slide-left
 ---
 
 La cuisson commence 🍳

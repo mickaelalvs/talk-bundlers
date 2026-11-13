@@ -15,6 +15,8 @@ En pratique
       <span>React</span>
     </div>
 
+<MacWindow title="App.jsx">
+
 ```jsx
 const Dashboard = React.lazy(
   () => import('./Dashboard')
@@ -29,6 +31,8 @@ function App() {
 }
 ```
 
+</MacWindow>
+
   </div>
 
   <div v-click="1" class="cs-fw-col">
@@ -36,6 +40,8 @@ function App() {
       <lucide-file-code class="cs-fw-icon" />
       <span>Vue</span>
     </div>
+
+<MacWindow title="router.js">
 
 ```js
 // Route-level splitting (Vue Router)
@@ -46,6 +52,8 @@ const routes = [
   }
 ]
 ```
+
+</MacWindow>
 
   </div>
 </div>
@@ -78,6 +86,10 @@ const routes = [
 .cs-fw-icon {
   font-size: 1.1rem;
   color: var(--theme-color-amber);
+}
+.cs-fw :deep(.mac-window) {
+  min-width: 0;
+  width: 100%;
 }
 .cs-fw-note {
   display: flex;

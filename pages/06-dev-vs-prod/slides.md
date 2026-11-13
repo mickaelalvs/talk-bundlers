@@ -1,8 +1,8 @@
 ---
 layout: recipe
-done: 6
+done: 7
 current: 1
-transition: view-transition
+transition: slide-left
 ---
 
 Le dressage : dev vs prod 🍽️

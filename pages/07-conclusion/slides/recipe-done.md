@@ -1,8 +1,8 @@
 ---
 layout: recipe
-done: 7
+done: 8
 current: 0
-transition: view-transition
+transition: slide-left
 ---
 
 Recette terminée ✅ — service !

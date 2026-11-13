@@ -1,6 +1,6 @@
 ---
 layout: basic-title
-transition: view-transition
+transition: slide-left
 padding: pt-28 px-20 pb-20
 ---
 
@@ -30,12 +30,9 @@ La liste de courses du chef
 </div>
 <p v-click class="dep-liste-explain">
 Le bundler ne reçoit qu'<span class="dep-liste-highlight">un seul fichier</span> en entrée.<br/>
-Il doit <span class="dep-liste-highlight--steel">découvrir tous les autres</span> par lui-même.
+Et doit <span class="dep-liste-highlight--steel">découvrir tous les autres</span>
 </p>
 </div>
-
-<SlideItem src="/assets/images/items/scale.svg" size="100px" bottom="20px" left="40px" rotate="-5deg" opacity="0.3" />
-<SlideItem src="/assets/images/items/utensils_1.svg" size="80px" top="30px" right="50px" rotate="12deg" opacity="0.25" />
 
 <style>
 .dep-liste {
@@ -43,8 +40,9 @@ Il doit <span class="dep-liste-highlight--steel">découvrir tous les autres</spa
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  height : 100%;
   gap: 3rem;
+  padding-top: 5rem;
 }
 .dep-liste-row {
   display: flex;
@@ -58,13 +56,13 @@ Il doit <span class="dep-liste-highlight--steel">découvrir tous les autres</spa
   gap: 0.5rem;
 }
 .dep-liste-icon {
-  font-size: 4rem;
+  font-size: 8rem;
 }
 .dep-liste-icon--recipe {
   color: var(--theme-color-amber);
 }
 .dep-liste-label {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 700;
   font-family: 'Paytone One', sans-serif;
   color: var(--theme-color-amber);
@@ -84,13 +82,13 @@ Il doit <span class="dep-liste-highlight--steel">découvrir tous les autres</spa
 }
 .dep-liste-qmark {
   position: absolute;
-  font-size: 2.5rem;
+  font-size: 4rem;
   color: var(--theme-color-slate);
 }
-.dep-liste-qmark.q1 { top: 0; left: 10px; transform: rotate(-8deg); }
-.dep-liste-qmark.q2 { top: 5px; right: 10px; transform: rotate(12deg); }
-.dep-liste-qmark.q3 { bottom: 0; left: 20px; transform: rotate(5deg); }
-.dep-liste-qmark.q4 { bottom: 5px; right: 20px; transform: rotate(-12deg); }
+.dep-liste-qmark.q1 { top: -40px; left: 10px; transform: rotate(-8deg); }
+.dep-liste-qmark.q2 { top: 60px; right: 30px; transform: rotate(12deg); }
+.dep-liste-qmark.q3 { bottom: 100px; left: 100px; transform: rotate(5deg); }
+.dep-liste-qmark.q4 { bottom: 5px; right: -70px; transform: rotate(-12deg); }
 .dep-liste-explain {
   font-size: 1.4rem;
   text-align: center;
@@ -99,7 +97,7 @@ Il doit <span class="dep-liste-highlight--steel">découvrir tous les autres</spa
   max-width: 600px;
 }
 .dep-liste-highlight {
-  color: var(--theme-color-salmon);
+  color: var(--theme-color-amber);
   font-weight: 700;
 }
 .dep-liste-highlight--steel {

@@ -1,6 +1,6 @@
 ---
 layout: basic-title
-transition: view-transition
+transition: slide-left
 ---
 
 ::title::

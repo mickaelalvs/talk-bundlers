@@ -1,6 +1,6 @@
 ---
 layout: title
-transition: view-transition
+transition: slide-left
 ---
 
 ::number::

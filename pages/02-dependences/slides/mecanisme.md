@@ -1,7 +1,7 @@
 ---
 layout: basic-title
-transition: view-transition
-padding: pt-28 px-20 pb-20
+transition: slide-left
+padding: pt-28 pb-20
 ---
 
 ::title::
@@ -18,34 +18,28 @@ Comment il fait ses courses
 <div class="dep-meca-step-icon">
 <lucide:scan-search class="dep-meca-icon dep-meca-icon--steel" />
 </div>
-<span class="dep-meca-step-text">Parser le fichier</span>
+<span class="dep-meca-step-label"><span class="dep-meca-step-text">Parser le fichier</span><span class="dep-meca-ast">AST</span></span>
 </div>
-<div v-click class="dep-meca-connector">
+<div class="dep-meca-connector">
 <lucide:chevron-right class="dep-meca-chevron" />
 </div>
-<div v-click class="dep-meca-step">
+<div class="dep-meca-step">
 <div class="dep-meca-step-icon">
 <lucide:list-tree class="dep-meca-icon dep-meca-icon--amber" />
 </div>
 <span class="dep-meca-step-text">Trouver les <code>import</code></span>
 </div>
-<div v-click class="dep-meca-connector">
+<div class="dep-meca-connector">
 <lucide:chevron-right class="dep-meca-chevron" />
 </div>
-<div v-click class="dep-meca-step">
+<div class="dep-meca-step">
 <div class="dep-meca-step-icon">
-<lucide:repeat class="dep-meca-icon dep-meca-icon--salmon" />
+<lucide:repeat class="dep-meca-icon dep-meca-icon--steel" />
 </div>
 <span class="dep-meca-step-text">Recommencer</span>
 </div>
 </div>
-<p v-click class="dep-meca-detail">
-Le bundler lit le code (<span class="dep-meca-hl">AST</span>), repère chaque <code>import</code> / <code>require</code>,
-puis fait la même chose sur chaque nouveau fichier découvert. <span class="dep-meca-hl--steel">C'est récursif.</span>
-</p>
 </div>
-
-<SlideItem src="/assets/images/items/cutting_board.svg" size="90px" bottom="20px" right="50px" rotate="-8deg" opacity="0.3" />
 
 <style>
 .dep-meca {
@@ -58,15 +52,33 @@ puis fait la même chose sur chaque nouveau fichier découvert. <span class="dep
 }
 .dep-meca-steps {
   display: flex;
-  align-items: center;
+  align-items: stretch;
+  justify-content: center;
   gap: 1rem;
+  width: 100%;
+  margin: 0 auto;
 }
+@keyframes meca-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+.dep-meca-steps > * {
+  animation: meca-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.dep-meca-steps > *:nth-child(1) { animation-delay: 0.1s; }
+.dep-meca-steps > *:nth-child(2) { animation-delay: 0.3s; }
+.dep-meca-steps > *:nth-child(3) { animation-delay: 0.5s; }
+.dep-meca-steps > *:nth-child(4) { animation-delay: 0.7s; }
+.dep-meca-steps > *:nth-child(5) { animation-delay: 0.9s; }
 .dep-meca-step {
   display: flex;
+  flex: 1 1 0;
+  min-width: 0;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 0.75rem;
-  padding: 1.2rem 1.5rem;
+  padding: 1.2rem 1rem;
   background: rgba(255, 255, 255, 0.6);
   border-radius: 14px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
@@ -77,16 +89,16 @@ puis fait la même chose sur chaque nouveau fichier découvert. <span class="dep
   justify-content: center;
 }
 .dep-meca-icon {
-  font-size: 3rem;
+  font-size: 7rem;
 }
 .dep-meca-icon--steel { color: var(--theme-color-steel); }
 .dep-meca-icon--amber { color: var(--theme-color-amber); }
-.dep-meca-icon--salmon { color: var(--theme-color-salmon); }
 .dep-meca-step-text {
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--theme-color-charcoal);
   text-align: center;
+  white-space: nowrap;
 }
 .dep-meca-step-text code {
   background: rgba(219, 153, 77, 0.15);
@@ -95,8 +107,24 @@ puis fait la même chose sur chaque nouveau fichier découvert. <span class="dep
   font-family: 'JetBrains Mono', monospace;
   color: var(--theme-color-amber);
 }
+.dep-meca-step-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+}
+.dep-meca-ast {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: var(--theme-color-amber);
+  background: rgba(219, 153, 77, 0.15);
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+}
 .dep-meca-connector {
   display: flex;
+  flex: 0 0 auto;
   align-items: center;
 }
 .dep-meca-chevron {

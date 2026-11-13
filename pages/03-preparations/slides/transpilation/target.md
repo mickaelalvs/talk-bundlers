@@ -3,7 +3,7 @@ layout: basic-title
 ---
 
 ::title::
-Et le JS moderne ? Ça dépend du target
+Et le JS moderne ?
 
 ::default::
 

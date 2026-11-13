@@ -1,8 +1,8 @@
 ---
 layout: recipe
-done: 3
+done: 4
 current: 1
-transition: view-transition
+transition: slide-left
 ---
 
 Le tri : on retire ce qui ne sert pas 🌳

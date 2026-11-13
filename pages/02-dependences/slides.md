@@ -1,8 +1,8 @@
 ---
 layout: recipe
-done: 0
+done: 1
 current: 2
-transition: view-transition
+transition: slide-left
 ---
 
 On construit le graphe de dépendances 🗺️
@@ -16,15 +16,7 @@ src: ./slides/mecanisme.md
 ---
 
 ---
-src: ./slides/exemple-cuisine.md
----
-
----
 src: ./slides/example-second-import.md
----
-
----
-src: ./slides/graphe-final.md
 ---
 
 ---

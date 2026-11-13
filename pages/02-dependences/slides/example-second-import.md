@@ -1,51 +1,86 @@
 ---
 layout: basic-title
-transition: view-transition
-align: left
+transition: slide-left
 ---
 
 ::title::
 Le graphe de dépendances
 
 ::subtitle::
-En partant de l'entrypoint
+En profondeur, dans l'ordre de résolution
 
 ::default::
 
-<div class="relative h-full w-full">
+<div class="vtree">
 
-<div class="absolute left-4 top-4 graph-window">
+<div class="vt-line" style="left: 27rem; top: 6.3rem; width: 2px; height: 1.7rem;"></div>
+<div class="vt-line" style="left: 8.5rem; top: 8rem; width: 37rem; height: 2px;"></div>
+<div class="vt-line" style="left: 8.5rem; top: 8rem; width: 2px; height: 1.5rem;"></div>
+<div class="vt-line" style="left: 27rem; top: 8rem; width: 2px; height: 1.5rem;"></div>
+<div class="vt-line" style="left: 45.5rem; top: 8rem; width: 2px; height: 1.5rem;"></div>
+<div class="vt-line" style="left: 27rem; top: 15.4rem; width: 2px; height: 3.1rem;"></div>
 
-<MacWindow title="main.js">
+<div class="vt-win" style="left: 18.5rem; top: 0.5rem;">
 
-```js {*|3|3|3}{lines: true}
-// main.js
+<MacWindow title="① main.js">
+
+```js {*|1|2|2|3}{lines: true}
 import { createApp } from './app.js'
 import { router } from './router.js'
 import './style.css'
-
-const app = createApp()
-app.use(router)
-app.mount('#root')
 ```
 
 </MacWindow>
 
 </div>
 
-<div v-click="2" class="absolute left-56 top-16 graph-window">
+<div v-click="1" class="vt-win" style="left: 0rem; top: 9.5rem;">
 
-<MacWindow title="router.js">
+<MacWindow title="② app.js">
 
-```js {*|2|2}{lines: true, at: 3}
-// router.js
+```js
+export function createApp() {
+  /* ... */
+}
+```
+
+</MacWindow>
+
+</div>
+
+<div v-click="2" class="vt-win" style="left: 18.5rem; top: 9.5rem;">
+
+<MacWindow title="③ router.js">
+
+```js {1}{lines: true}
 import { createRoute } from './route.js'
 
-export const router = {
-  routes: [
-    createRoute('/', 'Home'),
-    createRoute('/about', 'About'),
-  ]
+export const router = { /* ... */ }
+```
+
+</MacWindow>
+
+</div>
+
+<div v-click="4" class="vt-win" style="left: 37rem; top: 9.5rem;">
+
+<MacWindow title="⑤ style.css">
+
+```css
+.app { color: #db994d; }
+```
+
+</MacWindow>
+
+</div>
+
+<div v-click="3" class="vt-win" style="left: 18.5rem; top: 18.5rem;">
+
+<MacWindow title="④ route.js">
+
+```js
+export function createRoute(p, n) {
+  return { p, n }
 }
 ```
 
@@ -53,46 +88,49 @@ export const router = {
 
 </div>
 
-<div v-click="4" class="absolute left-108 top-44 graph-window">
-
-<MacWindow title="route.js">
-
-```js {*}{lines: true}
-// route.js
-export function createRoute(path, name) {
-  return { path, name, component: null }
-}
-```
-
-</MacWindow>
-
-</div>
-
-</div>
-
-<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-3 text-xl">
-  <span class="dep-chip font-bold text-[var(--theme-color-steel)]">main.js</span>
-  <span v-click="2" class="text-[var(--theme-color-slate)]">→</span>
-  <span v-click="2" class="dep-chip font-bold text-[var(--theme-color-amber)]">router.js</span>
-  <span v-click="4" class="text-[var(--theme-color-slate)]">→</span>
-  <span v-click="4" class="dep-chip font-bold text-[var(--theme-color-slate)]">route.js</span>
 </div>
 
 <style scoped>
-.graph-window {
-  width: 380px;
+.vtree {
+  position: relative;
+  width: 54rem;
+  height: 24rem;
+  margin: 4rem auto 0;
 }
-.graph-window :deep(.mac-window) {
+.vt-win {
+  position: absolute;
+  width: 17rem;
+  z-index: 1;
+}
+.vt-line {
+  position: absolute;
+  background: var(--theme-color-mist);
+  z-index: 0;
+}
+.vt-win :deep(.mac-window) {
   min-width: 0;
   width: 100%;
 }
-.graph-window :deep(.mac-body) {
-  padding: 0.5rem 0.75rem;
+.vt-win :deep(.mac-body) {
+  padding: 0.4rem 0.65rem;
+}
+.vt-win :deep(.slidev-code) {
+  font-size: 0.62rem !important;
+  line-height: 1.35 !important;
+  text-align: left !important;
 }
 </style>
 
 <!--
-Et du coup dans ce nouveau fichier, le bundler va refaire exactement la même chose : sans lire les instructions, on va vérifier les imports.
+Arbre top-down. main.js en racine, ses 3 imports en dessous (app, router, style),
+et route.js sous router.js.
 
-Et là, router.js importe aussi quelque chose ! Donc on continue en profondeur, jusqu'à arriver à un fichier sans import.
+Ordre de résolution = PROFONDEUR D'ABORD :
+[base] ① main.js
+[click 1] ② app.js (1er import, feuille)
+[click 2] ③ router.js (2e import)…
+[click 3] ④ route.js → on descend dedans AVANT de remonter
+[click 4] ⑤ style.css (dernier import de main, résolu en dernier)
+
+Le point clé : route.js (④) est résolu avant style.css (⑤).
 -->

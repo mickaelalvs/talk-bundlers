@@ -44,7 +44,39 @@ Benchmark : TodoMVC React
 
 <div class="bench-note">3 200 fichiers JSX · médiane de 7 runs · Apple M3</div>
 
+<div v-click="4" class="bench-why">
+<span class="bench-why-label">Pourquoi ?</span>
+<span class="bench-why-item"><strong>Langage compilé</strong> (Rust · Go vs JS)</span>
+<span class="bench-why-sep">·</span>
+<span class="bench-why-item"><strong>Parallélisation</strong></span>
+<span class="bench-why-sep">·</span>
+<span class="bench-why-item">moins de <strong>plugins</strong></span>
+</div>
+
 <style>
+.bench-why {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem 0.9rem;
+  margin-top: 1.6rem;
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  color: var(--theme-color-charcoal);
+}
+.bench-why-label {
+  font-family: "Paytone One", sans-serif;
+  color: var(--theme-color-amber);
+}
+.bench-why-item strong {
+  font-family: "Paytone One", sans-serif;
+  color: var(--theme-color-steel);
+  font-weight: normal;
+}
+.bench-why-sep {
+  color: var(--theme-color-mist);
+}
 .bench-chart {
   display: flex;
   flex-direction: column;
@@ -128,81 +160,6 @@ médiane de 7 runs à froid sur Apple M3. Reproductible : `pnpm phase:transpile:
 
 Le visuel doit faire le choc, pas les chiffres précis. Ordres de grandeur :
 les compilateurs natifs (Go/Rust) écrasent Babel (JS interprété).
--->
-
----
-layout: basic-title
----
-
-::title::
-Pourquoi cette différence ?
-
-::default::
-
-<div class="why-list">
-  <div v-click="1" class="why-item">
-    <div class="why-tag">①</div>
-    <div class="why-text">
-      <strong>Langage compilé natif</strong> : Rust et Go vs JS interprété
-    </div>
-  </div>
-  <div v-click="2" class="why-item">
-    <div class="why-tag">②</div>
-    <div class="why-text">
-      <strong>Parallélisation</strong> : esbuild utilise tous les cœurs en natif
-    </div>
-  </div>
-  <div v-click="3" class="why-item">
-    <div class="why-tag">③</div>
-    <div class="why-text">
-      <strong>Moins de plugins externes</strong> : moins d'overhead à orchestrer
-    </div>
-  </div>
-</div>
-
-<style>
-.why-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  width: 100%;
-  max-width: 720px;
-  margin: 0 auto;
-  text-align: left;
-}
-.why-item {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 1rem 1.5rem;
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 12px;
-  border-left: 4px solid var(--theme-color-amber);
-}
-.why-tag {
-  font-family: "Paytone One", sans-serif;
-  font-size: 2rem;
-  color: var(--theme-color-amber);
-  flex-shrink: 0;
-}
-.why-text {
-  font-family: "Nunito", sans-serif;
-  font-size: 1.2rem;
-  color: var(--theme-color-charcoal);
-  line-height: 1.4;
-}
-.why-text strong {
-  font-family: "Paytone One", sans-serif;
-  color: var(--theme-color-steel);
-  font-weight: normal;
-}
-</style>
-
-<!--
-[click 1] Le langage. Babel = JS, donc lent par nature. SWC/esbuild = compilés.
-[click 2] Parallélisation. esbuild attaque tous les fichiers en parallèle.
-[click 3] Plugins. Babel = écosystème énorme = beaucoup d'orchestration.
-SWC/esbuild ont moins de plugins externes, donc moins d'overhead.
 -->
 
 ---
