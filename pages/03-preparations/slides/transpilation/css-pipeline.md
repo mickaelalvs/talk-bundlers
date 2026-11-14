@@ -47,7 +47,7 @@ $brand: #db994d;
 
 </div>
 
-<div v-click class="cssp-general">Une règle par <strong>type de fichier</strong>, <span class="dep-chip">*.ts</span> <span class="dep-chip">*.scss</span> <span class="dep-chip">*.png</span>…, câblée par un <strong>loader</strong> ou un <strong>plugin</strong></div>
+<div v-click class="cssp-general"><span class="note-chip"><lucide-plug /></span><span>Une règle par <strong>type de fichier</strong>, <span class="dep-chip">*.ts</span> <span class="dep-chip">*.scss</span> <span class="dep-chip">*.png</span>…, câblée par un <strong>loader</strong> ou un <strong>plugin</strong></span></div>
 
 <style scoped>
 .cssp-grid {
@@ -105,14 +105,17 @@ $brand: #db994d;
 }
 .cssp-general {
   margin: 1.8rem auto 0;
-  max-width: 700px;
-  text-align: center;
-  padding: 1rem 1.5rem;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  text-align: left;
+  padding: 0.9rem 1.25rem;
   background: rgba(219, 153, 77, 0.12);
-  border-left: 4px solid var(--theme-color-amber);
   border-radius: 10px;
   font-family: "Nunito", sans-serif;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   color: var(--theme-color-charcoal);
   line-height: 1.7;
   text-wrap: balance;

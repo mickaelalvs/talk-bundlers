@@ -5,7 +5,7 @@ current: 2
 transition: slide-left
 ---
 
-On construit le graphe de dépendances 🗺️
+On construit le graphe de dépendances
 
 ---
 src: ./slides/liste-de-courses.md

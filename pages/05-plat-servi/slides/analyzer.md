@@ -2,10 +2,14 @@
 layout: basic-title
 align: left
 padding: p-0
+transition: slide-left
 ---
 
 ::title::
-Bundle analyzer : voir ce qui pèse dans le bundle
+Le plat est servi
+
+::subtitle::
+Qu'est-ce qui pèse dans l'assiette ?
 
 ::default::
 
@@ -18,23 +22,13 @@ Bundle analyzer : voir ce qui pèse dans le bundle
 </style>
 
 <!--
-La visualisation qui fait toujours réagir l'audience.
-Les outils :
-  - esbuild-visualizer / esbuild.github.io/analyze (esbuild, via metafile)
-  - rollup-plugin-visualizer (Vite, Rollup)
-  - webpack-bundle-analyzer (Webpack)
-  - source-map-explorer (universel, depuis source maps)
+Une treemap du bundle TodoMVC, générée par esbuild-visualizer. Chaque rectangle est un module, sa taille est son poids.
 
-La treemap embarquée (<iframe>) est la sortie d'esbuild-visualizer
-(nourri par le metafile esbuild) du demo TodoMVC, en thème clair.
-Pour la régénérer (dans demo/) :
-  `ANALYZE=1 pnpm build:esbuild`
-  -> écrit public/assets/captures/bundle-treemap.html
+Ici, react-dom domine largement. Le code de l'app est minuscule à côté.
 
-Sur ce projet, pas de surprise « lodash » : c'est react-dom qui domine
-(react-dom-client.production.js), devant le chunk react-router puis
-react.production.js. Le code applicatif (src/) est minuscule à côté du runtime
-React. À l'oral, le point qui marque : sur un vrai projet, on découvre souvent
-des libs entières embarquées par erreur (moment, lodash en CJS…) — l'analyzer
-est là pour les débusquer.
+Sur un vrai projet, c'est là qu'on découvre une lib embarquée en entier par erreur (moment, lodash en CJS).
+
+Les équivalents : rollup-plugin-visualizer (Vite, Rollup), webpack-bundle-analyzer, source-map-explorer.
+
+Pour régénérer la treemap (dans demo/) : `ANALYZE=1 pnpm build:esbuild`, qui écrit public/assets/captures/bundle-treemap.html.
 -->

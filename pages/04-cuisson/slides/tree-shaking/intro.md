@@ -1,8 +1,10 @@
 ---
-layout: recipe
-done: 4
-current: 1
-transition: slide-left
+layout: title
 ---
 
-Le tri : on retire ce qui ne sert pas 🌳
+::number::
+<img src="/assets/images/items/egg.svg" class="title-illus" />
+
+::default::
+
+# Tree-shaking

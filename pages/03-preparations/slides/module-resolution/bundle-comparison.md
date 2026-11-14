@@ -61,7 +61,7 @@ console.log(add(1, 2));
   display: flex;
   gap: 2rem;
   align-items: stretch;
-  margin-top: -3rem;
+  margin-top: 0rem;
 }
 .bundle-card {
   flex: 1;
@@ -122,35 +122,14 @@ console.log(add(1, 2));
   font-size: 0.9rem;
   color: var(--theme-color-steel);
 }
-.bundle-takeaway {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 1.5rem;
-  padding: 0.7rem 1.5rem;
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 10px;
-  border-left: 4px solid var(--theme-color-amber);
-  font-size: 1rem;
-  color: var(--theme-color-charcoal);
-  font-weight: 600;
-}
-.bundle-takeaway-icon {
-  font-size: 1.4rem;
-  color: var(--theme-color-amber);
-  flex-shrink: 0;
-}
-.bundle-takeaway strong {
-  color: var(--theme-color-amber);
-}
 </style>
 
 <!--
 [au chargement] À gauche, le bundle généré depuis l'ESM. C'est tout. Littéralement le code source concaténé, imports/exports enlevés. sub a disparu parce qu'on ne l'utilise pas (tree-shaking). Aucun helper, aucun wrapper. ESM est un standard du langage : le bundler n'a rien à simuler, il peut aplatir.
 
-[click 1] À droite, le même module en CommonJS. Beaucoup plus de code pour deux fonctions : des helpers de runtime (__commonJS) et le module enveloppé dans une fonction. Pourquoi ? En CJS les exports sont construits à l'exécution, le bundler ne sait pas à la compilation ce qui sera exporté, il diffère l'évaluation.
+[click] À droite, le même module en CommonJS. Beaucoup plus de code pour deux fonctions : des helpers de runtime (__commonJS) et le module enveloppé dans une fonction. Pourquoi ? En CJS les exports sont construits à l'exécution, le bundler ne sait pas à la compilation ce qui sera exporté, il diffère l'évaluation.
 
-[click 2] Le bundler simule Node.js dans le navigateur. Chaque module CJS = du runtime en plus dans votre bundle final.
+[click] Le bundler simule Node.js dans le navigateur. Chaque module CJS = du runtime en plus dans votre bundle final.
 
 (Note : si on importait ce module CJS depuis de l'ESM, esbuild ajouterait encore un traducteur __toESM — d'où encore plus de runtime quand on mélange les deux.)
 -->

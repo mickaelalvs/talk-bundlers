@@ -5,7 +5,7 @@ current: 1
 transition: slide-left
 ---
 
-Ouvrir le frigo : voilà ce qu'on écrit 🧊
+Ouvrir le frigo : voilà ce qu'on écrit
 
 ---
 src: ./slides/browser.md

@@ -34,15 +34,15 @@ Vos dépendances ont du CJS
 </div>
 <div class="mix-takeaways">
 <div v-click class="mix-takeaway">
-<lucide:flame class="mix-takeaway-icon" />
+<span class="note-chip"><lucide:flame /></span>
 <span>Le bundler cuisine sur <strong>les deux feux</strong></span>
 </div>
 <div v-click class="mix-takeaway">
-<lucide:weight class="mix-takeaway-icon" />
+<span class="note-chip"><lucide:weight /></span>
 <span>Chaque traduction CJS → ESM = <strong>du poids en plus</strong></span>
 </div>
 <div v-click class="mix-takeaway">
-<lucide:lightbulb class="mix-takeaway-icon" />
+<span class="note-chip"><lucide:lightbulb /></span>
 <span>Privilégiez les dépendances <strong>ESM</strong> quand c'est possible</span>
 </div>
 </div>
@@ -56,6 +56,7 @@ Vos dépendances ont du CJS
   justify-content: center;
   height: 100%;
   gap: 2rem;
+  padding-top: 5rem;
 }
 .mix-cards {
   display: flex;
@@ -71,13 +72,13 @@ Vos dépendances ont du CJS
   background: rgba(255, 255, 255, 0.6);
   border-radius: 14px;
   min-width: 200px;
-  border-top: 4px solid;
+  border: 2px solid;
 }
 .mix-card--esm {
-  border-color: #22c55e;
+  border-color: var(--theme-color-olive);
 }
 .mix-card--mix {
-  border-color: #ef4444;
+  border-color: var(--theme-color-raspberry);
 }
 .mix-card-icon {
   font-size: 2rem;
@@ -102,12 +103,12 @@ Vos dépendances ont du CJS
   border-radius: 4px;
 }
 .mix-tag--esm {
-  background: rgba(34, 197, 94, 0.15);
-  color: #22c55e;
+  background: rgba(138, 154, 75, 0.15);
+  color: var(--theme-color-olive-dark);
 }
 .mix-tag--cjs {
-  background: rgba(239, 68, 68, 0.15);
-  color: #ef4444;
+  background: rgba(196, 81, 92, 0.15);
+  color: var(--theme-color-raspberry-dark);
 }
 .mix-card-desc {
   font-size: 0.8rem;
@@ -126,17 +127,11 @@ Vos dépendances ont du CJS
   align-items: center;
   gap: 1rem;
   padding: 0.7rem 1.5rem;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(219, 153, 77, 0.12);
   border-radius: 10px;
-  border-left: 4px solid var(--theme-color-amber);
   font-size: 1rem;
   color: var(--theme-color-charcoal);
   font-weight: 600;
-}
-.mix-takeaway-icon {
-  font-size: 1.4rem;
-  color: var(--theme-color-amber);
-  flex-shrink: 0;
 }
 .mix-takeaway strong {
   color: var(--theme-color-amber);
@@ -146,11 +141,11 @@ Vos dépendances ont du CJS
 <!--
 [au chargement] À gauche, votre code. Propre, ESM. À droite, vos dépendances. Le bazar — CJS et ESM mélangés. L'ESM est récent, une bonne partie de npm publie encore en CJS.
 
-[click 1] Le bundler doit gérer les deux dans le même bundle. Il cuisine sur les deux feux.
+[click] Le bundler doit gérer les deux dans le même bundle. Il cuisine sur les deux feux.
 
-[click 2] Et chaque module CJS qu'il wrappe, c'est du runtime supplémentaire dans votre bundle final. lodash (CJS) embarque tout, lodash-es (ESM) ne prend que ce dont vous avez besoin.
+[click] Et chaque module CJS qu'il wrappe, c'est du runtime supplémentaire dans votre bundle final. lodash (CJS) embarque tout, lodash-es (ESM) ne prend que ce dont vous avez besoin.
 
-[click 3] Le conseil concret : quand vous avez le choix, privilégiez les versions ESM de vos dépendances. Vérifiez sur bundlephobia ou pkg-size.
+[click] Le conseil concret : quand vous avez le choix, privilégiez les versions ESM de vos dépendances. Vérifiez sur bundlephobia ou pkg-size.
 
 Maintenant qu'on a vu comment notre chef prépare les ingrédients, on va voir comment il optimise le plat final…
 -->

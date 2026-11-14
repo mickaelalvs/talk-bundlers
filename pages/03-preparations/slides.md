@@ -5,7 +5,7 @@ current: 1
 transition: slide-left
 ---
 
-On prépare chaque ingrédient 🔪
+On prépare chaque ingrédient
 
 ---
 layout: basic-title
@@ -99,10 +99,6 @@ src: ./slides/transpilation/benchmark.md
 ---
 
 ---
-src: ./slides/transpilation/before-after.md
----
-
----
 src: ./slides/module-resolution/intro.md
 ---
 
@@ -116,4 +112,8 @@ src: ./slides/module-resolution/bundle-comparison.md
 
 ---
 src: ./slides/module-resolution/mix.md
+---
+
+---
+src: ./slides/module-resolution/benchmark.md
 ---

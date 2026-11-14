@@ -1,5 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Paytone+One&family=Nunito:wght@400;600;700&display=swap");
 
+.title-step {
+  display: inline-grid;
+  place-items: center;
+  width: 1.5em;
+  height: 1.5em;
+  margin-right: 0.45em;
+  border-radius: 0.3em;
+  background: var(--theme-color-amber);
+  color: #fff;
+  font-size: 0.7em;
+  line-height: 1;
+  vertical-align: 0.1em;
+}
+
 .paytone-one-regular {
   font-family: "Paytone One", sans-serif;
   font-weight: 400;
@@ -44,7 +58,11 @@
   --theme-color-skyBlue: #7fb0d6;
   --theme-color-powder: #bedae7;
   --theme-color-amber: #db994d;
-  --theme-color-salmon: #fcaca7;
+  --theme-color-raspberry: #c4515c;
+  --theme-color-raspberry-dark: #a3404a;
+  --theme-color-olive: #8a9a4b;
+  --theme-color-olive-dark: #5f6b2e;
+  --theme-color-violet: #7b5ea7;
   --theme-color-snow: #f9f9f9;
   --theme-color-white: #ffffff;
 
@@ -290,26 +308,128 @@ img[class*="logo"],
   color: var(--theme-color-amber);
   font-weight: normal;
 }
-.def-quote-note {
-  display: inline-flex;
+.note-chip {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 8px;
+  background: var(--chip, var(--theme-color-amber));
+  color: #fff;
+  font-size: 1.15rem;
+}
+
+/* Graphiques à barres des slides de benchmark */
+.bench-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+  padding-top: 1.25rem;
+}
+.bench-row {
+  display: grid;
+  grid-template-columns: 210px 1fr 100px;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1.25rem;
+}
+.bench-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: "Paytone One", sans-serif;
+  color: var(--theme-color-steel);
+  font-size: 1.15rem;
+  line-height: 1.1;
+}
+.bench-label > div {
+  text-align: left;
+}
+.bench-label small {
+  display: block;
+  margin-top: 0.15rem;
   font-family: "Nunito", sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.75rem;
+  color: var(--theme-color-slate);
+}
+.bench-logo {
+  width: 34px;
+  height: 34px;
+  flex: none;
+  object-fit: contain;
+}
+.bench-icon {
+  width: 34px;
+  flex: none;
+  font-size: 2rem;
+  color: var(--theme-color-steel);
+}
+.bench-bar {
+  height: 34px;
+  background: rgba(159, 169, 185, 0.15);
+  border-radius: 6px;
+}
+.bench-fill {
+  height: 100%;
+  width: var(--value);
+  min-width: 6px;
+  background: var(--theme-color-steel);
+  border-radius: 6px;
+  transition: width 0.8s cubic-bezier(0.34, 1.2, 0.64, 1);
+}
+.bench-fill-js {
+  background: var(--theme-color-amber);
+}
+.bench-time {
+  font-family: "Paytone One", sans-serif;
+  font-size: 1rem;
   color: var(--theme-color-charcoal);
-  background: rgba(81, 138, 184, 0.08);
-  padding: 0.5rem 1rem;
+  white-space: nowrap;
+}
+.bench-note {
+  margin-top: 1.75rem;
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+  font-size: 0.85rem;
+  color: var(--theme-color-slate);
+  font-style: italic;
+}
+.bench-context {
+  --chip: var(--theme-color-violet);
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  width: fit-content;
+  max-width: 880px;
+  margin: 1.75rem auto 0;
+  padding: 0.6rem 1.1rem;
+  background: rgba(123, 94, 167, 0.12);
   border-radius: 10px;
-  max-width: 44rem;
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  color: var(--theme-color-charcoal);
 }
-.def-quote-note-icon {
-  font-size: 1.1rem;
-  color: var(--theme-color-steel);
-  flex-shrink: 0;
-}
-.def-quote-note strong {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.85em;
-  color: var(--theme-color-steel);
+.bench-context strong {
+  font-family: "Paytone One", sans-serif;
   font-weight: normal;
+  color: var(--theme-color-violet);
+}
+.bench-source {
+  position: absolute;
+  right: 2rem;
+  bottom: 1rem;
+  text-align: right;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.65rem;
+  color: var(--theme-color-slate);
+  opacity: 0.7;
+}
+
+.title-illus {
+  display: block;
+  height: 8rem;
+  width: auto;
 }

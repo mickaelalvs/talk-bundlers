@@ -15,7 +15,7 @@ La liste de courses du chef
 <div class="dep-liste">
 <div class="dep-liste-row">
 <div class="dep-liste-item">
-<lucide:scroll-text class="dep-liste-icon dep-liste-icon--recipe" />
+<img src="../assets/recipe-book.png" class="dep-liste-icon" />
 <span class="dep-liste-label">recipe.js</span>
 </div>
 <div class="dep-liste-arrow">
@@ -56,10 +56,8 @@ Et doit <span class="dep-liste-highlight--steel">découvrir tous les autres</spa
   gap: 0.5rem;
 }
 .dep-liste-icon {
-  font-size: 8rem;
-}
-.dep-liste-icon--recipe {
-  color: var(--theme-color-amber);
+  width: 8rem;
+  height: auto;
 }
 .dep-liste-label {
   font-size: 1.5rem;

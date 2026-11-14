@@ -22,12 +22,12 @@ Un seul plat pour tout le repas
     </div>
   </div>
   <div v-click="1" class="cs-problem-highlight">
-    <lucide-alert-triangle class="cs-alert-icon" />
+    <span class="note-chip"><lucide-alert-triangle /></span>
     <span>L'utilisateur est sur <code>/home</code>… pourquoi charger <code>/admin</code> ?</span>
   </div>
 </div>
 
-<SlideItem src="/assets/images/items/pot_2.svg" size="160px" bottom="30px" right="50px" rotate="10deg" opacity="0.4" />
+<SlideItem src="/assets/images/items/pot_2.svg" size="160px" bottom="30px" right="50px" rotate="10deg" />
 
 <style>
 .cs-problem {
@@ -45,8 +45,7 @@ Un seul plat pour tout le repas
   padding: 1.5rem 2.5rem;
   background: white;
   border-radius: 16px;
-  border-top: 4px solid var(--theme-color-salmon);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border: 2px solid var(--theme-color-raspberry);
 }
 .cs-bundle-header {
   display: flex;
@@ -55,7 +54,7 @@ Un seul plat pour tout le repas
 }
 .cs-bundle-icon {
   font-size: 1.5rem;
-  color: var(--theme-color-salmon);
+  color: var(--theme-color-raspberry);
 }
 .cs-bundle-name {
   font-family: "JetBrains Mono", monospace;
@@ -66,7 +65,7 @@ Un seul plat pour tout le repas
 .cs-bundle-size {
   font-family: "Paytone One", sans-serif;
   font-size: 1.3rem;
-  color: var(--theme-color-salmon);
+  color: var(--theme-color-raspberry);
 }
 .cs-bundle-routes {
   display: flex;
@@ -89,14 +88,9 @@ Un seul plat pour tout le repas
   font-size: 1.2rem;
   color: var(--theme-color-charcoal);
   padding: 0.75rem 1.5rem;
-  background: rgba(232, 119, 96, 0.08);
+  background: rgba(196, 81, 92, 0.08);
+  --chip: var(--theme-color-raspberry);
   border-radius: 12px;
-  border-left: 4px solid var(--theme-color-salmon);
-}
-.cs-alert-icon {
-  font-size: 1.5rem;
-  color: var(--theme-color-salmon);
-  flex-shrink: 0;
 }
 .cs-problem-highlight code {
   font-family: "JetBrains Mono", monospace;
@@ -114,7 +108,7 @@ finit dans un seul fichier. L'utilisateur qui arrive sur la page d'accueil
 télécharge aussi le code du dashboard, des settings, de l'admin… du code qu'il
 ne verra peut-être jamais.
 
-[click 1] La question rhétorique : pourquoi forcer le téléchargement de code
+[click] La question rhétorique : pourquoi forcer le téléchargement de code
 inutile ? C'est comme servir tout le repas d'un coup sur une seule assiette —
 c'est lourd et peu appétissant.
 

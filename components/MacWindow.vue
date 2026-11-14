@@ -1,6 +1,7 @@
 <script setup>
 defineProps({
 	title: { type: String, default: "" },
+	step: { type: [Number, String], default: null },
 })
 </script>
 
@@ -12,7 +13,10 @@ defineProps({
 				<div class="mac-control minimize"></div>
 				<div class="mac-control maximize"></div>
 			</div>
-			<div class="mac-title">{{ title }}</div>
+			<div class="mac-title">
+				<span v-if="step" class="mac-step">{{ step }}</span>
+				{{ title }}
+			</div>
 		</div>
 		<div class="mac-body">
 			<slot />
@@ -68,11 +72,26 @@ defineProps({
 }
 .mac-title {
 	flex: 1;
-	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
 	font-size: 11px;
 	font-weight: 500;
 	color: #4b5563;
 	font-family: ui-monospace, "SF Mono", "JetBrains Mono", monospace;
+}
+.mac-step {
+	display: grid;
+	place-items: center;
+	width: 16px;
+	height: 16px;
+	border-radius: 5px;
+	background: var(--theme-color-amber);
+	color: #fff;
+	font-size: 10px;
+	font-weight: 700;
+	line-height: 1;
 }
 .mac-body {
 	padding: 0.85rem 1.1rem;

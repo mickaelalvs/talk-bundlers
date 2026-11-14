@@ -8,8 +8,8 @@ Comment le bundler décide ?
 ::default::
 
 <div class="how-intro">
-Souviens-toi du graphe de dépendances (partie 02).<br />
-Le tree-shaking, c'est <strong>le même graphe</strong>, appliqué aux exports.
+Le tree-shaking <strong>parcourt</strong> le graphe de dépendances (partie 02),<br />
+construit grâce à la résolution (partie 03).
 </div>
 
 <div class="how-graph">
@@ -38,19 +38,8 @@ Le tree-shaking, c'est <strong>le même graphe</strong>, appliqué aux exports.
   </div>
 </div>
 
-<div class="how-steps">
-  <div v-click="1" class="how-step">
-    <div class="how-num">1</div>
-    <div>Le bundler part de ton <strong>entry point</strong></div>
-  </div>
-  <div v-click="2" class="how-step">
-    <div class="how-num">2</div>
-    <div>Il suit chaque <code>import</code> statique, dans ton code <em>et</em> dans tes libs</div>
-  </div>
-  <div v-click="3" class="how-step">
-    <div class="how-num">3</div>
-    <div>Tout ce qui n'a pas été <strong>atteint</strong> disparaît du bundle</div>
-  </div>
+<div v-click class="how-step">
+  Tout ce qui n'a pas été <strong>atteint</strong> disparaît du bundle
 </div>
 
 <style>
@@ -144,42 +133,26 @@ Le tree-shaking, c'est <strong>le même graphe</strong>, appliqué aux exports.
   opacity: 0.75;
 }
 .how-box-good {
-  background: rgba(76, 175, 80, 0.12);
-  color: #2e7d32;
+  background: rgba(138, 154, 75, 0.12);
+  color: var(--theme-color-olive-dark);
 }
 .how-box-bad {
-  background: rgba(239, 83, 80, 0.12);
-  color: #c0392b;
+  background: rgba(196, 81, 92, 0.12);
+  color: var(--theme-color-raspberry-dark);
   text-decoration: line-through;
   text-decoration-color: rgba(192, 57, 43, 0.4);
 }
-.how-steps {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
+.how-step {
   width: 100%;
   max-width: 720px;
   margin: 0 auto;
-}
-.how-step {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.55rem 1rem;
+  padding: 0.7rem 1rem;
   background: rgba(255, 255, 255, 0.6);
   border-radius: 10px;
-  border-left: 3px solid var(--theme-color-amber);
+  border: 2px solid var(--theme-color-amber);
   font-family: "Nunito", sans-serif;
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: var(--theme-color-charcoal);
-  text-align: left;
-}
-.how-num {
-  font-family: "Paytone One", sans-serif;
-  font-size: 1.4rem;
-  color: var(--theme-color-amber);
-  flex-shrink: 0;
-  width: 1.5rem;
   text-align: center;
 }
 .how-step strong {
@@ -187,35 +160,12 @@ Le tree-shaking, c'est <strong>le même graphe</strong>, appliqué aux exports.
   color: var(--theme-color-steel);
   font-weight: normal;
 }
-.how-step em {
-  font-style: italic;
-  color: var(--theme-color-amber);
-}
-.how-step code {
-  font-family: "JetBrains Mono", monospace;
-  background: rgba(81, 138, 184, 0.1);
-  padding: 0.05rem 0.35rem;
-  border-radius: 4px;
-  font-size: 0.85em;
-}
 </style>
 
 <!--
-Le mécanisme central : reachability analysis depuis l'entry point.
-Cross-référence directe au graphe de dépendances de la partie 02.
+Le bundler part de l'entry point et suit les imports, dans ton code comme dans tes libs. C'est le graphe de la partie 02, bâti grâce à la résolution de la partie 03.
 
-Le visuel montre les deux côtés :
-  TON CODE              TES LIBS
-  ✓ utils.ts            ✓ lodash-es (juste debounce)
-  ✓ api.ts              ✗ moment (jamais importée)
-  ✗ orphan.ts
+[click] Ce qu'il n'atteint pas disparaît. Ça marche parce qu'en ESM les exports ont des noms statiques. En CJS rien n'est prouvable, il garde tout (cf. bundle-comparison, partie 03).
 
-Le mécanisme est identique. Pas de différence entre ton code et les libs :
-le bundler suit les imports, point.
-
-[click 1] Étape 1 : entry point.
-[click 2] Étape 2 : il suit les imports, dans ton code ET dans tes libs.
-[click 3] Étape 3 : ce qui n'est pas atteignable disparaît.
-
-→ Slide suivante (Quiz) : on teste la compréhension avec le cas concret.
+Transition : lodash-es est déjà dans le graphe, "juste debounce". Vérifions avec une vraie lib.
 -->

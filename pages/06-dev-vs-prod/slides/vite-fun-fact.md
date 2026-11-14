@@ -3,46 +3,82 @@ layout: basic-title
 ---
 
 ::title::
-Et au fait, Vite ne bundle pas en dev
+En répétition, Vite ne bundle pas
 
 ::default::
 
+<div class="vff-wrap">
+
 <div class="vff-intro">
-Pas la même approche que Webpack &amp; co.
+Deux façons de servir le projet en dev.
 </div>
 
 <div class="vff-compare">
 
   <div class="vff-side vff-side-old">
-    <div class="vff-tag">Webpack-like</div>
-    <div class="vff-pipeline">
-      <span class="vff-step">tes fichiers</span>
-      <span class="vff-arrow">→</span>
-      <span class="vff-step vff-step-bundle">bundle dev</span>
-      <span class="vff-arrow">→</span>
-      <span class="vff-step">navigateur</span>
+    <div class="vff-tag">
+      <img src="/assets/images/logos/webpack.png" class="vff-logo" />
+      <span>Webpack et similaires</span>
     </div>
-    <div class="vff-note">Le bundler refait tout le travail à chaque modif.</div>
+    <div class="vff-pipeline">
+      <div class="vff-node">
+        <span class="vff-icon"><lucide-files /></span>
+        <span class="vff-label">tes fichiers</span>
+      </div>
+      <lucide-arrow-right class="vff-arrow" />
+      <div class="vff-node">
+        <span class="vff-icon vff-icon-bundle"><lucide-package /></span>
+        <span class="vff-label">bundle dev</span>
+      </div>
+      <lucide-arrow-right class="vff-arrow" />
+      <div class="vff-node">
+        <span class="vff-icon"><lucide-globe /></span>
+        <span class="vff-label">navigateur</span>
+      </div>
+    </div>
+    <div class="vff-note">Le bundle doit être construit avant le premier affichage.</div>
   </div>
 
   <div class="vff-side vff-side-new">
-    <div class="vff-tag vff-tag-amber">Vite</div>
+    <div class="vff-tag vff-tag-amber">
+      <img src="/assets/images/logos/vite.svg" class="vff-logo" />
+      <span>Vite</span>
+    </div>
     <div class="vff-pipeline">
-      <span class="vff-step">tes fichiers</span>
-      <span class="vff-arrow">→</span>
-      <span class="vff-step vff-step-transform">transform <em>à la demande</em></span>
-      <span class="vff-arrow">→</span>
-      <span class="vff-step">navigateur</span>
+      <div class="vff-node">
+        <span class="vff-icon"><lucide-files /></span>
+        <span class="vff-label">tes fichiers</span>
+      </div>
+      <lucide-arrow-right class="vff-arrow" />
+      <div class="vff-node">
+        <span class="vff-icon vff-icon-transform"><lucide-zap /></span>
+        <span class="vff-label">transform à la demande</span>
+      </div>
+      <lucide-arrow-right class="vff-arrow" />
+      <div class="vff-node">
+        <span class="vff-icon"><lucide-globe /></span>
+        <span class="vff-label">navigateur</span>
+      </div>
     </div>
     <div class="vff-note">
-      Pas de bundle. ESM natif, le navigateur résout les imports lui-même.<br />
-      <strong>Démarrage instantané même sur gros projet.</strong>
+      Le navigateur suit les imports en ESM natif.<br />
+      <strong>Pas de bundle à attendre au démarrage.</strong>
     </div>
   </div>
 
 </div>
 
+<div v-click class="vff-prod">
+  <span class="note-chip"><lucide-package /></span>
+  <span>En prod, il bundle quand même. Des centaines de fichiers ESM feraient trop de requêtes.</span>
+</div>
+
+</div>
+
 <style>
+.vff-wrap {
+  width: 100%;
+}
 .vff-intro {
   text-align: center;
   font-family: "Nunito", sans-serif;
@@ -51,101 +87,125 @@ Pas la même approche que Webpack &amp; co.
   margin-bottom: 1.5rem;
 }
 .vff-compare {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 760px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  max-width: 900px;
   margin: 0 auto;
 }
 .vff-side {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  padding: 1rem 1.25rem;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
   background: rgba(255, 255, 255, 0.6);
   border-radius: 12px;
-  border-left: 4px solid var(--theme-color-slate);
+  border: 2px solid var(--theme-color-slate);
 }
 .vff-side-new {
   border-color: var(--theme-color-amber);
-  background: rgba(219, 153, 77, 0.06);
+  background: rgba(219, 153, 77, 0.2);
 }
 .vff-tag {
-  font-family: "Paytone One", sans-serif;
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--theme-color-slate);
-}
-.vff-tag-amber {
-  color: var(--theme-color-amber);
-}
-.vff-pipeline {
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Paytone One", sans-serif;
   font-size: 0.85rem;
-  flex-wrap: wrap;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--theme-color-slate);
 }
-.vff-step {
-  padding: 0.3rem 0.7rem;
-  background: rgba(159, 169, 185, 0.18);
+.vff-tag span {
+  font-family: "Paytone One", sans-serif;
+}
+.vff-tag-amber {
   color: var(--theme-color-charcoal);
-  border-radius: 6px;
-  white-space: nowrap;
 }
-.vff-step-bundle {
-  background: rgba(239, 83, 80, 0.18);
-  color: #c0392b;
+.vff-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
 }
-.vff-step-transform {
-  background: rgba(76, 175, 80, 0.18);
-  color: #2e7d32;
+.vff-pipeline {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
 }
-.vff-step-transform em {
-  font-style: italic;
+.vff-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  width: 5.5rem;
+}
+.vff-icon {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 10px;
+  background: rgba(159, 169, 185, 0.22);
+  color: var(--theme-color-charcoal);
+  font-size: 1.5rem;
+}
+.vff-icon-bundle {
+  background: rgba(196, 81, 92, 0.18);
+  color: var(--theme-color-raspberry-dark);
+}
+.vff-icon-transform {
+  background: rgba(138, 154, 75, 0.25);
+  color: var(--theme-color-olive-dark);
+}
+.vff-label {
   font-family: "Nunito", sans-serif;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  text-align: center;
+  min-height: 2.4em;
+  color: var(--theme-color-charcoal);
 }
 .vff-arrow {
+  flex: none;
+  margin-top: 0.85rem;
+  font-size: 1.2rem;
   color: var(--theme-color-slate);
-  font-weight: 700;
 }
 .vff-note {
   font-family: "Nunito", sans-serif;
   font-size: 0.88rem;
   color: var(--theme-color-charcoal);
   line-height: 1.5;
-  text-align: left;
+  text-align: center;
+}
+.vff-prod {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  width: fit-content;
+  margin: 1.5rem auto 0;
+  padding: 0.7rem 1.25rem;
+  background: rgba(219, 153, 77, 0.2);
+  border-radius: 12px;
+  font-family: "Nunito", sans-serif;
+  font-size: 0.95rem;
+  color: var(--theme-color-charcoal);
 }
 .vff-note strong {
   font-family: "Paytone One", sans-serif;
-  color: var(--theme-color-amber);
+  color: var(--theme-color-charcoal);
   font-weight: normal;
 }
 </style>
 
 <!--
-Le fun fact qui surprend tout le monde : Vite ne bundle pas en dev.
+Côté répétition : Webpack et les outils du même type bundlent le projet à chaque modif. Vite sert chaque fichier séparément, transformé à la demande, et le navigateur suit les imports lui-même. Le démarrage reste instantané.
 
-Avant Vite (Webpack-like) : le dev server bundle ton projet entier au
-démarrage et à chaque modif. Sur un gros projet ça prend des secondes,
-voire des dizaines de secondes.
+Testé avec Vite 8.3 : le serveur de dev sert /src/todo/app.jsx tel quel, fichier par fichier. Seules les dépendances sont pré-bundlées, dans node_modules/.vite/deps. Le mode qui bundle en dev existe mais reste opt-in et expérimental.
 
-Vite : exploite que les navigateurs modernes supportent l'ESM natif. Il
-sert chaque fichier individuellement, transpilé à la demande (sur requête
-du navigateur). Le navigateur fait lui-même la traversée des imports.
-Résultat : démarrage instantané. Le HMR (hot module replacement) ne
-recompile que le fichier modifié.
+[click] Côté service : Vite bundle quand même (Rolldown en Vite 8, Rollup avant). Servir des centaines de modules au navigateur coûterait trop cher en requêtes.
 
-Pour la prod, Vite bundle quand même (Vite 8 : avec Rolldown ; Vite ≤7 :
-Rollup) parce que servir 800 fichiers ESM au navigateur en production serait
-catastrophique pour la perf réseau (latence, header overhead, etc.).
-
-Donc Vite a deux modes complètement différents :
-  - dev : pas de bundle, ESM natif (toujours le défaut en v8 ; le "Full
-    Bundle Mode" qui bundle en dev existe mais reste opt-in/expérimental)
-  - prod : bundle (Rolldown en Vite 8)
-
-Cette rupture conceptuelle est ce qui le rend si rapide en dev.
+Deux modes très différents dans le même outil.
 -->

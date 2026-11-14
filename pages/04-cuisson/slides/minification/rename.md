@@ -3,7 +3,7 @@ layout: basic-title
 ---
 
 ::title::
-③ Renommage des variables
+<span class="title-step">2</span>Renommage des variables
 
 ::default::
 
@@ -73,6 +73,7 @@ Les noms locaux deviennent des lettres uniques.<br />
   color: var(--theme-color-amber);
   text-align: center;
   margin-bottom: 1.2rem;
+  padding-top: 2rem;
 }
 .min-grid {
   display: grid;

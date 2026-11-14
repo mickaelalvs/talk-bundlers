@@ -20,7 +20,6 @@ Ouvrez les DevTools
       <div class="dt-file">logo.png</div>
       <div class="dt-file dt-more">+ 142 autres</div>
     </div>
-    <div class="dt-caption">Centaines de fichiers, lisibles, leurs vrais noms.</div>
   </div>
 
   <div class="dt-card">
@@ -31,7 +30,6 @@ Ouvrez les DevTools
       <div class="dt-file dt-prod">styles-789ghi.css</div>
       <div class="dt-file dt-prod">runtime-jkl012.js</div>
     </div>
-    <div class="dt-caption">Quelques chunks minifiés, hashés, méconnaissables.</div>
   </div>
 </div>
 
@@ -49,11 +47,9 @@ Ouvrez les DevTools
     </div>
   </div>
   <div class="dt-also-note">
-    Le hashing des classes CSS modules est fait par un <strong>loader</strong> ou un <strong>plugin</strong> (cf. partie 3).
+    Un loader ou un plugin hashe les classes CSS modules, comme vu en partie 3.
   </div>
 </div>
-
-<div class="dt-todo">📷 placeholder, à remplacer par une vraie capture DevTools</div>
 
 <style>
 .dt-wrap {
@@ -83,8 +79,8 @@ Ouvrez les DevTools
   align-self: flex-start;
 }
 .dt-stage-dev {
-  background: rgba(76, 175, 80, 0.18);
-  color: #2e7d32;
+  background: rgba(138, 154, 75, 0.18);
+  color: var(--theme-color-olive-dark);
 }
 .dt-stage-prod {
   background: rgba(81, 138, 184, 0.18);
@@ -122,8 +118,7 @@ Ouvrez les DevTools
 .dt-also {
   margin-top: 1.5rem;
   padding: 0.9rem 1.25rem;
-  background: rgba(219, 153, 77, 0.08);
-  border-left: 3px solid var(--theme-color-amber);
+  background: rgba(219, 153, 77, 0.2);
   border-radius: 8px;
   max-width: 760px;
   margin-left: auto;
@@ -137,7 +132,7 @@ Ouvrez les DevTools
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--theme-color-amber);
+  color: var(--theme-color-charcoal);
 }
 .dt-also-row {
   display: flex;
@@ -164,8 +159,8 @@ Ouvrez les DevTools
   border-radius: 4px;
 }
 .dt-also-code-dev {
-  background: rgba(76, 175, 80, 0.15);
-  color: #2e7d32;
+  background: rgba(138, 154, 75, 0.15);
+  color: var(--theme-color-olive-dark);
 }
 .dt-also-code-prod {
   background: rgba(81, 138, 184, 0.15);
@@ -189,34 +184,14 @@ Ouvrez les DevTools
   font-weight: normal;
   font-style: normal;
 }
-.dt-todo {
-  margin-top: 1.5rem;
-  text-align: center;
-  font-family: "Nunito", sans-serif;
-  font-size: 0.85rem;
-  color: var(--theme-color-slate);
-  font-style: italic;
-}
 </style>
 
 <!--
-La différence concrète qui frappe l'audience : ils ont tous déjà vu ça
-sans y faire attention.
+Ce que reçoit le navigateur change entre les deux cuisines, et tout le monde l'a déjà vu dans ses DevTools.
 
-À gauche : dev. Vite/Webpack sert les fichiers tels qu'ils sont écrits
-(ou presque). On voit ses propres noms de composants, ses fichiers de
-style, les imports. Si quelque chose plante, on sait où aller.
+En dev, des centaines de fichiers lisibles, avec leurs vrais noms. En prod, quelques fichiers hashés et minifiés.
 
-À droite : prod. Quelques chunks hashés. Difficile de débugger sans
-sourcemaps (transition vers les slides suivantes).
+Même chose pour les classes CSS modules : c'est un loader ou un plugin qui les hashe, pas le bundler lui-même (cf. partie 03).
 
-À l'oral : "Ouvrez vos DevTools en dev, vous voyez votre code. En prod,
-vous voyez du charabia. Pourquoi ? Et comment on s'en sort ?"
-
-Le rappel CSS modules en bas : c'est aussi un loader/plugin qui hash les
-classes (cf. partie 3 sur les loaders). Le bundler core lui-même ne fait
-pas ça, il délègue. Même pattern que pour Babel, les images, le SCSS, etc.
-
-TODO : remplacer le placeholder stylisé par une vraie capture côte à côte
-des deux DevTools.
+À l'oral : "En prod, vous voyez du charabia. Comment on s'en sort ?" Transition vers les source maps.
 -->

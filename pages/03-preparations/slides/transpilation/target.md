@@ -50,7 +50,7 @@ Et le JS moderne ?
   padding: 1.5rem;
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.6);
-  border-top: 5px solid;
+  border: 2px solid;
 }
 .target-modern {
   border-color: var(--theme-color-amber);
@@ -107,13 +107,13 @@ Et le JS moderne ?
 </style>
 
 <!--
-[click 1] Cible moderne : Vite, esbuild ciblent ES2015+ par défaut. Le code
+[click] Cible moderne : Vite, esbuild ciblent ES2015+ par défaut. Le code
 sortant est proche de ce que tu écris, peu transpilé.
 
-[click 2] Cible conservative : beaucoup de configs Webpack/Babel ciblent
+[click] Cible conservative : beaucoup de configs Webpack/Babel ciblent
 encore ES5 par défaut, par prudence. Beaucoup d'apps en prod génèrent encore
 du code ES5 sans que les devs s'en rendent compte.
 
-[click 3] Le levier : browserslist dans le package.json. C'est là que ça se
+[click] Le levier : browserslist dans le package.json. C'est là que ça se
 décide pour la plupart des outils.
 -->

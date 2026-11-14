@@ -1,9 +1,10 @@
 ---
 layout: title
+titleSize: 5rem
 ---
 
 ::number::
-🔗
+<img src="/assets/images/items/mixer.svg" class="title-illus" />
 
 ::default::
 

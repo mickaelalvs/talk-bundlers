@@ -3,7 +3,7 @@ layout: basic-title
 ---
 
 ::title::
-④ Mangling des propriétés
+<span class="title-step">3</span>Mangling des propriétés
 
 ::default::
 
@@ -54,8 +54,9 @@ sendRequest(user.a)
 </div>
 
 <div class="min-warn">
-⚠ <strong>Opt-in chez la plupart des minifiers</strong> : peut casser du code dès qu'une clé est utilisée dynamiquement
-(<code>user[someKey]</code>, sérialisation JSON, accès via une lib externe…).
+<span class="note-chip"><lucide-alert-triangle /></span>
+<span><strong>Opt-in chez la plupart des minifiers</strong> : peut casser du code dès qu'une clé est utilisée dynamiquement
+(<code>user[someKey]</code>, sérialisation JSON, accès via une lib externe…).</span>
 </div>
 
 <style scoped>
@@ -67,6 +68,7 @@ sendRequest(user.a)
   color: var(--theme-color-amber);
   text-align: center;
   margin-bottom: 1.2rem;
+  padding-top: 2rem;
 }
 .min-grid {
   display: grid;
@@ -104,8 +106,10 @@ sendRequest(user.a)
 .min-warn {
   margin-top: 1.5rem;
   padding: 0.9rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
   background: rgba(219, 153, 77, 0.1);
-  border-left: 3px solid var(--theme-color-amber);
   border-radius: 8px;
   font-family: "Nunito", sans-serif;
   font-size: 0.92rem;

@@ -49,7 +49,7 @@ Ce qui entre vs ce qui sort
   </div>
 </div>
 
-<SlideItem src="/assets/images/items/pot_holder_2.svg" size="90px" bottom="20px" left="40px" rotate="5deg" opacity="0.25" />
+<SlideItem src="/assets/images/items/pot_holder_2.svg" size="90px" bottom="20px" left="40px" rotate="5deg" />
 
 <style>
 .ba-content {
@@ -81,10 +81,10 @@ Ce qui entre vs ce qui sort
   max-width: 260px;
 }
 .ba-folder--src {
-  border-left: 4px solid var(--theme-color-salmon);
+  border: 2px solid var(--theme-color-raspberry);
 }
 .ba-folder--dist {
-  border-left: 4px solid var(--theme-color-steel);
+  border: 2px solid var(--theme-color-steel);
 }
 .ba-folder-header {
   display: flex;
@@ -95,7 +95,7 @@ Ce qui entre vs ce qui sort
 .ba-folder-icon {
   font-size: 1.3rem;
 }
-.ba-icon--src { color: var(--theme-color-salmon); }
+.ba-icon--src { color: var(--theme-color-raspberry); }
 .ba-icon--dist { color: var(--theme-color-steel); }
 .ba-folder-name {
   font-family: 'Paytone One', sans-serif;
@@ -123,7 +123,7 @@ Ce qui entre vs ce qui sort
   margin-top: 0.5rem;
   font-family: 'Paytone One', sans-serif;
   font-size: 0.85rem;
-  color: var(--theme-color-salmon);
+  color: var(--theme-color-raspberry);
   text-align: center;
 }
 </style>

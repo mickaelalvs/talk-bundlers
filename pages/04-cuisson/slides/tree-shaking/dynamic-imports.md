@@ -22,15 +22,14 @@ Plus c'est dynamique, moins le bundler peut optimiser.
 
 ```js
 import('./Dashboard')
-// React.lazy(() => import('./Comp'))
 ```
 
 </MacWindow>
 
 </div>
     <div class="dyn-explain">
-      Le chemin est connu au build : le bundler crée un <strong>chunk séparé</strong>,
-      tree-shaké comme le reste. À l'exécution, il est chargé à la demande.
+      Le chemin est connu au build. Le bundler <strong>suit l'import</strong>
+      et tree-shake le module comme les autres.
     </div>
   </div>
 
@@ -48,8 +47,8 @@ import(`./locales/${lang}.js`)
 
 </div>
     <div class="dyn-explain">
-      Le bundler ne sait pas quel <code>lang</code>, alors il <strong>bundle tout
-      ce qui matche</strong> le pattern. Plus de tree-shaking sur ce groupe.
+      Le bundler ignore la valeur de <code>lang</code>. Il <strong>bundle tout
+      ce qui matche</strong> le pattern, sans tree-shaking.
     </div>
   </div>
 
@@ -68,8 +67,8 @@ import(path)
 
 </div>
     <div class="dyn-explain">
-      Le bundler ne peut rien deviner. <strong>Il abandonne</strong> ou prend tout.
-      Souvent : warning au build et chargement à l'exécution sans chunk.
+      Le bundler ne peut rien deviner. <strong>Il abandonne</strong>.
+      Aucun fichier n'est embarqué pour cet import.
     </div>
   </div>
 
@@ -93,33 +92,31 @@ import(path)
   font-size: 0.9em;
 }
 .dyn-cases {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
   width: 100%;
-  max-width: 760px;
   margin: 0 auto;
+  align-items: stretch;
 }
 .dyn-case {
-  display: grid;
-  grid-template-columns: 130px 1fr;
-  grid-template-rows: auto auto;
-  gap: 0.4rem 1rem;
-  align-items: center;
-  padding: 0.7rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 0.9rem 1rem;
   border-radius: 10px;
-  border-left: 4px solid;
+  border: 2px solid;
   background: rgba(255, 255, 255, 0.6);
   text-align: left;
 }
 .dyn-case-good {
-  border-color: #4caf50;
+  border-color: var(--theme-color-olive);
 }
 .dyn-case-warn {
   border-color: var(--theme-color-amber);
 }
 .dyn-case-bad {
-  border-color: #ef5350;
+  border-color: var(--theme-color-raspberry);
 }
 .dyn-tag {
   font-family: "Paytone One", sans-serif;
@@ -129,25 +126,26 @@ import(path)
   padding: 0.2rem 0.6rem;
   border-radius: 999px;
   text-align: center;
-  align-self: start;
+  align-self: flex-start;
 }
 .dyn-tag-good {
-  background: rgba(76, 175, 80, 0.18);
-  color: #2e7d32;
+  background: rgba(138, 154, 75, 0.18);
+  color: var(--theme-color-olive-dark);
 }
 .dyn-tag-warn {
   background: rgba(219, 153, 77, 0.2);
-  color: #b35900;
+  color: var(--theme-color-charcoal);
 }
 .dyn-tag-bad {
-  background: rgba(239, 83, 80, 0.18);
-  color: #c0392b;
+  background: rgba(196, 81, 92, 0.18);
+  color: var(--theme-color-raspberry-dark);
 }
 .dyn-code {
-  align-self: start;
+  align-self: stretch;
 }
 .dyn-code :deep(.mac-window) {
   min-width: 0;
+  width: 100%;
 }
 .dyn-code :deep(.mac-body) {
   padding: 0.4rem 0.7rem;
@@ -157,7 +155,6 @@ import(path)
   padding: 0 !important;
 }
 .dyn-explain {
-  grid-column: 2;
   font-family: "Nunito", sans-serif;
   font-size: 0.85rem;
   color: var(--theme-color-charcoal);
@@ -178,20 +175,13 @@ import(path)
 </style>
 
 <!--
-La règle de base : plus c'est dynamique, moins le bundler peut optimiser.
+Plus c'est dynamique, moins le bundler peut optimiser, même en ESM.
 
-[click 1] Cas statique : le chemin est une string literal. Le bundler crée
-un chunk séparé (code splitting), tree-shaking reste possible. C'est le bon
-usage : React.lazy, route-based splitting, etc.
+[click] Chemin littéral : le bundler sait quel module est visé, le tree-shaking reste possible. C'est le bon usage (React.lazy, routes).
 
-[click 2] Variable dans un template : le bundler matche un pattern et bundle
-TOUT ce qui matche. Pas de tree-shaking sur ces fichiers, mais au moins ils
-sont dans des chunks séparés.
+[click] Variable dans un template : il bundle tout ce qui matche le pattern, sans tree-shaking. Testé : esbuild et Webpack le font, Rollup et Rolldown nus non (il faut un plugin).
 
-[click 3] Variable opaque : le bundler ne peut rien faire. Webpack émet un
-warning, esbuild plante souvent. Le contenu doit être chargé à l'exécution
-sans bundling, ce qui casse le modèle.
+[click] Variable opaque : il abandonne, rien n'est embarqué. Webpack émet un warning et ça plante à l'exécution, les autres laissent `import(path)` tel quel.
 
-Cross-ref code splitting (sous-bloc suivant) : import() est aussi le mécanisme
-principal pour faire du code splitting.
+Ne pas parler de chunks ici, la notion arrive en code splitting.
 -->

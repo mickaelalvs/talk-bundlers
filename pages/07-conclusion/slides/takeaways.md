@@ -10,7 +10,7 @@ Ce qu'il faut retenir
 <div class="tk-grid">
 
   <div v-click="1" class="tk-card">
-    <div class="tk-num">①</div>
+    <div class="tk-num">1</div>
     <div class="tk-title">Pas de magie</div>
     <div class="tk-desc">
       C'est une <strong>pipeline de transformations</strong>. Chaque étape a un rôle clair.
@@ -18,7 +18,7 @@ Ce qu'il faut retenir
   </div>
 
   <div v-click="2" class="tk-card">
-    <div class="tk-num">②</div>
+    <div class="tk-num">2</div>
     <div class="tk-title">Bundle = perf</div>
     <div class="tk-desc">
       Comprendre ce qui se passe dans ton bundle, c'est <strong>comprendre pourquoi ton app est lente</strong>. Ou pas.
@@ -26,7 +26,7 @@ Ce qu'il faut retenir
   </div>
 
   <div v-click="3" class="tk-card">
-    <div class="tk-num">③</div>
+    <div class="tk-num">3</div>
     <div class="tk-title">Choisir = compromis</div>
     <div class="tk-desc">
       Aucun bundler ne gagne partout. Il faut arbitrer entre <strong>config, perf et écosystème</strong>.
@@ -34,6 +34,14 @@ Ce qu'il faut retenir
   </div>
 
 </div>
+<div v-click="4" class="tk-qr">
+  <img src="/assets/images/qr/qrcode_recette.svg?v=amber" class="tk-qr-img" />
+  <div class="tk-qr-text">
+    <strong>La fiche recette du talk</strong>
+    <span>Scannez pour retrouver les notes.</span>
+  </div>
+</div>
+
 
 <style>
 .tk-grid {
@@ -52,15 +60,49 @@ Ce qu'il faut retenir
   padding: 1.3rem 1.2rem;
   background: white;
   border-radius: 14px;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
   text-align: left;
-  border-top: 5px solid var(--theme-color-amber);
+  border: 2px solid var(--theme-color-amber);
 }
 .tk-num {
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 8px;
+  background: var(--theme-color-amber);
+  color: #fff;
   font-family: "Paytone One", sans-serif;
-  font-size: 2rem;
-  color: var(--theme-color-amber);
+  font-size: 1.2rem;
   line-height: 1;
+}
+.tk-qr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+.tk-qr-img {
+  width: 170px;
+  height: 170px;
+  background: white;
+  border: 2px solid var(--theme-color-mist);
+  border-radius: 10px;
+}
+.tk-qr-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  text-align: left;
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  color: var(--theme-color-charcoal);
+}
+.tk-qr-text strong {
+  font-family: "Paytone One", sans-serif;
+  font-size: 1.15rem;
+  font-weight: normal;
+  color: var(--theme-color-steel);
 }
 .tk-title {
   font-family: "Paytone One", sans-serif;
@@ -84,19 +126,21 @@ Ce qu'il faut retenir
 <!--
 Les 3 takeaways en triade.
 
-[click 1] PAS DE MAGIE.
-Le message le plus important. Tout ce qu'on a vu (inlining, tree-shaking,
-mangling, sourcemaps), c'est de la mécanique. Comprendre cette mécanique
+[click] PAS DE MAGIE.
+Le message le plus important. Tout ce qu'on a vu (tree-shaking,
+mangling, source maps), c'est de la mécanique. Comprendre cette mécanique
 te rend moins impuissant face à ton outillage.
 
-[click 2] BUNDLE = PERF.
+[click] BUNDLE = PERF.
 Le bundle est ce qui finit en prod chez ton user. S'il est mal foutu (lodash
 entier embarqué, code mort présent, mauvais chunks), c'est ton user qui
 ramera. Savoir lire un bundle analyzer est une compétence pratique.
 
-[click 3] CHOISIR = COMPROMIS.
+[click] CHOISIR = COMPROMIS.
 Pas de "meilleur bundler". Vite est top pour la DX mais reste assez jeune sur
 certains use cases. Webpack a l'écosystème mais est lent. esbuild est rapide
 mais limité en plugins. Rollup brille pour les libs. Etc. Choisir, c'est
 arbitrer.
+
+[click] Le QR code mène à la fiche recette : tout le talk en une page, avec les chiffres.
 -->

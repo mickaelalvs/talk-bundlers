@@ -29,9 +29,8 @@ Même code source, packaging différent.
 </MacWindow>
 
 <div class="pj-explain pj-explain-bad">
-Pas de <code>module</code>, pas de <code>exports</code>,<br />
-pas de <code>sideEffects</code>.<br />
-→ Le bundler tombe sur du CJS et ne peut rien retirer.
+<span class="note-chip"><lucide-x /></span>
+<span>→ Le bundler tombe sur du CJS et ne retire rien.</span>
 </div>
 
 </div>
@@ -54,9 +53,8 @@ pas de <code>sideEffects</code>.<br />
 </MacWindow>
 
 <div class="pj-explain pj-explain-good">
-<code>module</code> pointe vers la version ESM,<br />
-<code>sideEffects: false</code> promet "rien d'autre".<br />
-→ Le bundler peut analyser et secouer.
+<span class="note-chip"><lucide-check /></span>
+<span>→ Le bundler lit de l'ESM et retire l'inutile.</span>
 </div>
 
 </div>
@@ -77,7 +75,11 @@ pas de <code>sideEffects</code>.<br />
   grid-template-columns: 1fr 1fr;
   gap: 1.8rem;
   width: 100%;
-  align-items: start;
+  align-items: stretch;
+}
+.pj-col :deep(.mac-window) {
+  flex: 1;
+  width: 100%;
 }
 .pj-col {
   display: flex;
@@ -94,12 +96,12 @@ pas de <code>sideEffects</code>.<br />
   align-self: flex-start;
 }
 .pj-stage-bad {
-  background: rgba(239, 83, 80, 0.18);
-  color: #c0392b;
+  background: rgba(196, 81, 92, 0.18);
+  color: var(--theme-color-raspberry-dark);
 }
 .pj-stage-good {
-  background: rgba(76, 175, 80, 0.18);
-  color: #2e7d32;
+  background: rgba(138, 154, 75, 0.18);
+  color: var(--theme-color-olive-dark);
 }
 .pj-col :deep(pre) {
   text-align: left;
@@ -110,17 +112,20 @@ pas de <code>sideEffects</code>.<br />
   line-height: 1.55;
   color: var(--theme-color-charcoal);
   text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
   padding: 0.75rem 1rem;
+  min-height: 4.5rem;
   border-radius: 8px;
-  border-left: 3px solid;
 }
 .pj-explain-bad {
-  background: rgba(239, 83, 80, 0.08);
-  border-color: #ef5350;
+  background: rgba(196, 81, 92, 0.08);
+  --chip: var(--theme-color-raspberry);
 }
 .pj-explain-good {
-  background: rgba(76, 175, 80, 0.08);
-  border-color: #4caf50;
+  background: rgba(138, 154, 75, 0.08);
+  --chip: var(--theme-color-olive);
 }
 .pj-explain code {
   font-family: "JetBrains Mono", monospace;
@@ -137,17 +142,11 @@ pas de <code>sideEffects</code>.<br />
 </style>
 
 <!--
-Les deux package.json côte à côte. C'est ÇA la différence entre lodash et
-lodash-es. Pas leur code, leur packaging.
+La différence n'est pas dans le code, c'est dans le packaging. lodash n'a ni "module", ni "exports", ni "sideEffects" : le bundler tombe sur du CJS et ne retire rien. lodash-es déclare "module" (l'entrée ESM, l'ancienne convention, "exports" étant la moderne) et "sideEffects": false.
 
-Champs clés à expliquer :
-- "main" : entry point CJS (par défaut)
-- "module" : entry point ESM (vieille convention, encore très utilisée)
-- "exports" : convention moderne (Node 12+), permet d'avoir import/require
-  séparés
-- "sideEffects": false : promesse au bundler "tu peux supprimer mes modules
-  inutilisés sans risque"
+"sideEffects": false est une promesse : "tu peux supprimer mes modules inutilisés sans risque". Elle peut être fausse, on y revient dans les pièges.
 
-Punchline : "Quand tu choisis une lib, regarde son package.json. C'est là
-que se joue la moitié de ton bundle."
+À retenir : quand tu choisis une lib, regarde son package.json.
+
+Transition : un package bien fait, c'est la moitié du chemin. Reste ce qui échappe à l'analyse statique, les imports dynamiques.
 -->

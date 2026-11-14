@@ -26,10 +26,13 @@ layout: basic
   </div>
 
   <div v-click="1" class="quiz-answer">
-    <div class="quiz-answer-tag">✓ Réponse : B</div>
-    <div class="quiz-answer-text">
-      Le bundler regarde tes <strong>imports</strong>, pas ton <code>package.json</code>.<br />
-      Sans import, pas de chemin dans le graphe, pas dans le bundle.
+    <span class="note-chip"><lucide-check /></span>
+    <div class="quiz-answer-body">
+      <div class="quiz-answer-tag">Réponse : B</div>
+      <div class="quiz-answer-text">
+        Le bundler regarde tes <strong>imports</strong>, pas ton <code>package.json</code>.<br />
+        Sans import, pas de chemin dans le graphe, pas dans le bundle.
+      </div>
     </div>
   </div>
 </div>
@@ -111,11 +114,16 @@ layout: basic
 .quiz-answer {
   margin-top: 0.4rem;
   padding: 0.9rem 1.5rem;
-  background: rgba(76, 175, 80, 0.12);
-  border-left: 4px solid #4caf50;
+  background: rgba(138, 154, 75, 0.12);
+  --chip: var(--theme-color-olive);
   border-radius: 8px;
   max-width: 700px;
   width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.quiz-answer-body {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
@@ -124,7 +132,7 @@ layout: basic
   font-family: "Paytone One", sans-serif;
   font-size: 0.85rem;
   letter-spacing: 0.1em;
-  color: #2e7d32;
+  color: var(--theme-color-olive-dark);
   text-transform: uppercase;
 }
 .quiz-answer-text {
@@ -148,14 +156,7 @@ layout: basic
 </style>
 
 <!--
-Pause interactive après l'explication du mécanisme. Question + 2 options
-visibles d'entrée. Pause de 5-10 secondes pour laisser l'audience deviner.
-Demander "alors, A ou B ?" à voix haute.
+Laisse 5 à 10 secondes à la salle, puis "A ou B ?" à voix haute.
 
-[click] Reveal de la réponse B + explication courte. Le point clé : le
-bundler regarde les imports, pas le package.json. C'est juste un manifest
-d'installation, pas un manifest de bundle.
-
-Idem pour les libs : tu importes 1 fonction, tu n'as que cette fonction
-dans le bundle (si la lib est bien faite).
+[click] B. Le bundler lit les imports, pas le package.json. Sans import, pas de chemin dans le graphe (partie 02), donc rien dans le bundle.
 -->

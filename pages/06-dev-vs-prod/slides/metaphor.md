@@ -4,7 +4,7 @@ layout: basic
 
 <div class="meta-wrap">
   <div class="meta-card meta-rehearsal">
-    <div class="meta-stage">🎭 Répétition</div>
+    <div class="meta-stage">Répétition</div>
     <div class="meta-scene">
       <img src="/assets/images/items/kitchen_hat.svg" class="meta-item meta-item-1" />
       <img src="/assets/images/items/utensils.svg" class="meta-item meta-item-2" />
@@ -12,17 +12,17 @@ layout: basic
       <img src="/assets/images/items/pot.svg" class="meta-item meta-item-4" />
       <img src="/assets/images/items/cutting_board.svg" class="meta-item meta-item-5" />
     </div>
-    <div class="meta-caption">Vitesse &gt; esthétique<br />On goûte, on ajuste, on refait.</div>
+    <div class="meta-caption">On goûte, on ajuste, on refait.<br />Le retour doit être rapide.</div>
   </div>
 
   <div class="meta-vs">vs</div>
 
   <div class="meta-card meta-service">
-    <div class="meta-stage">🍽️ Service</div>
+    <div class="meta-stage">Service</div>
     <div class="meta-scene meta-scene-clean">
       <img src="../../01-frigo/assets/plate.svg" class="meta-plate" />
     </div>
-    <div class="meta-caption">L'assiette finale.<br />Le client ne voit que ça.</div>
+    <div class="meta-caption">L'assiette finale.<br />L'utilisateur ne voit que ça.</div>
   </div>
 </div>
 
@@ -44,7 +44,13 @@ layout: basic
   padding: 1.5rem;
   background: white;
   border-radius: 18px;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--theme-color-slate);
+}
+.meta-rehearsal {
+  border-color: var(--theme-color-amber);
+}
+.meta-service {
+  border-color: var(--theme-color-steel);
 }
 .meta-stage {
   font-family: "Paytone One", sans-serif;
@@ -96,17 +102,11 @@ layout: basic
 </style>
 
 <!--
-La métaphore visuelle qui porte tout le message de la partie 6.
+Le fil rouge de la partie : le même projet passe par deux cuisines.
 
-À gauche : la répétition. Une cuisine en mouvement, des ustensiles
-éparpillés, le chaos productif. Ce qui compte : la vitesse de feedback,
-pas l'esthétique.
+À gauche, la répétition (le dev). On goûte, on ajuste, on refait : ce qui compte, c'est la vitesse du retour.
 
-À droite : le service. L'assiette qu'on a déjà vue dans la partie 01 (où
-elle représentait ce que le navigateur comprend). Elle revient ici comme
-le résultat final, présenté au client. Callback narratif fort.
+À droite, le service (la prod). C'est l'assiette de la partie 01, servie au client : il ne voit que le résultat.
 
-À l'oral : "Vous vous souvenez de cette assiette ? C'était au tout début,
-on parlait de ce que le navigateur comprend. Eh bien c'est la même
-assiette qui est servie au client à la fin."
+Les outils se comportent différemment dans chacune. On le voit en trois temps : comment le dev reste rapide, ce que reçoit le navigateur, comment déboguer ce qui part en prod.
 -->

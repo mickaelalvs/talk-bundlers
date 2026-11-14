@@ -3,64 +3,102 @@ layout: basic-title
 ---
 
 ::title::
-5 pièges qui cassent tout
+3 pièges qui cassent tout
 
 ::default::
 
 <div class="pit-list">
   <div v-click="1" class="pit-item">
     <lucide-zap class="pit-icon" />
-    <div class="pit-title">Side effects involontaires</div>
+    <div class="pit-text">
+      <div class="pit-title">Side effects</div>
+      <div class="pit-sub">Barrel files, <code>sideEffects: false</code> mal posé</div>
+    </div>
   </div>
   <div v-click="2" class="pit-item">
     <lucide-package-open class="pit-icon" />
-    <div class="pit-title">Imports trop larges</div>
+    <div class="pit-text">
+      <div class="pit-title">Des exports trop gros</div>
+      <div class="pit-sub">Objet par défaut, classe : tout ou rien</div>
+    </div>
   </div>
   <div v-click="3" class="pit-item">
-    <lucide-flask-conical class="pit-icon" />
-    <div class="pit-title">Mode <code>production</code> absent (Webpack)</div>
-  </div>
-  <div v-click="4" class="pit-item">
-    <lucide-repeat class="pit-icon" />
-    <div class="pit-title">Un loader qui reconvertit en CJS</div>
-  </div>
-  <div v-click="5" class="pit-item">
     <lucide-package-x class="pit-icon" />
-    <div class="pit-title">Une dep CJS transitive</div>
+    <div class="pit-text">
+      <div class="pit-title">Du CJS dans le graphe</div>
+      <div class="pit-sub">Config Babel ou <code>tsconfig</code>, dépendance transitive</div>
+    </div>
   </div>
+</div>
+
+<div v-click="3" class="pit-tip">
+  <span class="note-chip"><lucide-search /></span>
+  <span>Audite tes dépendances avec <a href="https://github.com/mgechev/is-esm" target="_blank"><code>is-esm</code></a></span>
 </div>
 
 <style>
 .pit-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
   width: 100%;
-  max-width: 720px;
-  margin: 3rem auto 0;
+  max-width: 980px;
+  margin: 2rem auto 0;
   text-align: left;
 }
 .pit-item {
   display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  padding: 0.9rem 1.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 1.5rem 1.4rem;
   background: rgba(255, 255, 255, 0.6);
   border-radius: 12px;
-  border-left: 4px solid var(--theme-color-amber);
+  border: 2px solid var(--theme-color-amber);
 }
 .pit-icon {
-  font-size: 2rem;
+  font-size: 2.4rem;
   color: var(--theme-color-amber);
   flex-shrink: 0;
+}
+.pit-tip {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  width: fit-content;
+  margin: 1.5rem auto 0;
+  padding: 0.7rem 1.1rem;
+  background: rgba(81, 138, 184, 0.1);
+  --chip: var(--theme-color-steel);
+  border-radius: 10px;
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  color: var(--theme-color-charcoal);
+}
+.pit-tip code {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85em;
+  color: var(--theme-color-steel);
+}
+.pit-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
 }
 .pit-title {
   font-family: "Nunito", sans-serif;
   font-weight: 400;
   color: var(--theme-color-steel);
-  font-size: 1.4rem;
+  font-size: 1.15rem;
+  white-space: nowrap;
 }
-.pit-title code {
+.pit-sub {
+  font-family: "Nunito", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--theme-color-slate);
+}
+.pit-sub code {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.85em;
   background: rgba(81, 138, 184, 0.1);
@@ -70,42 +108,11 @@ layout: basic-title
 </style>
 
 <!--
-[click 1] Side effects : le piège classique. Un module qui modifie window,
-qui register un plugin, qui importe du CSS. Le bundler doit garder le module
-même si tu n'utilises rien de son export.
+[click] Side effects. Le bundler ne retire un module que s'il sait qu'importer ne fait rien. Deux erreurs possibles.
+Il ne sait pas, alors il garde : les barrel files (un index.ts qui ré-exporte tout). Testé avec un appel au top-level dans un module : esbuild le garde, Rollup, Rolldown et Webpack le retirent.
+Tu lui mens : "sideEffects": false sur un package qui a un polyfill ou du CSS global, et ils disparaissent du bundle (testé avec esbuild et Webpack). Ne mets le flag que s'il est vrai, ou liste les fichiers concernés.
 
-[click 2] Imports larges : import _ from 'lodash' importe le default qui
-contient toute l'API. Faire des imports nommés depuis lodash-es.
+[click] Des exports trop gros. Le tree-shaking retire des exports, pas des méthodes ni des membres d'objet. Une classe de 3 méthodes dont on en appelle une : esbuild, Rollup et Webpack gardent tout. Idem pour `import _ from 'lodash-es'`, 93 KB contre 2,9 KB en import nommé. Règle : exports et imports nommés.
 
-[click 3] Mode production (cas Webpack) : Webpack marque les exports comme
-inutilisés mais ne les supprime PAS tant que Terser ne tourne pas (en mode
-production). En dev, le code mort reste dans le bundle.
-
-Nuance importante : Rollup et esbuild, eux, suppriment directement pendant
-le bundling, même sans minification. C'est pour ça que Vite (qui utilise
-Rollup en prod) ne souffre pas de ce problème.
-
-[click 4] Loader qui produit du CJS : Babel mal configuré (modules: 'commonjs'
-ou 'auto') aplatit l'ESM dans la phase loader.
-
-Pipeline réelle :
-  1. Entry point
-  2. BOUCLE : loaders + parse + découverte d'imports (le graphe se construit
-     incrémentalement, pas comme une étape séparée après les loaders)
-  3. Tree-shaking sur le graphe complet
-  4. Code splitting
-  5. Minification
-  6. Émission du bundle
-
-Donc si à l'étape 2.a (loader) Babel produit du CJS, à l'étape 2.b (parse)
-le bundler voit du require() au lieu d'import. Le graphe se construit avec
-du CJS, et l'étape 3 (tree-shaking) abandonne.
-
-Les loaders font partie du bundler, mais tournent dans la première phase.
-Cross-ref direct avec la partie 3 (transpilation, loaders).
-
-[click 5] Dep CJS transitive : ton code peut être ESM impeccable, mais si
-une lib que tu importes (ou une de ses sous-deps) est en CJS, le bundler
-inclut TOUT cette lib sans pouvoir tree-shaker. Outil pour auditer : is-esm
-(github.com/mgechev/is-esm).
+[click] Du CJS dans le graphe, deux causes pour le même effet. Ta config (Babel `modules: 'commonjs'`, tsconfig `"module": "commonjs"`) transforme l'ESM en CJS avant que le bundler le lise. Ou une dépendance en CJS, même transitive : toute la lib est embarquée. is-esm pour auditer.
 -->

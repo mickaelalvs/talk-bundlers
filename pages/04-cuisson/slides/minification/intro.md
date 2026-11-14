@@ -1,8 +1,10 @@
 ---
-layout: recipe
-done: 6
-current: 1
-transition: slide-left
+layout: title
 ---
 
-La réduction : on compresse au maximum 🗜️
+::number::
+<img src="/assets/images/items/pot.svg" class="title-illus" />
+
+::default::
+
+# Minification

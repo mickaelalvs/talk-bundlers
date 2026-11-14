@@ -22,7 +22,7 @@ En profondeur, dans l'ordre de résolution
 
 <div class="vt-win" style="left: 18.5rem; top: 0.5rem;">
 
-<MacWindow title="① main.js">
+<MacWindow step="1" title="main.js">
 
 ```js {*|1|2|2|3}{lines: true}
 import { createApp } from './app.js'
@@ -36,7 +36,7 @@ import './style.css'
 
 <div v-click="1" class="vt-win" style="left: 0rem; top: 9.5rem;">
 
-<MacWindow title="② app.js">
+<MacWindow step="2" title="app.js">
 
 ```js
 export function createApp() {
@@ -50,7 +50,7 @@ export function createApp() {
 
 <div v-click="2" class="vt-win" style="left: 18.5rem; top: 9.5rem;">
 
-<MacWindow title="③ router.js">
+<MacWindow step="3" title="router.js">
 
 ```js {1}{lines: true}
 import { createRoute } from './route.js'
@@ -64,7 +64,7 @@ export const router = { /* ... */ }
 
 <div v-click="4" class="vt-win" style="left: 37rem; top: 9.5rem;">
 
-<MacWindow title="⑤ style.css">
+<MacWindow step="5" title="style.css">
 
 ```css
 .app { color: #db994d; }
@@ -76,7 +76,7 @@ export const router = { /* ... */ }
 
 <div v-click="3" class="vt-win" style="left: 18.5rem; top: 18.5rem;">
 
-<MacWindow title="④ route.js">
+<MacWindow step="4" title="route.js">
 
 ```js
 export function createRoute(p, n) {
@@ -127,10 +127,10 @@ et route.js sous router.js.
 
 Ordre de résolution = PROFONDEUR D'ABORD :
 [base] ① main.js
-[click 1] ② app.js (1er import, feuille)
-[click 2] ③ router.js (2e import)…
-[click 3] ④ route.js → on descend dedans AVANT de remonter
-[click 4] ⑤ style.css (dernier import de main, résolu en dernier)
+[click] ② app.js (1er import, feuille)
+[click] ③ router.js (2e import)…
+[click] ④ route.js → on descend dedans AVANT de remonter
+[click] ⑤ style.css (dernier import de main, résolu en dernier)
 
 Le point clé : route.js (④) est résolu avant style.css (⑤).
 -->

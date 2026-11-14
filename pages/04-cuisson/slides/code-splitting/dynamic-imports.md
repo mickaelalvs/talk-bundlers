@@ -4,13 +4,15 @@ align: left
 ---
 
 ::title::
-Dynamic imports
+Comment on découpe
 
 ::default::
 
 <div class="cs-imports">
-  <div class="cs-import-block">
-    <div class="cs-import-label">Import statique, dans le bundle principal</div>
+<div class="cs-import-cols">
+<div class="cs-import-block">
+<div class="cs-import-label">Import statique</div>
+<div class="cs-import-where">dans le bundle principal</div>
 
 <MacWindow title="App.jsx">
 
@@ -20,10 +22,10 @@ import { Home } from './Home'
 
 </MacWindow>
 
-  </div>
-
-  <div v-click="1" class="cs-import-block cs-import-dynamic">
-    <div class="cs-import-label cs-import-label-dynamic">Import dynamique, dans un chunk séparé</div>
+</div>
+<div v-click="1" class="cs-import-block cs-import-dynamic">
+<div class="cs-import-label cs-import-label-dynamic">Import dynamique</div>
+<div class="cs-import-where">dans un chunk séparé</div>
 
 <MacWindow title="App.jsx">
 
@@ -33,71 +35,96 @@ const Dashboard = () => import('./Dashboard')
 
 </MacWindow>
 
-  </div>
-
-  <div v-click="2" class="cs-import-note">
-    <lucide-info class="cs-info-icon" />
-    <span><code>import()</code> retourne une <strong>Promise</strong>. Le bundler le repère au build et crée un fichier séparé.</span>
-  </div>
+</div>
+</div>
+<div v-click="2" class="cs-others">
+<div class="cs-import-label">Autres façons de découper</div>
+<div class="cs-others-row">
+<div class="cs-other"><span class="cs-other-head"><lucide-door-open class="cs-other-icon" />Plusieurs entrées</span><code>entry: { home, admin }</code></div>
+<div class="cs-other"><span class="cs-other-head"><lucide-settings class="cs-other-icon" />Config du bundler</span><code>splitChunks · manualChunks</code></div>
+<div class="cs-other"><span class="cs-other-head"><lucide-folder-tree class="cs-other-icon" />Frameworks</span><code>pages/admin.tsx</code></div>
+</div>
+</div>
 </div>
 
 <style>
 .cs-imports {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  max-width: 700px;
+  gap: 2.5rem;
+  width: 100%;
+  padding-top: 1.5rem;
+}
+.cs-import-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
 }
 .cs-import-block {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
 }
 .cs-import-label {
   font-family: "Paytone One", sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--theme-color-slate);
-  margin-bottom: 0.5rem;
 }
 .cs-import-label-dynamic {
-  color: #2e7d32;
+  color: var(--theme-color-olive-dark);
 }
-.cs-imports :deep(.mac-window) {
+.cs-import-where {
+  font-family: "Nunito", sans-serif;
+  font-size: 0.9rem;
+  color: var(--theme-color-slate);
+  margin-bottom: 0.7rem;
+}
+.cs-imports .mac-window {
   min-width: 0;
   width: 100%;
 }
-.cs-import-dynamic :deep(.mac-window) {
-  border-color: #2e7d32 !important;
+.cs-import-dynamic .mac-window {
+  border-color: var(--theme-color-olive-dark) !important;
 }
-.cs-import-note {
+.cs-others {
   display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  font-family: "Nunito", sans-serif;
-  font-size: 1rem;
-  color: var(--theme-color-charcoal);
-  padding: 0.75rem 1rem;
-  background: rgba(81, 138, 184, 0.06);
-  border-radius: 10px;
+  flex-direction: column;
+  gap: 0.8rem;
 }
-.cs-info-icon {
-  font-size: 1.3rem;
-  color: var(--theme-color-steel);
-  flex-shrink: 0;
-  margin-top: 0.1rem;
+.cs-others-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
 }
-.cs-import-note code {
-  font-family: "JetBrains Mono", monospace;
-  background: rgba(81, 138, 184, 0.1);
-  padding: 0.05rem 0.35rem;
-  border-radius: 4px;
-  color: var(--theme-color-steel);
-  font-size: 0.9em;
+.cs-other {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.9rem 1.1rem;
+  background: white;
+  border: 2px solid var(--theme-color-mist);
+  border-radius: 14px;
 }
-.cs-import-note strong {
+.cs-other-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-family: "Paytone One", sans-serif;
+  font-size: 0.95rem;
+  color: var(--theme-color-charcoal);
+}
+.cs-other-icon {
+  font-size: 1.2rem;
   color: var(--theme-color-amber);
-  font-weight: normal;
+}
+.cs-other code {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--theme-color-steel);
+  background: none;
+  padding: 0;
 }
 </style>
 
@@ -105,18 +132,23 @@ const Dashboard = () => import('./Dashboard')
 Voici la seule chose que tu as à changer dans ton code pour activer le
 code splitting : remplacer un import statique par un import() dynamique.
 
-L'import statique (en haut) : le bundler inclut Home.js dans le chunk principal.
+L'import statique (à gauche) : le bundler inclut Home.js dans le chunk principal.
 C'est synchrone, c'est toujours là.
 
-[click 1] L'import dynamique : la syntaxe import() avec des parenthèses.
+[click] L'import dynamique : la syntaxe import() avec des parenthèses.
 Ça ressemble à un appel de fonction, mais c'est un mot-clé du langage (ES2020).
-Le bundler le repère et crée automatiquement un chunk séparé.
+Il retourne une Promise : quand le chunk est téléchargé, elle se résout avec
+le module. Le bundler le repère et crée un chunk séparé, sans config en plus.
 
-[click 2] Le détail technique : import() retourne une Promise. Quand le chunk
-est téléchargé, la promise se résout avec le module. Tout ça sans aucune config
-bundler supplémentaire — c'est le comportement par défaut.
+Piège : import(`./pages/${variable}`) avec une variable totalement dynamique,
+le bundler ne sait pas quel fichier couper et inclut tout le dossier dans un
+chunk. Préfère des chemins explicites.
 
-Piège à mentionner : si tu fais import(`./pages/${variable}`) avec une variable
-totalement dynamique, le bundler ne peut pas savoir à l'avance quel fichier
-couper → il inclut tout le dossier dans un chunk. Préfère des chemins explicites.
+[click] import() n'est pas le seul moyen de découper.
+Plusieurs entrées : un fichier d'entrée par page, un chunk chacun (le pattern
+des multi-page apps).
+Config du bundler : splitChunks (Webpack), manualChunks (Rollup/Vite). Règles
+de taille et de partage, c'est ce qui crée les vendor chunks (on y revient).
+Frameworks : Next.js, Nuxt, Remix découpent par fichier dans pages/ ou app/,
+sans écrire d'import() à la main.
 -->

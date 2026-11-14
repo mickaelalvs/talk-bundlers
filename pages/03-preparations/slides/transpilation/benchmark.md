@@ -3,48 +3,54 @@ layout: basic-title
 ---
 
 ::title::
-Benchmark : TodoMVC React
+Benchmark : transpilation
 
 ::default::
+
+<div class="bench-context">
+  <span class="note-chip"><lucide-cpu /></span>
+  <span><strong>801 fichiers JSX</strong> · Apple M3</span>
+</div>
 
 <div class="bench-chart">
   <div v-click="1" class="bench-row">
     <div class="bench-label">
       <img src="/assets/images/logos/babel.svg" class="bench-logo" />
-      <span>Babel</span>
+      <div>Babel<small>JavaScript</small></div>
     </div>
-    <div class="bench-bar bench-bar-babel">
-      <div class="bench-fill" style="width: 100%"></div>
-      <span class="bench-time">3.9 s</span>
-    </div>
+    <div class="bench-bar"><div class="bench-fill bench-fill-js" style="--value: 100%"></div></div>
+    <span class="bench-time">731 ms</span>
   </div>
 
   <div v-click="2" class="bench-row">
     <div class="bench-label">
-      <img src="/assets/images/logos/swc.svg" class="bench-logo" />
-      <span>SWC</span>
+      <img src="/assets/images/logos/esbuild.svg" class="bench-logo" />
+      <div>esbuild<small>Go</small></div>
     </div>
-    <div class="bench-bar">
-      <div class="bench-fill bench-fill-swc" style="width: 62%"></div>
-      <span class="bench-time">2.4 s</span>
-    </div>
+    <div class="bench-bar"><div class="bench-fill" style="--value: 15%"></div></div>
+    <span class="bench-time">113 ms</span>
   </div>
 
   <div v-click="3" class="bench-row">
     <div class="bench-label">
-      <img src="/assets/images/logos/esbuild.svg" class="bench-logo" />
-      <span>esbuild</span>
+      <img src="/assets/images/logos/swc.svg" class="bench-logo" />
+      <div>SWC<small>Rust</small></div>
     </div>
-    <div class="bench-bar">
-      <div class="bench-fill bench-fill-esbuild" style="width: 44%"></div>
-      <span class="bench-time">1.7 s</span>
+    <div class="bench-bar"><div class="bench-fill" style="--value: 5%"></div></div>
+    <span class="bench-time">39 ms</span>
+  </div>
+
+  <div v-click="4" class="bench-row">
+    <div class="bench-label">
+      <img src="/assets/images/logos/oxc.svg" class="bench-logo" />
+      <div>Oxc<small>Rust</small></div>
     </div>
+    <div class="bench-bar"><div class="bench-fill" style="--value: 4%"></div></div>
+    <span class="bench-time">30 ms</span>
   </div>
 </div>
 
-<div class="bench-note">3 200 fichiers JSX · médiane de 7 runs · Apple M3</div>
-
-<div v-click="4" class="bench-why">
+<div v-click="5" class="bench-why">
 <span class="bench-why-label">Pourquoi ?</span>
 <span class="bench-why-item"><strong>Langage compilé</strong> (Rust · Go vs JS)</span>
 <span class="bench-why-sep">·</span>
@@ -53,6 +59,8 @@ Benchmark : TodoMVC React
 <span class="bench-why-item">moins de <strong>plugins</strong></span>
 </div>
 
+<div class="bench-source">Source : test sur TodoMVC</div>
+
 <style>
 .bench-why {
   display: flex;
@@ -60,7 +68,7 @@ Benchmark : TodoMVC React
   align-items: center;
   justify-content: center;
   gap: 0.5rem 0.9rem;
-  margin-top: 1.6rem;
+  margin-top: 1.2rem;
   font-family: "Nunito", sans-serif;
   font-size: 1rem;
   color: var(--theme-color-charcoal);
@@ -77,86 +85,23 @@ Benchmark : TodoMVC React
 .bench-why-sep {
   color: var(--theme-color-mist);
 }
-.bench-chart {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  width: 100%;
-  max-width: 760px;
-  margin: 0 auto;
-  padding-top: 1.5rem;
-}
-.bench-row {
-  display: grid;
-  grid-template-columns: 140px 1fr;
-  align-items: center;
-  gap: 1.5rem;
-}
-.bench-label {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-family: "Paytone One", sans-serif;
-  color: var(--theme-color-steel);
-  font-size: 1.2rem;
-}
-.bench-logo {
-  width: 36px;
-  height: 36px;
-  object-fit: contain;
-}
-.bench-bar {
-  position: relative;
-  height: 38px;
-  background: rgba(159, 169, 185, 0.15);
-  border-radius: 6px;
-  overflow: visible;
-  display: flex;
-  align-items: center;
-}
-.bench-fill {
-  height: 100%;
-  background: var(--theme-color-amber);
-  border-radius: 6px;
-  transition: width 0.8s cubic-bezier(0.34, 1.2, 0.64, 1);
-}
-.bench-fill-swc {
-  background: var(--theme-color-steel);
-}
-.bench-fill-esbuild {
-  background: #4caf50;
-}
-.bench-time {
-  position: absolute;
-  left: calc(100% + 0.75rem);
-  font-family: "Paytone One", sans-serif;
-  font-size: 1rem;
-  color: var(--theme-color-charcoal);
-  white-space: nowrap;
-}
-.bench-row:nth-child(1) .bench-time {
-  left: auto;
-  right: 0.75rem;
-  color: white;
-}
-.bench-note {
-  margin-top: 2rem;
-  text-align: center;
-  font-family: "Nunito", sans-serif;
-  font-size: 0.85rem;
-  color: var(--theme-color-slate);
-  font-style: italic;
-}
 </style>
 
 <!--
-Mesuré sur le projet demo/ : les 8 fichiers JSX/JS dupliqués ×400 (3 200 fichiers,
-~13 Mo), transpilés via les CLI officielles (esbuild, @swc/cli, @babel/cli),
-médiane de 7 runs à froid sur Apple M3. Reproductible : `pnpm phase:transpile:benchmark`.
+Mesuré avec demo/phases/bundler-benchmark.mjs : l'app TodoMVC React dupliquée ×100
+(801 modules), chaque transpileur appelé depuis Node (@babel/core, @swc/core,
+esbuild, oxc-transform), un processus neuf par run, médiane de 5 runs sur Apple M3.
+Le temps inclut le chargement de l'outil. Reproductible : `pnpm benchmark:phases`.
+Versions : Babel 7.29, SWC 1.15, esbuild 0.24, Oxc 0.158.
 
-[click 1] Babel : la barre prend toute la largeur (~3.9 s). Le repère qui pose le plafond.
-[click 2] SWC : ~1.4× plus rapide (~2.4 s). Compilé en Rust, bindings natifs in-process.
-[click 3] esbuild : le plus rapide (~1.7 s), ~2.3× Babel. Compilé en Go, parallélisé.
+[click] Babel : la barre prend toute la largeur (731 ms). Le repère qui pose le plafond.
+[click] esbuild : ~6× plus rapide (113 ms). Go, parallélisé. Attention : appelé fichier
+par fichier depuis Node, il paie l'échange avec son processus Go. En ligne de commande
+sur un dossier entier, il passe devant SWC.
+[click] SWC : ~19× plus rapide (39 ms). Rust, binding natif dans le processus Node.
+[click] Oxc : ~24× plus rapide (30 ms). Rust aussi. C'est lui qui est derrière Rolldown
+et Vite 8.
+[click] Pourquoi : langage compilé, parallélisation, moins de plugins.
 
 Le visuel doit faire le choc, pas les chiffres précis. Ordres de grandeur :
 les compilateurs natifs (Go/Rust) écrasent Babel (JS interprété).
@@ -191,6 +136,13 @@ Pour aller plus loin
     <div class="link-text">
       <div class="link-name">Vite · Why Vite</div>
       <div class="link-url">vitejs.dev/guide/why.html</div>
+    </div>
+  </div>
+  <div v-click="1" class="link-item transition forward:delay-700">
+    <img src="/assets/images/logos/rolldown.svg" class="link-logo" />
+    <div class="link-text">
+      <div class="link-name">Rolldown · Benchmarks</div>
+      <div class="link-url">github.com/rolldown/benchmarks</div>
     </div>
   </div>
 </div>
@@ -247,4 +199,6 @@ Pour aller plus loin
 <!--
 Slide rapide. Pour ceux qui veulent creuser. Les liens sont dans les notes.
 Disclaimer : ce sont leurs propres mesures, donc à prendre avec un grain de sel.
+
+→ Transition vers le sous-bloc suivant : Module resolution CJS/ESM.
 -->

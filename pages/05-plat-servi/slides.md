@@ -1,14 +1,11 @@
 ---
-layout: title
+layout: recipe
+done: 7
+current: 0
 transition: slide-left
 ---
 
-::number::
-05
-
-::default::
-
-# Le plat est servi
+Le plat est servi
 
 <!--
 On a ouvert le frigo, préparé les ingrédients, fait cuire le tout…
@@ -21,17 +18,9 @@ src: ./slides/avant-apres.md
 ---
 
 ---
-src: ./slides/panorama.md
+src: ./slides/analyzer.md
 ---
 
 ---
-src: ./slides/comparatif.md
----
-
----
-src: ./slides/releve.md
----
-
----
-src: ./slides/bilan.md
+src: ./slides/benchmark.md
 ---

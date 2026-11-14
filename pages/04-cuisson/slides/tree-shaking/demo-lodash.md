@@ -8,8 +8,8 @@ Lodash et lodash-es : même fonction, bundle différent
 ::default::
 
 <div class="demo-intro">
-Même import, même résultat à l'exécution.<br />
-Mais voilà ce qu'il y a dans ton bundle final :
+Tu importes juste debounce, depuis deux versions de la même lib.<br />
+Même résultat à l'exécution. Mais dans ton bundle final :
 </div>
 
 <div class="demo-chart">
@@ -37,7 +37,7 @@ Mais voilà ce qu'il y a dans ton bundle final :
 </div>
 
 <div class="demo-note">
-  <span class="demo-source">Mesure réelle : <code>import { debounce }</code>, bundle esbuild minifié (×25 plus léger)</span>
+  <span class="demo-source">Mesure réelle : <code>import { debounce }</code>, bundle esbuild de production (×25 plus léger)</span>
 </div>
 
 <style>
@@ -84,12 +84,12 @@ Mais voilà ce qu'il y a dans ton bundle final :
   border-radius: 999px;
 }
 .demo-tag-cjs {
-  background: rgba(239, 83, 80, 0.18);
-  color: #c0392b;
+  background: rgba(196, 81, 92, 0.18);
+  color: var(--theme-color-raspberry-dark);
 }
 .demo-tag-esm {
-  background: rgba(76, 175, 80, 0.18);
-  color: #2e7d32;
+  background: rgba(138, 154, 75, 0.18);
+  color: var(--theme-color-olive-dark);
 }
 .demo-bar {
   position: relative;
@@ -105,10 +105,10 @@ Mais voilà ce qu'il y a dans ton bundle final :
   transition: width 0.8s cubic-bezier(0.34, 1.2, 0.64, 1);
 }
 .demo-fill-bad {
-  background: #ef5350;
+  background: var(--theme-color-raspberry);
 }
 .demo-fill-good {
-  background: #4caf50;
+  background: var(--theme-color-olive);
 }
 .demo-time {
   position: absolute;
@@ -142,15 +142,12 @@ Mais voilà ce qu'il y a dans ton bundle final :
 </style>
 
 <!--
-Chiffres réels mesurés via `pnpm phase:tree-shaking` dans demo/ :
-  - `import { debounce }` depuis lodash et lodash-es, deux entry points
-  - bundle esbuild minifié, format esm, production
-  - lodash (CJS) : 72 KB — lodash-es (ESM) : 2.8 KB → ×25
+Même import, deux versions de la même lib. lodash-es est la version ESM de lodash, même code, même API.
 
-[click 1] La barre rouge énorme : lodash en CJS embarque tout le package
-(structure CommonJS non analysable statiquement → pas de tree-shaking).
-[click 2] La barre verte minuscule : lodash-es en ESM tree-shake correctement,
-seul debounce et ses dépendances réelles survivent.
+[click] lodash, en CJS : tout le package part dans le bundle (72 KB).
+[click] lodash-es, en ESM : seul debounce survit (2,8 KB). Soit ×25.
 
-"Même fonction. Même import. Bundle ×25 plus gros."
+Chiffres : `pnpm phase:tree-shaking`, esbuild, production. Ne pas détailler la minification, elle vient plus loin.
+
+Transition : même code source, alors pourquoi cet écart ? Leur package.json.
 -->

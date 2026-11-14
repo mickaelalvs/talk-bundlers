@@ -10,12 +10,12 @@
   <div
     class="relative z-1 p-20 w-full h-full grid grid-cols-3 gap-12 text-center leading-tight items-center justify-items-center pt-30"
   >
-    <div class="grid-item" v-click><slot name="item-1" /></div>
-    <div class="grid-item" v-click><slot name="item-2" /></div>
-    <div class="grid-item" v-click><slot name="item-3" /></div>
-    <div class="grid-item" v-click><slot name="item-4" /></div>
-    <div class="grid-item" v-click><slot name="item-5" /></div>
-    <div class="grid-item" v-click><slot name="item-6" /></div>
+    <div v-if="$slots['item-1']" class="grid-item" v-click="1"><slot name="item-1" /></div>
+    <div v-if="$slots['item-2']" class="grid-item" v-click="2"><slot name="item-2" /></div>
+    <div v-if="$slots['item-3']" class="grid-item" v-click="3"><slot name="item-3" /></div>
+    <div v-if="$slots['item-4']" class="grid-item" v-click="4"><slot name="item-4" /></div>
+    <div v-if="$slots['item-5']" class="grid-item" v-click="5"><slot name="item-5" /></div>
+    <div v-if="$slots['item-6']" class="grid-item" v-click="6"><slot name="item-6" /></div>
   </div>
 </template>
 

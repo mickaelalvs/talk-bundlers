@@ -3,7 +3,7 @@ layout: title
 ---
 
 ::number::
-🔪
+<img src="/assets/images/items/cutting_board.svg" class="title-illus" />
 
 ::default::
 
@@ -29,10 +29,10 @@ Transpilation, c'est quoi ?
 </div>
 
 <!--
-[click 1] La phrase clé : le navigateur ne comprend QUE le JavaScript. Ni TS,
+[click] La phrase clé : le navigateur ne comprend QUE le JavaScript. Ni TS,
 ni JSX, ni les composants .vue/.svelte/.astro — même le dernier Chrome.
 
-[click 2] Concrètement, la transpilation retraduit tout ça en JS : TypeScript,
+[click] Concrètement, la transpilation retraduit tout ça en JS : TypeScript,
 JSX, et les formats de composants (Vue/Svelte/Astro → JS). Raison n°1 aujourd'hui.
 Le down-level (réécrire les syntaxes JS récentes pour les vieux navigateurs) est
 secondaire et de plus en plus marginal — c'est ce qu'on pilote via le "target"

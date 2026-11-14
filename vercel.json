@@ -1,5 +1,14 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
+  "rewrites": [
+    {
+      "source": "/recette",
+      "destination": "/recette/index.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
   "buildCommand": "npm run build",
   "outputDirectory": "dist"
 }

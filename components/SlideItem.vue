@@ -14,6 +14,7 @@ defineProps({
 
 <template>
   <img
+    class="slide-item"
     :src="src"
     :style="{
       position: 'absolute',
@@ -31,3 +32,14 @@ defineProps({
     }"
   />
 </template>
+
+<style scoped>
+.slide-item {
+  --sticker: 5px;
+  filter: drop-shadow(var(--sticker) 0 0 var(--theme-color-white))
+    drop-shadow(calc(var(--sticker) * -1) 0 0 var(--theme-color-white))
+    drop-shadow(0 var(--sticker) 0 var(--theme-color-white))
+    drop-shadow(0 calc(var(--sticker) * -1) 0 var(--theme-color-white))
+    drop-shadow(0 3px 5px rgba(67, 67, 67, 0.25));
+}
+</style>

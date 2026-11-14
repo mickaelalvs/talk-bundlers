@@ -103,10 +103,10 @@ Trois chefs, trois couteaux
 </style>
 
 <!--
-[click 1] Babel : le pionnier, écrit en JS, plein de plugins. Lent.
-[click 2] SWC : la nouvelle génération en Rust, ~20× plus rapide.
-[click 3] esbuild : encore plus rapide, écrit en Go, parallélisation native.
-[click 4] Et d'autres : Bun (Zig, runtime + bundler), Oxc (Rust ultra-rapide,
+[click] Babel : le pionnier, écrit en JS, plein de plugins. Lent.
+[click] SWC : la nouvelle génération en Rust, ~20× plus rapide.
+[click] esbuild : encore plus rapide, écrit en Go, parallélisation native.
+[click] Et d'autres : Bun (Zig, runtime + bundler), Oxc (Rust ultra-rapide,
 nouveau venu), Sucrase (fork de Babel pour la vitesse), tsc (le compilateur
 TypeScript officiel, plus lent mais référence).
 

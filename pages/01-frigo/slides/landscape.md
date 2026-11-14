@@ -84,14 +84,14 @@ Vous en utilisez déjà un
 </style>
 
 <!--
-[click 1] Le casting : tous ces outils du quotidien sont des bundlers.
+[click] Le casting : tous ces outils du quotidien sont des bundlers.
 L'audience se reconnaît dans au moins un.
 
-[click 2] Les langages (logo à droite du nom) : ils ne sont même pas écrits
+[click] Les langages (logo à droite du nom) : ils ne sont même pas écrits
 dans le même langage. JS (webpack, Vite, Rollup), Go (esbuild), Rust (Parcel,
 Rspack, Turbopack, Rolldown), Zig (Bun). Tendance : les nouveaux passent en
 langage compilé pour la vitesse.
 
-[click 3] Transition : comme des Lego, ils s'assemblent et s'empruntent des
+[click] Transition : comme des Lego, ils s'assemblent et s'empruntent des
 briques. Exemple parfait : Vite. (→ slide Vite 7 → 8)
 -->

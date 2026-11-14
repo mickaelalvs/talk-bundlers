@@ -3,7 +3,7 @@ layout: basic-title
 ---
 
 ::title::
-⑤ Espaces et commentaires
+<span class="title-step">4</span>Espaces et commentaires
 
 ::default::
 
@@ -51,11 +51,6 @@ function calculateScore(user,items){let total=0;for(const item of items){total+=
 
 </div>
 
-<div class="min-note">
-Dernière étape, juste avant l'output : indentation, retours à la ligne, commentaires.
-Aucun impact à l'exécution, juste des bytes en moins sur le réseau.
-</div>
-
 <style scoped>
 .min-level {
   font-family: "Paytone One", sans-serif;
@@ -65,6 +60,7 @@ Aucun impact à l'exécution, juste des bytes en moins sur le réseau.
   color: var(--theme-color-amber);
   text-align: center;
   margin-bottom: 1.2rem;
+  padding-top: 2rem;
 }
 .min-grid {
   display: grid;
