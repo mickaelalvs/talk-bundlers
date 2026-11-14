@@ -1,0 +1,6 @@
+packages:
+  - latest
+allowBuilds:
+  esbuild: true
+  "@swc/core": true
+  "@rspack/core": true

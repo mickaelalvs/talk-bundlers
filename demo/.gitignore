@@ -2,3 +2,6 @@
 /node_modules
 /dist
 /benchmark-results.json
+/.bundler-bench
+/bundler-benchmark-results.json
+/latest/node_modules
