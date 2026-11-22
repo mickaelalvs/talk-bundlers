@@ -50,6 +50,7 @@ Ce que comprend le navigateur
 </style>
 
 <!--
+POPS
 [click] Les 3 logos + tag "navigateur" apparaissent ensemble.
 HTML, CSS, JavaScript — les seuls ingrédients que le navigateur comprend nativement.
 -->

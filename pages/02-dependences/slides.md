@@ -7,6 +7,10 @@ transition: slide-left
 
 On construit le graphe de dépendances
 
+<!--
+MICKA
+-->
+
 ---
 src: ./slides/liste-de-courses.md
 ---

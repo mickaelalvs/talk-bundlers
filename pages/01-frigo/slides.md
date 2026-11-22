@@ -7,6 +7,10 @@ transition: slide-left
 
 Ouvrir le frigo : voilà ce qu'on écrit
 
+<!--
+POPS
+-->
+
 ---
 src: ./slides/browser.md
 ---

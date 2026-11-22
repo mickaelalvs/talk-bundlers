@@ -30,6 +30,7 @@ background: none
 </div>
 
 <!--
+POPS
 Présentation du talk et du speaker.
 Poser le contexte : tout le monde utilise un bundler, peu savent ce qu'il se passe vraiment.
 -->

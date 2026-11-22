@@ -7,6 +7,10 @@ transition: slide-left
 
 On prépare chaque ingrédient
 
+<!--
+POPS
+-->
+
 ---
 layout: basic-title
 ---
