@@ -7,11 +7,9 @@ layout: basic
   <div class="thx-sub">Questions, retours, suggestions de recettes…</div>
 
   <div class="thx-qr">
-    <div class="thx-qr-placeholder">QR</div>
-    <div class="thx-qr-label">Cheat sheet à emporter</div>
+    <img src="/assets/images/qr/qrcode_openfeedback.png" class="thx-qr-img" />
+    <div class="thx-qr-label">Donnez votre avis sur OpenFeedback</div>
   </div>
-
-  <div class="thx-note">⚠ QR code placeholder, destination à décider</div>
 </div>
 
 <style>
@@ -21,7 +19,7 @@ layout: basic
   align-items: center;
   justify-content: center;
   width: 100%;
-  gap: 2rem;
+  gap: 1rem;
   text-align: center;
 }
 .thx-title {
@@ -39,27 +37,14 @@ layout: basic
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
-  margin-top: 1rem;
+  gap: 0.5rem;
+  margin-top: 0;
 }
-.thx-qr-placeholder {
-  width: 180px;
-  height: 180px;
-  background: repeating-linear-gradient(
-    45deg,
-    var(--theme-color-charcoal),
-    var(--theme-color-charcoal) 14px,
-    white 14px,
-    white 28px
-  );
+.thx-qr-img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
   border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Paytone One", sans-serif;
-  font-size: 2.5rem;
-  color: white;
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 }
 .thx-qr-label {
   font-family: "Paytone One", sans-serif;
@@ -68,23 +53,14 @@ layout: basic
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
-.thx-note {
-  font-family: "Nunito", sans-serif;
-  font-size: 0.78rem;
-  color: var(--theme-color-slate);
-  font-style: italic;
-  margin-top: 1rem;
-}
 </style>
 
 <!--
 Slide finale du talk.
 
-Le QR code est un placeholder stylisé (juste un pattern de damier pour faire
-"QR code"). À remplacer par un vrai QR généré à partir de l'URL finale du
-cheat sheet (probablement le repo GitHub du talk ou une page dédiée).
+Le QR code mène à la fiche OpenFeedback du talk (DevFest Paris 2026).
 
-À l'oral : ouvrir le Q&A, inviter au contact, remercier l'audience.
+À l'oral : ouvrir le Q&A, inviter à laisser un retour, remercier l'audience.
 
 → Fin du talk.
 -->
