@@ -13,12 +13,13 @@ En profondeur, dans l'ordre de résolution
 
 <div class="vtree">
 
-<div class="vt-line" style="left: 27rem; top: 6.3rem; width: 2px; height: 1.7rem;"></div>
-<div class="vt-line" style="left: 8.5rem; top: 8rem; width: 37rem; height: 2px;"></div>
-<div class="vt-line" style="left: 8.5rem; top: 8rem; width: 2px; height: 1.5rem;"></div>
-<div class="vt-line" style="left: 27rem; top: 8rem; width: 2px; height: 1.5rem;"></div>
-<div class="vt-line" style="left: 45.5rem; top: 8rem; width: 2px; height: 1.5rem;"></div>
-<div class="vt-line" style="left: 27rem; top: 15.4rem; width: 2px; height: 3.1rem;"></div>
+<div v-click="1" class="vt-line" style="left: 27rem; top: 6.3rem; width: 2px; height: 1.7rem;"></div>
+<div v-click="1" class="vt-line" style="left: 8.5rem; top: 8rem; width: 18.5rem; height: 2px;"></div>
+<div v-click="1" class="vt-line" style="left: 8.5rem; top: 8rem; width: 2px; height: 1.5rem;"></div>
+<div v-click="2" class="vt-line" style="left: 27rem; top: 8rem; width: 2px; height: 1.5rem;"></div>
+<div v-click="4" class="vt-line" style="left: 27rem; top: 8rem; width: 18.5rem; height: 2px;"></div>
+<div v-click="4" class="vt-line" style="left: 45.5rem; top: 8rem; width: 2px; height: 1.5rem;"></div>
+<div v-click="3" class="vt-line" style="left: 27rem; top: 15.4rem; width: 2px; height: 3.1rem;"></div>
 
 <div class="vt-win" style="left: 18.5rem; top: 0.5rem;">
 
