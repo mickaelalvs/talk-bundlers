@@ -1,4 +1,9 @@
 <script setup>
+import { useIsSlideActive } from '@slidev/client'
+
+// Le trait n'est monté qu'une fois la slide active, pour que son tracé s'anime à l'arrivée
+const isActive = useIsSlideActive()
+
 defineProps({
   // done    = nombre d'étapes terminées (☑ barré, gris)
   // current = nombre d'étapes en cours juste après (orange, soulignées)
@@ -16,7 +21,7 @@ const STEPS = [
   { cuisine: 'Le tri', tech: 'tree-shaking' },
   { cuisine: 'Le découpage', tech: 'split' },
   { cuisine: 'La réduction', tech: 'minif' },
-  { cuisine: 'Le dressage', tech: 'output' },
+  { cuisine: 'Le service', tech: 'output' },
 ]
 </script>
 
@@ -44,8 +49,8 @@ const STEPS = [
           <span class="recipe-check">{{ i + 1 <= done ? '☑' : '☐' }}</span>
           <span class="recipe-names">
             <span
-              v-if="i + 1 > done && i + 1 <= done + current"
-              v-mark="{ at: 1, type: 'underline', color: '#db994d' }"
+              v-if="isActive && i + 1 > done && i + 1 <= done + current"
+              v-mark="{ at: false, type: 'underline', color: '#db994d', delay: 400 }"
               class="recipe-cuisine"
             >{{ s.cuisine }}</span>
             <span v-else class="recipe-cuisine">{{ s.cuisine }}</span>

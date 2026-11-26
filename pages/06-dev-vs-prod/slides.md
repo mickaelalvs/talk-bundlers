@@ -1,11 +1,13 @@
 ---
-layout: recipe
-done: 7
-current: 1
-transition: slide-left
+layout: title
 ---
 
-Le dressage : dev et prod
+::number::
+<img src="/assets/images/items/kitchen_hat.svg" class="title-illus" />
+
+::default::
+
+# Dev et prod
 
 ---
 src: ./slides/metaphor.md
