@@ -31,9 +31,13 @@ background: none
 
 <!--
 POPS
-Présentation du talk et du speaker.
-Poser le contexte : tout le monde utilise un bundler, peu savent ce qu'il se passe vraiment.
+
+Bonjour a toutes et a tous. Merci d'être présente pour ce talk et bienvenue dans la cuisine du web. Aujourd'hui avec Mickaël on va prendre le temps de vous expliquer comment les plus grands chefs de la cuisine du frontend, cad les bundlers, font pour construire vos sites web avant de les mettre en production.
 -->
+
+---
+src: ./pages/01-frigo/slides/browser.md
+---
 
 ---
 src: ./pages/01-frigo/slides.md

@@ -59,8 +59,5 @@ Ce que vous écrivez
 </style>
 
 <!--
-[click] Tout ce que vous écrivez, en vrac : frameworks (React, Svelte, Vue,
-Astro), langage (TypeScript, JS moderne), styles (SCSS, CSS Modules,
-styled-components). Volontairement mélangé.
-Le navigateur ne comprend rien de tout ça directement.
+Pour commencer on va devoir regarder ce qui est présent dans notre frigo, pour voir avec quels ingredients nous allons cuisiner. Aujourd'hui, on fait du typescript avec du react pour générer nos composants html, on rend notre css dynamique et on le gènère avec des processeurs comme sass ou les css modules. Et puis on a tout ce qui est autour : les fonts, les images, des données JSON ect...  Ce sont pleins d'elements que les navigateurs ne comprennent pas. Et c'est pourquoi nous avons besoin de nos chefs cuistos. les bundlers.
 -->

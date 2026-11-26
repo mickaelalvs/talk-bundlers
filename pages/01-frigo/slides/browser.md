@@ -50,7 +50,5 @@ Ce que comprend le navigateur
 </style>
 
 <!--
-POPS
-[click] Les 3 logos + tag "navigateur" apparaissent ensemble.
-HTML, CSS, JavaScript — les seuls ingrédients que le navigateur comprend nativement.
+Avant toute chose je vous propose de regarder a quoi va ressembler notre plat final. Normalement vous le savez très bien, les navigateurs ne consommes que 3 ingredients : du html pour la structure, du css pour le style et du javascript pour de la logique. Pourtant vous et moi nous ne codons plus seulement avec ces langages: on utilise des frameworks et on genère beaucoup de choses avec du javascript. C'est ce cheminement la qu'on va vous expliquer avec la recette du jour.
 -->
