@@ -11,20 +11,20 @@ La cuisson
 <div class="problem-content">
   <p class="problem-phrase">On a tout mis dans la casserole...</p>
   <div class="problem-list">
-    <div v-click="1" class="problem-item">
-      <span v-click="4" class="problem-tint"></span>
-      <span v-click.hide="4" class="problem-face"><lucide-file-code class="problem-icon" /><span>Tout le code concaténé</span></span>
-      <span v-click="4" class="problem-face problem-face-after"><span class="note-chip problem-chip"><lucide-weight /></span><span>Des Mo inutiles</span></span>
+    <div v-click="1" class="problem-item transition">
+      <span v-click="2" class="problem-tint"></span>
+      <span v-click.hide="2" class="problem-face"><lucide-file-code class="problem-icon" /><span>Tout le code concaténé</span></span>
+      <span v-click="2" class="problem-face problem-face-after"><span class="note-chip problem-chip"><lucide-weight /></span><span>Des Mo inutiles</span></span>
     </div>
-    <div v-click="2" class="problem-item">
-      <span v-click="4" class="problem-tint"></span>
-      <span v-click.hide="4" class="problem-face"><lucide-skull class="problem-icon" /><span>Code mort inclus</span></span>
-      <span v-click="4" class="problem-face problem-face-after"><span class="note-chip problem-chip"><lucide-weight /></span><span>Des Mo inutiles</span></span>
+    <div v-click="1" class="problem-item transition forward:delay-200">
+      <span v-click="2" class="problem-tint"></span>
+      <span v-click.hide="2" class="problem-face"><lucide-skull class="problem-icon" /><span>Code mort inclus</span></span>
+      <span v-click="2" class="problem-face problem-face-after"><span class="note-chip problem-chip"><lucide-weight /></span><span>Des Mo inutiles</span></span>
     </div>
-    <div v-click="3" class="problem-item">
-      <span v-click="4" class="problem-tint"></span>
-      <span v-click.hide="4" class="problem-face"><lucide-package class="problem-icon" /><span>Un seul fichier monolithique</span></span>
-      <span v-click="4" class="problem-face problem-face-after"><span class="note-chip problem-chip"><lucide-weight /></span><span>Des Mo inutiles</span></span>
+    <div v-click="1" class="problem-item transition forward:delay-500">
+      <span v-click="2" class="problem-tint"></span>
+      <span v-click.hide="2" class="problem-face"><lucide-package class="problem-icon" /><span>Un seul fichier monolithique</span></span>
+      <span v-click="2" class="problem-face problem-face-after"><span class="note-chip problem-chip"><lucide-weight /></span><span>Des Mo inutiles</span></span>
     </div>
   </div>
 </div>
@@ -123,12 +123,13 @@ La cuisson
 </style>
 
 <!--
-Sans optimisation, le bundler fait la chose la plus simple : il concatène tout.
+[click] Sans optimisation, le bundler fait la chose la plus simple : il concatène tout.
+Les trois cartes arrivent l'une après l'autre.
 Tous les fichiers se retrouvent dans un seul bundle.
 Y compris le code qu'on n'utilise jamais, les fonctions importées mais jamais appelées, les modules entiers dont on ne prend qu'un bout.
 Et tout ça dans un seul fichier monolithique que le navigateur doit télécharger en entier.
 
-[click:4] Les trois cartes se transforment en la même chose : des Mo inutiles. C'est le poids.
+[click] Les trois cartes se transforment en la même chose : des Mo inutiles. C'est le poids.
 Tout le reste en découle, à dire à l'oral :
 - du temps : sur une connexion 3G, chaque kilo-octet compte, l'utilisateur voit une page blanche et finit par partir.
 - de la data : dans beaucoup de pays, la data mobile est un budget, on gaspille l'argent de nos utilisateurs.

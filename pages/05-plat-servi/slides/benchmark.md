@@ -17,7 +17,7 @@ Benchmark : build de production
 </div>
 
 <div class="bench-chart bp-chart">
-  <div v-click="1" class="bench-row">
+  <div v-click="1" class="bench-row transition">
     <div class="bench-label">
       <img src="/assets/images/logos/webpack.png" class="bench-logo" />
       <div>webpack<small>JS + Babel + Terser</small></div>
@@ -26,7 +26,7 @@ Benchmark : build de production
     <span class="bench-time">3,49 s</span>
   </div>
 
-  <div v-click="1" class="bench-row">
+  <div v-click="1" class="bench-row transition forward:delay-200">
     <div class="bench-label">
       <img src="/assets/images/logos/rollup.png" class="bench-logo" />
       <div>Rollup<small>JS + Terser</small></div>
@@ -35,7 +35,7 @@ Benchmark : build de production
     <span class="bench-time">2,38 s</span>
   </div>
 
-  <div v-click="2" class="bench-row">
+  <div v-click="1" class="bench-row transition forward:delay-400">
     <div class="bench-label">
       <img src="/assets/images/logos/vite.svg" class="bench-logo" />
       <div>Vite 6<small>Rollup + esbuild</small></div>
@@ -44,7 +44,7 @@ Benchmark : build de production
     <span class="bench-time">966 ms</span>
   </div>
 
-  <div v-click="3" class="bench-row">
+  <div v-click="1" class="bench-row transition forward:delay-600">
     <div class="bench-label">
       <img src="/assets/images/logos/rspack.svg" class="bench-logo" />
       <div>Rspack<small>Rust + SWC</small></div>
@@ -53,7 +53,7 @@ Benchmark : build de production
     <span class="bench-time">270 ms</span>
   </div>
 
-  <div v-click="3" class="bench-row">
+  <div v-click="1" class="bench-row transition forward:delay-800">
     <div class="bench-label">
       <img src="/assets/images/logos/vite.svg" class="bench-logo" />
       <div>Vite 8<small>Rolldown + Oxc</small></div>
@@ -62,7 +62,7 @@ Benchmark : build de production
     <span class="bench-time">154 ms</span>
   </div>
 
-  <div v-click="3" class="bench-row">
+  <div v-click="1" class="bench-row transition forward:delay-1000">
     <div class="bench-label">
       <img src="/assets/images/logos/rolldown.svg" class="bench-logo" />
       <div>Rolldown<small>Rust + Oxc</small></div>
@@ -71,7 +71,7 @@ Benchmark : build de production
     <span class="bench-time">99 ms</span>
   </div>
 
-  <div v-click="3" class="bench-row">
+  <div v-click="1" class="bench-row transition forward:delay-1200">
     <div class="bench-label">
       <img src="/assets/images/logos/esbuild.svg" class="bench-logo" />
       <div>esbuild<small>Go</small></div>
@@ -108,10 +108,11 @@ Mesuré avec demo/phases/bundler-benchmark.mjs : l'app TodoMVC dupliquée ×100 
 un processus neuf par run, médiane de 5 runs sur Apple M3. Reproductible : `pnpm benchmark:phases`.
 Versions : webpack 5.107, Rollup 4.61, Vite 6.4, Rspack 2.3, Vite 8.3, Rolldown 1.3, esbuild 0.24.
 
-[click] Les deux outils en JS : webpack 3,5 s, Rollup 2,4 s. La minification par Terser
+[click] Les sept barres arrivent l'une après l'autre.
+Les deux outils en JS : webpack 3,5 s, Rollup 2,4 s. La minification par Terser
 pèse plus de la moitié du build (1,9 s pour webpack, 1,2 s pour Rollup).
-[click] Vite 6 : ~1 s. Rollup pour le bundle, esbuild pour la minification.
-[click] Les outils en Rust et Go : de 83 ms (esbuild) à 270 ms (Rspack). Vite 8 passe
+Vite 6 : ~1 s. Rollup pour le bundle, esbuild pour la minification.
+Les outils en Rust et Go : de 83 ms (esbuild) à 270 ms (Rspack). Vite 8 passe
 sur Rolldown + Oxc : 966 ms → 154 ms, soit ~6× plus rapide que Vite 6.
 
 À dire : on compare des chaînes complètes (transpileur, résolveur, minifieur), pas des moteurs de bundling seuls. Vite 8 contient Rolldown : l'écart de 55 ms est le surcoût de Vite lui-même.

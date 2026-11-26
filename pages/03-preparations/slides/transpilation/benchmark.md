@@ -13,7 +13,7 @@ Benchmark : transpilation
 </div>
 
 <div class="bench-chart">
-  <div v-click="1" class="bench-row">
+  <div v-click="1" class="bench-row transition">
     <div class="bench-label">
       <img src="/assets/images/logos/babel.svg" class="bench-logo" />
       <div>Babel<small>JavaScript</small></div>
@@ -22,7 +22,7 @@ Benchmark : transpilation
     <span class="bench-time">731 ms</span>
   </div>
 
-  <div v-click="2" class="bench-row">
+  <div v-click="1" class="bench-row transition forward:delay-200">
     <div class="bench-label">
       <img src="/assets/images/logos/esbuild.svg" class="bench-logo" />
       <div>esbuild<small>Go</small></div>
@@ -31,7 +31,7 @@ Benchmark : transpilation
     <span class="bench-time">113 ms</span>
   </div>
 
-  <div v-click="3" class="bench-row">
+  <div v-click="1" class="bench-row transition forward:delay-500">
     <div class="bench-label">
       <img src="/assets/images/logos/swc.svg" class="bench-logo" />
       <div>SWC<small>Rust</small></div>
@@ -40,7 +40,7 @@ Benchmark : transpilation
     <span class="bench-time">39 ms</span>
   </div>
 
-  <div v-click="4" class="bench-row">
+  <div v-click="1" class="bench-row transition forward:delay-700">
     <div class="bench-label">
       <img src="/assets/images/logos/oxc.svg" class="bench-logo" />
       <div>Oxc<small>Rust</small></div>
@@ -50,7 +50,7 @@ Benchmark : transpilation
   </div>
 </div>
 
-<div v-click="5" class="bench-why">
+<div v-click="2" class="bench-why">
 <span class="bench-why-label">Pourquoi ?</span>
 <span class="bench-why-item"><strong>Langage compilé</strong> (Rust · Go vs JS)</span>
 <span class="bench-why-sep">·</span>
@@ -94,13 +94,13 @@ esbuild, oxc-transform), un processus neuf par run, médiane de 5 runs sur Apple
 Le temps inclut le chargement de l'outil. Reproductible : `pnpm benchmark:phases`.
 Versions : Babel 7.29, SWC 1.15, esbuild 0.24, Oxc 0.158.
 
-[click] Babel : la barre prend toute la largeur (731 ms). Le repère qui pose le plafond.
-[click] esbuild : ~6× plus rapide (113 ms). Go, parallélisé. Attention : appelé fichier
-par fichier depuis Node, il paie l'échange avec son processus Go. En ligne de commande
-sur un dossier entier, il passe devant SWC.
-[click] SWC : ~19× plus rapide (39 ms). Rust, binding natif dans le processus Node.
-[click] Oxc : ~24× plus rapide (30 ms). Rust aussi. C'est lui qui est derrière Rolldown
-et Vite 8.
+[click] Les quatre barres arrivent l'une après l'autre.
+Babel pose le plafond (731 ms). esbuild : ~6× plus rapide (113 ms), Go, parallélisé.
+Attention : appelé fichier par fichier depuis Node, il paie l'échange avec son processus Go.
+En ligne de commande sur un dossier entier, il passe devant SWC.
+SWC : ~19× plus rapide (39 ms), Rust, binding natif dans le processus Node.
+Oxc : ~24× plus rapide (30 ms), Rust aussi. C'est lui derrière Rolldown et Vite 8.
+
 [click] Pourquoi : langage compilé, parallélisation, moins de plugins.
 
 Le visuel doit faire le choc, pas les chiffres précis. Ordres de grandeur :

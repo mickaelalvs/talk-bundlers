@@ -13,7 +13,7 @@ Même résultat à l'exécution. Mais dans ton bundle final :
 </div>
 
 <div class="demo-chart">
-  <div v-click="1" class="demo-row">
+  <div v-click="1" class="demo-row transition">
     <div class="demo-label">
       <span class="demo-pkg">lodash</span>
       <span class="demo-tag demo-tag-cjs">CJS</span>
@@ -24,7 +24,7 @@ Même résultat à l'exécution. Mais dans ton bundle final :
     </div>
   </div>
 
-  <div v-click="2" class="demo-row">
+  <div v-click="1" class="demo-row transition forward:delay-200">
     <div class="demo-label">
       <span class="demo-pkg">lodash-es</span>
       <span class="demo-tag demo-tag-esm">ESM</span>
@@ -144,8 +144,9 @@ Même résultat à l'exécution. Mais dans ton bundle final :
 <!--
 Même import, deux versions de la même lib. lodash-es est la version ESM de lodash, même code, même API.
 
-[click] lodash, en CJS : tout le package part dans le bundle (72 KB).
-[click] lodash-es, en ESM : seul debounce survit (2,8 KB). Soit ×25.
+[click] Les deux barres arrivent l'une après l'autre.
+lodash, en CJS : tout le package part dans le bundle (72 KB).
+lodash-es, en ESM : seul debounce survit (2,8 KB). Soit ×25.
 
 Chiffres : `pnpm phase:tree-shaking`, esbuild, production. Ne pas détailler la minification, elle vient plus loin.
 

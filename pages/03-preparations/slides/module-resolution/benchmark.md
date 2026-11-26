@@ -13,7 +13,7 @@ Benchmark : résolution
 </div>
 
 <div class="bench-chart">
-  <div v-click="1" class="bench-row">
+  <div v-click="1" class="bench-row transition">
     <div class="bench-label">
       <img src="/assets/images/logos/webpack.png" class="bench-logo" />
       <div>enhanced-resolve<small>webpack · JavaScript</small></div>
@@ -22,7 +22,7 @@ Benchmark : résolution
     <span class="bench-time">113 ms</span>
   </div>
 
-  <div v-click="2" class="bench-row">
+  <div v-click="1" class="bench-row transition forward:delay-200">
     <div class="bench-label">
       <img src="/assets/images/logos/oxc.svg" class="bench-logo" />
       <div>oxc-resolver<small>Rolldown, Vite 8 · Rust</small></div>
@@ -32,7 +32,7 @@ Benchmark : résolution
   </div>
 </div>
 
-<div v-click="3" class="res-message">
+<div v-click="2" class="res-message">
   <span class="note-chip" style="--chip: var(--theme-color-steel)"><lucide-info /></span>
   <span>Le problème vient rarement d'ici ...</span>
 </div>
@@ -67,9 +67,11 @@ avec les mêmes options (extensions, conditions import/module/browser).
 Un processus neuf par run, médiane de 5 runs sur Apple M3.
 Versions : enhanced-resolve 5.27, oxc-resolver 11.24.
 
-[click] enhanced-resolve : le résolveur de webpack, en JS. 113 ms pour 2 302 imports.
-[click] oxc-resolver : en Rust, ~3,4× plus rapide. C'est celui de Rolldown, donc de Vite 8.
+[click] Les deux barres arrivent l'une après l'autre.
+enhanced-resolve : le résolveur de webpack, en JS. 113 ms pour 2 302 imports.
+oxc-resolver : en Rust, ~3,4× plus rapide. C'est celui de Rolldown, donc de Vite 8.
 Rspack utilise un fork (rspack-resolver).
+
 [click] Mais attention : on parle de dizaines de millisecondes. Sur un vrai projet,
 la résolution est rarement ce qui ralentit le build.
 -->
