@@ -23,11 +23,11 @@ Nos ingrédients bruts
 <div class="prep-board-wrap">
   <img src="/assets/images/items/cutting_board.svg" class="prep-board" />
   <div class="prep-ingredients">
-    <div v-click class="prep-ingr prep-ingr-generic" style="top: -50px; left: 20px; transform: rotate(-8deg)"><img src="/assets/images/logos/typescript.svg" class="prep-ingr-img" /></div>
-    <div v-click class="prep-ingr prep-ingr-generic" style="top: -20px; right: 130px; transform: rotate(5deg)"><img src="/assets/images/logos/sass.svg" class="prep-ingr-img" /></div>
-    <div v-click class="prep-ingr prep-ingr-generic" style="top: 230px; left: 180px; transform: rotate(-3deg)"><img src="/assets/images/logos/react.svg" class="prep-ingr-img" /></div>
-    <div v-click class="prep-ingr prep-ingr-generic" style="top: 55px; right: 42px; transform: rotate(7deg)"><lucide:image class="prep-ingr-icon" /></div>
-    <div v-click class="prep-ingr prep-ingr-generic" style="top: 100px; left: 80px; transform: rotate(-5deg)"><lucide:braces class="prep-ingr-icon" /></div>
+    <div class="prep-ingr prep-ingr-generic" style="--i: 0; top: -50px; left: 20px; transform: rotate(-8deg)"><img src="/assets/images/logos/typescript.svg" class="prep-ingr-img" /></div>
+    <div class="prep-ingr prep-ingr-generic" style="--i: 1; top: -20px; right: 130px; transform: rotate(5deg)"><img src="/assets/images/logos/sass.svg" class="prep-ingr-img" /></div>
+    <div class="prep-ingr prep-ingr-generic" style="--i: 2; top: 230px; left: 180px; transform: rotate(-3deg)"><img src="/assets/images/logos/react.svg" class="prep-ingr-img" /></div>
+    <div class="prep-ingr prep-ingr-generic" style="--i: 3; top: 55px; right: 42px; transform: rotate(7deg)"><lucide:image class="prep-ingr-icon" /></div>
+    <div class="prep-ingr prep-ingr-generic" style="--i: 4; top: 100px; left: 80px; transform: rotate(-5deg)"><lucide:braces class="prep-ingr-icon" /></div>
   </div>
 </div>
 
@@ -59,6 +59,8 @@ Nos ingrédients bruts
   object-fit: contain;
 }
 .prep-ingr-generic {
+  animation: prep-ingr-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(0.3s + var(--i) * 0.4s);
   width: 56px;
   height: 56px;
   display: flex;
@@ -67,6 +69,18 @@ Nos ingrédients bruts
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+@keyframes prep-ingr-in {
+  from {
+    opacity: 0;
+    translate: 0 -24px;
+    scale: 0.6;
+  }
+  to {
+    opacity: 1;
+    translate: none;
+    scale: 1;
+  }
 }
 .prep-ingr-icon {
   font-size: 2rem;
