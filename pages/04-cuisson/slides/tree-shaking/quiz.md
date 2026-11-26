@@ -11,15 +11,15 @@ layout: basic
   </div>
 
   <div class="quiz-ask">
-    Est-il dans ton bundle final ?
+    Est-ce que <strong>lodash</strong> est dans ton bundle final ?
   </div>
 
   <div class="quiz-options">
-    <div class="quiz-option">
+    <div class="quiz-option" :class="{ 'is-wrong': $clicks >= 1 }">
       <span class="quiz-option-letter">A</span>
       <span>Oui, il est installé donc il est embarqué</span>
     </div>
-    <div class="quiz-option">
+    <div class="quiz-option" :class="{ 'is-correct': $clicks >= 1 }">
       <span class="quiz-option-letter">B</span>
       <span>Non, le bundler ne le voit pas</span>
     </div>
@@ -102,6 +102,21 @@ layout: basic
   font-size: 1rem;
   color: var(--theme-color-charcoal);
   text-align: left;
+  transition: border-color 0.3s, background 0.3s, opacity 0.3s;
+}
+.quiz-option.is-correct {
+  border-color: var(--theme-color-olive);
+  background: rgba(138, 154, 75, 0.12);
+}
+.quiz-option.is-correct .quiz-option-letter {
+  color: var(--theme-color-olive-dark);
+}
+.quiz-option.is-wrong {
+  opacity: 0.5;
+}
+.quiz-ask strong {
+  color: var(--theme-color-amber);
+  font-weight: normal;
 }
 .quiz-option-letter {
   font-family: "Paytone One", sans-serif;
@@ -117,10 +132,12 @@ layout: basic
   background: rgba(138, 154, 75, 0.12);
   --chip: var(--theme-color-olive);
   border-radius: 8px;
-  max-width: 700px;
+  max-width: 600px;
   width: 100%;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
 }
 .quiz-answer-body {
