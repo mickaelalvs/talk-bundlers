@@ -60,9 +60,5 @@ src: ./pages/05-plat-servi/slides.md
 ---
 
 ---
-src: ./pages/06-dev-vs-prod/slides.md
----
-
----
 src: ./pages/07-conclusion/slides.md
 ---

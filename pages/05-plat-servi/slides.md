@@ -15,6 +15,33 @@ Et de découvrir qui sont les différents chefs qui auraient pu préparer ce pla
 -->
 
 ---
+src: ../06-dev-vs-prod/slides/metaphor.md
+---
+
+---
+src: ../06-dev-vs-prod/slides/vite-fun-fact.md
+---
+
+---
+src: ../06-dev-vs-prod/slides/devtools.md
+---
+
+---
+src: ../06-dev-vs-prod/slides/sourcemaps.md
+---
+
+---
+layout: title
+---
+
+::number::
+<img src="/assets/images/items/kitchen_hat.svg" class="title-illus" />
+
+::default::
+
+# Les assiettes sont à table
+
+---
 src: ./slides/avant-apres.md
 ---
 
